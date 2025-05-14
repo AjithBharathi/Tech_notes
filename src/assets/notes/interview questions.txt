@@ -1,0 +1,555 @@
+1. closure and example
+2. what is event loop in js and what kind of tasks managing here? is it sync or async?
+3. diff b/w == and ===
+4. find the repeated number in an array
+5. what are the key which we are having in react
+6. important features we have in react
+7. explain one way data binding in react
+8. what is jsx
+9. how do you handle state in react
+10. how to manage state in both class and function based component?
+11. diff b/w div and span
+12. purpose of using alt in image tag in html
+13. how to embed a video in html
+14. what else we use iframe for?
+15. what are the semantic element we have in html
+16. purpose of z-index
+17. how to achieve responsiveness
+18. pixels for devices in responsive
+19. diff b/w position relative and absolute
+20. what about fixed position
+21. when ever i make a change in any one of a field in the form, the entire form gets reloaded how to stop that? REACT
+22. what is react.memo
+23. how to create end points in express? how to create post end in express
+24. how to get data in post method in post call in call back function in express
+25. how to get form data like upload file in the call back method of post call
+26. what is async and await
+27. how to do multithreading program in javascript? is that possible?
+28. method overriding?
+29
+
+
+
+
+
+
+
+
+
+
+
+HTML - https://www.interviewbit.com/html-interview-questions/
+
+-------------------------------------------------------------------------------------------
+
+1) Difference b/w HTML 4 and HTML5
+
+2) New HTML APIs [Canvas, Drag&Drop, WebStorage, Geo Location, File, media]
+
+3) Semantic tags [<article><aside><details><figcaption><figure><footer><header><main><mark><nav><section><summary><time>]
+
+4) Semantic tags multiple usage, nested?
+
+5) List Inline and block level elements [B: <div><main><hr><footer><form>;; I: <a><i><label><input><textarea><span>]
+
+6) Can we use DIV element inside span tags.
+
+7) Local storage vs Session storage
+
+8) Meta tags
+
+                [Typically used to specify character set, page description, keywords, author of the document, and viewport settings.]
+
+9) View Port [user's visible area of a web page]
+
+10) SVG vs Canvas
+
+                [SVG has better scalability.SVG is vector based and composed of shapes/Canvas has poor scalability.Canvas is raster based and composed of pixel]
+
+11) Can we display a web page inside a web page or Is nesting of webpages possible [Yes, using iframe we can achieve it]
+
+12) Cell Padding different from Cell Spacing
+
+                [padding- between the text/ content of the cell; spacing- between two consecutive cells]
+
+13) Table - club two or more rows or columns into a single row or column
+
+                [attributes “rowspan” and “colspan” to make a cell span to multiple rows and columns]
+
+15) position an HTML element
+
+                static:    element is positioned according to the normal flow of the document.
+
+                absolute:             element is positioned relative to its parent element and final position is determined by the values of left, right, top, bottom.
+
+                fixed:                     similar to absolute except here the elements are positioned relative to the <html> element.
+
+                relative:                element is positioned according to the normal flow of the document and positioned relative to its original/ normal position.
+
+ 
+
+CSS - https://www.interviewbit.com/css-interview-questions/
+
+---------------------------------------------------------------------------------------
+
+1) Box model & explain [margins, borders, padding, and the actual content]
+
+2) Visibility: hidden vs Display: none
+
+3) CSS3 feature [Media Queries, Text Effects, Animations]
+
+4) CSS positions with example [static, relative, absolute, fixed, sticky]
+
+5) Which selector is faster ID or Class - ID is faster than class
+
+6) Difficulties faced in CSS [cross-browser compatibility]
+
+7) CSS browser specific prefixes [-moz-(Firefox), -webkit(Android, safari, chrome, ios), -o-(Opera), -ms-(IE)]
+
+8) Shorthand property [border-width, border-style, border-color (border: 5px solid red)]
+
+9) z-index [stack order of an element]
+
+10) CSS apply precedence (1st Inline, 2nd ID, 3rd class)
+
+11) Three Ways to Insert CSS (External CSS, Internal CSS, Inline CSS)
+
+<link href="myCSSfile.css" rel="stylesheet" type="text/css">
+
+<style type="text/css" media="all">@import "myCSSfile.css";</style>
+
+12) CSS Layout - Block vs Inline vs Inline-block
+
+13) Flexbox
+
+14) ellipsis usage
+
+15) Box-sizing: border-box (Includes padding and border with in specified height and width)
+
+16) Media queries
+
+< than 600 -> @media only screen and (max-width: 600px)
+
+600 > than -> @media only screen and (min-width: 600px)
+
+Between -> @media (max-width:900px) and (min-width:800px)
+
+ 
+
+Bootstrap
+
+----------------
+
+1) Grid system
+
+2) Visibility classes (hidden, visible)
+
+3) Adding grid colum without row class
+
+4) container-fluid vs container [.container (fixed-width) or .container-fluid (full-width)]
+
+5) Modal popup
+
+6) Do not close modal when clicking outside [backdrop: 'static']
+
+7) Remove background color of modal popup. [Class name - modal-backdrop]
+
+8) Show all checkbox, radio button etc.. in single line
+
+9) Media object [Left or right of some content - Like chat]
+
+ 
+
+Jquery
+
+-----------
+
+1) Javascript [JavaScript is the Programming/scripting language for the Web] vs Jquery [jQuery is a JavaScript library designed to simplify HTML DOM tree traversal and manipulation, as well as event handling, CSS animation, and Ajax]
+
+2) children() vs find()
+
+find() – search through the matched elements’ child, grandchild, great-grandchild…any levels down.
+
+children() – search through the matched elements’ child only (single level down).
+
+3) bind() vs live() vs delegate() vs on() - Need to check
+
+4) n-th-child and n-th-of-type - Need to check
+
+5) toggleClass() [Toggle between adding and removing the class name]
+
+6) Jquery no conflict [$.noConflict() method to give control of the $ variable back to whichever library first implemented it]
+
+7) Is $ compulsory or can we use other than $ in jquery
+
+8) AJAX and syntax - Read/Send data from a web server
+
+$.ajax({ type: "POST", url: "", data: "{}", contentType: "application/json; charset=utf-8", dataType: "json", success: function(result){}});
+
+9) attr() vs prop()
+
+Attribute: Is something that can have a complex value as "src", "href".
+
+Property: is something that can have few fixed values as "selected".
+
+ 
+
+Javascript - https://www.interviewbit.com/javascript-interview-questions/
+
+-------------------------------------------------------------------------------------------------------
+
+1) Closures [Create a function within another function, inner function is the closure.]
+
+2) Hoisting [variable can be declared after it has been used - Only for var]
+
+3) What's object and different ways to create object [object is a collection of properties with key and value]
+
+Using object literal - const person = { name: '' }
+
+By creating instance of Object directly - const person = new Object({name: ''})
+
+By using constructor function - function Person() {this.name = ''} const person = new Person();
+
+4) Ways to call function [as a function, as a method, as a constructor, via call() and apply()]
+
+5) What's prototype - Completed
+
+function Person(first) { console.log(first)}
+
+var myFather = new Person("John");
+
+6) Prototype and class based inheritance with example.
+
+7) Event propagation (Bubbling-clicked element them it goes to parent and parent's parent, Target phase- only clicked element, Capturing - Parent to child (opposite to Bubbling))
+
+8) Event prevent default [prevent the default browser behaviour]
+
+9) setTimeout() VS setInterval - [timeout-runs the code after the timeout, interval - runs the code repeatedly, with the length of the timeout]
+
+10) slice() and splice() - [splice - after splice orignal array is modified, slice - after sliced original array will not modified]
+
+11) push() VS pop() VS shift VS unshift - [push-add item in last index, pop - remove item in last index, shift - remove item in first index, unshift-add item in first index]
+
+12) Compare two date - used momentjs
+
+13) Different ways to find max value in array. [with a FOR loop, using the reduce() method, using Math.max()]
+
+14) sort() [Sort -> accending order, sort().reverse() - decending order]
+
+15) Sort array of objects
+
+16) ES6 features [major revision to JavaScript, features like arrow functions]
+
+17) map() vs forloop [forloop will not return anything, map - creates a new array with the results]
+
+18) Apply CSS using javascript [yes we can]
+
+19) Create element using javascript and append to body.
+
+  var btn = document.createElement("BUTTON");
+
+  btn.innerHTML = "CLICK ME";
+
+  document.body.appendChild(btn);
+
+20) String reverse ['test'.split("").reverse().join("")]
+
+21) Remove duplicate from array [_.uniq, _.uniqBy]
+
+22) Fetch numbers from alpha-numeric string ["#box2_col3".match(/\d/g).join("") or we can use .replace also]
+
+23) Data types [String, Number, Boolean, Undefined, Null, Object, Array, RegExp]
+
+24) undefined vs null [null-null is an empty and assinged value, undefined-variable has been declared, but not defined]
+
+25) == vs === [== Compare value without datatype and === Compare value with datatype]
+
+26) String 2+3-"5"+3 = 3, 2+3+"5" = "55" [+ means it will concat the value, - means it will work like calc]
+
+27) What's DOM [Document Object Model (DOM) - JavaScript can access and change all the elements of an HTML document.]
+
+28) call() vs bind() vs apply() (Ajith)
+
+29) var vs let vs const
+
+                var variables can be updated and re-declared within its scope;
+
+                let variables can be updated but not re-declared;
+
+                const variables can neither be updated nor re-declared
+
+30) primitive data type vs reference data type
+
+[primitive types - undefined, null, boolean, number, string, and symbol, stores the primitive value on the stack
+
+reference type - object , reference value on the heap, ]
+
+31) method overriding vs method overloading (load-Compile, ridding - Run)
+
+32) Local scope vs Global scope [Global scope- we can use anywhre, Local (Block {} and Function)]
+
+33) ECMAScript Types [let and scope]
+
+34) filter() vs reduce() vs map() [map-creating a new array from an existing one, reduce-reduces an array of values down to just one value]
+
+35) Currying
+
+function volume(length) {
+
+  return function(width) {
+
+     return function(height) {
+
+        return height * width * length;
+
+     }
+
+  }
+
+}
+
+document.write(volume(11)(2)(3))
+
+36) Abstract class [some common functionality across a set of related classes]
+
+37) Memoization
+
+ 
+
+Angular - https://www.interviewbit.com/angular-interview-questions/
+
+-----------------------------------------------------------------------------------------------------
+
+1) AngularJS vs Angular
+
+                [JS - Modal View Controller:javascript:not mobile friendly:routeProvider:no lazy, 2+ MVVM (Modal Veiw view-modal): typescript:mobile friendly:route Config]
+
+2) Component creation [ng generate component component-name]
+
+3) Ways to do component based communication (viewChild, Data Service, input/output)
+
+4) Independent component communication (Subject, BehaviourSubject)
+
+5) ViewChild, ViewChildren, ContentChildren, ContentChild
+
+6) Observable vs Promises [Promise handles a single event and cancelling is not there;Promise starts immediately,
+
+                ob - multiple events and cancelling is avail;Observable only starts if you subscribe to it]
+
+                const numberPromise = new Promise((resolve) => { resolve(5);});
+
+                numberPromise.then(value => console.log(value)); // Print 5
+
+                const numberObservable = new Observable((observer) => { observer.next(5); observer.next(10);});
+
+                numberObservable.subscribe(value => console.log(value)); // Print 5 and 10
+
+7) What's  Observable?
+
+                Observer - won't interact with the Observer object;Observers allow you to "push" new data into an observable sequence "Write-only"
+
+                Observable - An Observable is what we can use to listen, aka subscribe, to new changes that are emitted by an Observer. "Read-only"
+
+                Subject - A Subject is simply an Observer and Observable. You can push new values as well as subscribe to it. "Read & Write"
+
+                Operators - Pure function (map, filter, pipe)
+
+8) Directive Vs Component
+
+                [Attribute Directives are responsible for manipulating the appearance - ngclass, ngstyle
+
+                Structural Directives are responsible for changing the structure of the DOM - ngif,ngfor
+
+                Components [2 types Built-In Directives and custom directives]
+
+9) Meta data in component (selector, templateUrl, StyleUrls, etc..)
+
+10) Life cycle hooks
+
+                (Onchanges, Oninit, ngDocheck, ngAfterContentInit, ngContentChecked, ngAfterViewInit, ngAfterViewChecked, onDestroy)
+
+11) Constructor vs ngOnInit() [const-should initialize class members, Dependency Injection; init-actual work code]
+
+12) Dependency Injection [Other methods are injected in constructor]
+
+13) Routing, Child routing
+
+14) Lazy loading
+
+15) Route Guards -
+
+                CanActivate - { path: 'home', component: HomeComponent, canActivate : [AuthGuard] } if we added in routing, it will validate parent auth
+
+                CanActivateChild - if we added in parent routing, it will validate parent & child auth
+
+                                {path: 'dashboard',canActivate: [AuthGuard], canActivateChild: [AuthGuard], component: DashboardComponent,children: [{ path: ':id', component: InfoComponent}]}
+
+                CanLoad - {path: "admin", loadChildren:'./admin/admin.module#AdminModule', canLoad:[AuthGuardLazyLoad]} lazy module will't get download if auth false.
+
+                CanDeactivate
+
+                Resolve - { path: ':id', component: EditComponent, resolve: {data: ResolveGuard} }
+
+16) Auth Guard - Service file for Route Guard
+
+17) Project location environment setup (Node, NPM, CLI installation, Yarn, etc..)
+
+18) Interface
+
+                [Declared objects need to have value in component, otherwise it will through error message - export class HeaderMenuComponent implements OnInit]
+
+19) JWT (JSON Web Tokens) - JSON Web Token is a standard used to create access tokens for an application.
+
+                It works this way: the server generates a token that certifies the user identity, and sends it to the client.
+
+                The client will send the token back to the server for every subsequent request
+
+20) Template reference (#reference)
+
+                [Template variables help you use data from one part of a template in another part of the template.]
+
+21) Disadvantage in Angular
+
+22) What is pipe [Transform values in an Angular template]
+
+                import { Pipe, PipeTransform } from '@angular/core'; 
+
+                @Pipe ({ name: 'Multiplier' })
+
+                export class MultiplierPipe implements PipeTransform {
+
+                   transform(value: number, multiply: number): number { return mul * value }
+
+                }
+
+                <p>Multiplier: {{2 | Multiplier: 10}}</p>
+
+23) Custom directive [Directives are to alter the behavior/appearance of an element]
+
+                import { Directive, ElementRef, Renderer } from "@angular/core";
+
+                @Directive({ selector: '[app-ch-color]'})
+
+                export class bgDirective {
+
+                    constructor(private el: ElementRef, private renderer: Renderer){
+
+                        this.renderer.setElementStyle(this.el.nativeElement, 'color', color);
+
+                    }
+
+                }
+
+                <div app-ch-color>Hello </div>
+
+24) Property binding [One way binding ex: <button [disabled]="buttonDisabled"></button>]
+
+25) Template directives (ngIf, NgStyle, etc)
+
+26) Multiple routing is possible? [yes, through router-outlet]
+
+27) How application bootstraps [Loading of Anugular app with level is called bootstrapping]
+
+                index.html,
+
+                Load Angular, Other Libraries, and App Code
+
+                Execute main.ts File
+
+                Load App-Level Module
+
+                Load App-Level Component
+
+                Process Template
+
+28) AOT vs JIT compilation
+
+                JIT(just-in-time) -  ng-build; we can debug the code, not all codes are converted
+
+                AOT(ahead-of-time) - ng-build--prod; can't debug the code, before download code conversion happen
+
+29) RxJS - Behaviour Subject
+
+30) Types of forms and difference [Template Driven Forms vs Reactive Forms]
+
+31) Pipe VS directive [Pipes are for formatting data, and directives are to alter the behavior/appearance of an element]
+
+32) Can we use promise without RxJS [yes, fetch('my-api-goes-here').then(resp => resp.json());]
+
+33) ZoneJS
+
+                [A Zone is an execution context that persists across async tasks. All the async tasks such as setTimeout, Promise, XHRs]
+
+34) NgZone [Zone and NgZone is used to automatically trigger change detection as a result of async operations]
+
+35) Change Detection [Change Detection means updating the DOM whenever data is changed.]
+
+36) ChangeDetetorRef [Change Detection means updating the DOM whenever data is changed another component]
+
+37) Change Detection Strategy.onPush
+
+38) for Root():ModuleWithProviders [returns an NgModule and its provider dependencies.]
+
+39) Interpolation [binding data with curly braces {{data}}]
+
+40) resolve in angular [Resolver acts like middleware, which can be executed before a component is loaded]
+
+                const routes: Routes = [{ path: '**', component: CalendarComponent, children : [], resolve  : { chat: CalendarService }}];
+
+41) How to pass data via URL
+
+42) useValue vs useClass vs useExisting vs useFactory
+
+43) Jasmine unit test [Jasmine is a tool in the "Javascript Testing Framework", while Karma is grouped under "Browser Testing"]
+
+44) PWA -[Progressive web apps] - Completed
+
+45) how to create Different environments  - Completed
+
+46) call, apply and bind
+
+47) Diff between arrow and normal function
+
+48) Single threaded request handling in javascript
+
+49) Scope of arrow function
+
+50) Async/wait - Completed
+
+51) Map and find difference  - Completed
+
+52) Http Interceptor
+
+53) How will you handle the header commonly - Completed
+
+54) Spread and rest operator
+
+55) what is a service ?
+
+56) Dependency Injection
+
+57) Shared module [Creating shared modules allows you to organize/streamline your code. commonly used directives, pipes, and components into one module]
+
+58) how typescript is changing to javascript
+
+59) Grunt vs Gulp vs webpack
+
+                webpack - Webpack and Browserify do pretty much the same job, which is processing your code to be used in a target environmen
+
+                grunt/gulp - task runners to automate everything;
+
+60) mutable vs immutable javascript (Mutable objects can be modified and IMMutable objects can't be modified)
+
+61) Feature of Angular in latest verison8. Event Emitter ?
+
+62) Providers in Component.
+
+63) Forkjoin() – Rxjs – Trigger the response after multiple API call ends.
+
+ 
+
+ 
+
+https://www.techgeeknext.com/angular/angular-interview-questions
+
+ 

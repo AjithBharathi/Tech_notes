@@ -1,0 +1,73 @@
+const java = [
+  {
+    topic: 'java compile',
+    points: [
+      'h:: java old version:',
+      'javac Demo.java',
+      'java Demo',
+      'hr::',
+      'h:: java new version:',
+      'java Demo.java',
+    ],
+  },
+  {
+    topic: 'JAVA FULL STACK:',
+    points: [
+      'core java (- this is the fundamental to become a java developer)',
+      'oops, string concept',
+      'collection framework',
+      'multi threading',
+      'exception handling',
+      'install database in the system',
+      'DSA',
+      'h:: ADVANCE:',
+      'J2EE',
+      'Develop web application by using SERVELET and JSP',
+      'JDBC',
+      'spring boot (helps to make auto configuration)',
+      'architecture - micro service',
+      'tools - maven, gradel, Jenkins, docker, kubernatics, sonarcube, laferja, junit, jmeter etc...',
+      'devops tools',
+      'Linux commands (used for deployment)',
+      'cloud computing (aws)',
+      'devops tools - docker, kubernatics, Jenkins, maven, git',
+      'spring & microservice & junit testing using below courses',
+      'h:: Spring, Springboot, JPA/Hibernate',
+      'https://www.udemy.com/course/spring-hibernate-tutorial/',
+      'https://www.udemy.com/course/spring-springboot-jpa-hibernate-zero-to-master/',
+      'https://www.udemy.com/course/spring-boot-and-spring-framework-tutorial-for-beginners/',
+      'h:: Microservices with Spring & Spring Cloud:',
+      'https://www.udemy.com/course/microservices-with-spring-boot-and-spring-cloud/',
+      'https://www.udemy.com/course/master-microservices-with-spring-docker-kubernetes/',
+      'h:: Junit & Mocktio :',
+      'https://www.udemy.com/course/mockito-tutorial-with-junit-examples/ ',
+    ],
+    links: ['fullstackjavadeveloper.in'],
+  },
+  {
+    topic: '"default" keyword in interface',
+    points: [],
+  },
+  {
+    topic: 'stack and heap memory',
+    points: [],
+  },
+  {
+    topic: '***** INFO *****',
+    points: [
+      'this site having java questions - https://www.tpointtech.com/java-oops-concepts',
+    ],
+  },
+  {
+    topic: '***** CHECKS *****',
+    points: [
+      'is java sync or async program by default?',
+      'why we need interface rather than a class?',
+      'how to use enum in real world examples?',
+      'this, super - keywords?',
+      'what is mean by entity?',
+      'coupling, cohesion, association, aggregation, composition',
+    ],
+  },
+];
+export default java;

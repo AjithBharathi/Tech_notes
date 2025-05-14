@@ -1,0 +1,332 @@
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+spring & microservice & junit testing using below courses
+ 
+Spring, Springboot, JPA/Hibernate
+	1. https://www.udemy.com/course/spring-hibernate-tutorial/  -> I had enrolled and learned from this course
+	2. https://www.udemy.com/course/spring-springboot-jpa-hibernate-zero-to-master/ -> Option : 2
+	3. https://www.udemy.com/course/spring-boot-and-spring-framework-tutorial-for-beginners/ -> Option : 3
+
+ 
+Microservices with Spring & Spring Cloud:
+	1. https://www.udemy.com/course/microservices-with-spring-boot-and-spring-cloud/ -> I had learned from this course
+	2. https://www.udemy.com/course/master-microservices-with-spring-docker-kubernetes/ -> Option : 2
+
+Junit & Mocktio :
+	1.https://www.udemy.com/course/mockito-tutorial-with-junit-examples/ -> I had learned from this course   
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+1. jdk - x64 MSI Installer (https://www.oracle.com/in/java/technologies/downloads/#jdk23-windows)
+to check java version - java --version
+
+
+2. eclipse - Eclipse IDE for Enterprise Java and Web Developers (https://www.eclipse.org/downloads/packages/)
+extract in c drive
+
+
+check the workspace in launcher window
+
+3. MySQL - MySQL community edition > community server 
+Windows (x86, 64-bit), MSI Installer (https://dev.mysql.com/downloads/mysql/)
+
+
+4. MySQL workbench - Windows (x86, 64-bit), MSI Installer (https://dev.mysql.com/downloads/workbench/)
+
+
+monolithic vs micro services
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+1. spring
+2. JDBC
+3. dependency injection
+4. java server page
+5. apache struts
+6. spring tool suite
+7. spring initializer
+8. mvnrepository
+
+
+what is jar and jar file?
+what is war and war file?
+what is pom and pom file?
+what is maven
+
+pom, war, jar are packaging type.
+
+
+spring features:
+1. what is pojo(plain old java object) class file: private variables, getters and setters, it doesn't contain main method
+2. dependency injection
+3. rest api
+4. MVC - MODEL VIEW CONTROLLER - MVC is an architecture
+5. secured
+
+spring not only allows java, it also allows kotlin, groovy and other languages too
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+WHILE CREATIN A MAVEN PROJECT:
+group id: project package id (project name) (doubt)
+artifact id: file name (doubt)
+
+what is POM (pom.xml) this is holds all the information and dependencies of the project.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+j2se , j2ee servelt containers
+
+mvnrepository
+
+sonarlint
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+create a spring boot project:
+
+https://start.spring.io/
+
+1. project:maven - project management tool
+2. language: java 
+3. spring boot: default version
+4. project meta data
+group : group name is company name (com.mycomany)
+artifact: similar to project name
+packaging: jar
+java: system version
+5. dependencies:
+a) spring web (use to create rest api, use to provide embedded tomcat service )
+b) spring data JPA (database work like mongoose for mongo)
+c) MySQL driver 
+d) spring boot dev tools (dev dependencies - to use spring boot more efficient while development)
+
+6. import into eclipse as a existing maven project
+
+7. configuring JRE
+8. annotations
+9. config database
+
+--> H2 database - use to provide temporary database - it will reset the db for all the new server start (can use like embedded built in db)
+
+
+
+------------------------------------------------------------------------------------------------------------------------------
+
+1. creating controller:
+package path : com.mylearning.mycart.controllers
+name: ProductController
+
+2. create entity - use to fetch real data from database  (use to create database properties which means creating objects and creating table)
+package path: com.mylearning.mycart.models
+name: Product
+
+primary key id will be provided from the jakratha package
+
+generate getters and setters --> select all the entity properties and right click select getters and setters
+
+creating service and  repository
+
+3. creating repository - interface to handle database activities (use to do CRUD operation with the database)
+package path: com.mylearning.mycart.repositories
+name: ProductRepository
+
+4. creating service - to access the repository
+package path: com.mylearning.mycart.services
+name: ProductService
+
+seeder - helps to create demo data (its a springboot's component)
+package path: com.mylearning.mycart
+name: DataSeeder
+
+------------------------------------------------------------------------------------------------------------------------------
+PACKAGES:
+1. controller - class
+2. dto - class
+3. entity - class (entity is a package of JPA)
+4. repository - interace (query handling)
+5. service - interface (IMPL - class)
+
+
+------------------------------------------------------------------------------------------------------------------------------
+MICRO SERVICES:
+1. spring clould
+(java, spring cloud and spring versions should be same across all the apps)
+2. eureka dependencies
+3. service registry server port should be  8761
+4. openfeign is used to communicate between 2 micro service client apps / web client and web client builder with bean annotation
+5. creating multiple instances for load balancing
+6. api gateway
+7. Load balancer
+
+while running the project, the order is the matter like eureka > api gateway > client app (or / check which one is correct) eureka > client app > api gateway
+
+spring.cloud.gateway.discovery.locator.enabled=false = why the value is false here
+------------------------------------------------------------------------------------------------------------------------------
+MIX:
+
+ctrl + shift + o --> import the used annotations 
+
+to avoid the auto config error
+> spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+
+
+@RestController - is having @Responsebody annotation so that will automatically parse the response into json data
+
+DI: Dependency Injection
+POM.XML --> Project Object Model - holds all the information and dependencies about the project
+
+@GeneratedValue(strategy = GenerationType.IDENTITY) - to generate unique value as id - (GenerationType means "Enum")
+
+entity related imports are coming from jakartha
+
+@PutMapping("/{id}") - its is path variable because its dynamic
+
+api/v1/category - this is standard category - v1 version one
+
+--> spring vs spring boot - spring is manual configuration and spring boot is an auto configuration
+
+what is servlet?
+
+@Autowired - used to create new object
+
+URI vs URL
+
+diff be/w apache and eureka server?
+
+lambok can't directly import via spring initializer
+
+entity, repository and controller are enough for basic setup and dto and service are just extra features for better coding
+
+what is DTO? and its usage
+
+what is purpose of Bean annotation in config class?
+
+what is Mono in functions
+
+ctrl + shift + o - import
+
+we dont have create any objects manually from once class to another when we are working with spring. it will take care of that.
+
+constructor, field injection, setter injection
+
+what is boiler plate code? lambok is used to avoid writing the boiler plate codes
+
+
+types of classes: pojo class, entity class, form binding class, command class, dto class
+
+constructor: zero params constructor, params constructor
+
+role of servelet in spring boot ?
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+
+--> The main goal of spring boot is to quickly create production ready spring based application without requiring developers to write the same boiler plate code.
+
+--> spring boot have - spring boot starter, spring boot actuator, spring boot configuration, easy to use embedded servlet container support.
+
+Introduction to Spring Boot: Uncover the power of Spring Boot and its role in simplifying the development of robust, production-ready applications.
+
+Challenges with Spring: Address common problems faced by developers using the traditional Spring framework and witness how Spring Boot resolves them.
+
+Maven Overview: A quick guide to Maven, the essential build automation tool for managing project dependencies and lifecycle.
+
+Embedded Tomcat Server: Explore the advantages of the Embedded Tomcat Server and its seamless integration with Spring Boot applications.
+
+Spring Boot Architecture: Understand the architecture of Spring Boot applications, focusing on Controllers, Services, and DAOs.
+
+Controller Layer: Master the art of building effective RESTful APIs by delving into the Controller layer in Spring Boot.
+
+Service Layer: Dive into the Service layer, where business logic is implemented, ensuring a clean separation of concerns.
+
+DAO (Data Access Object) Layer: Explore the DAO layer to efficiently handle database operations, using the H2 database.
+
+Spring Data JPA and JPA: Leverage the power of Spring Data JPA and JPA for simplified database access and management.
+
+Real-time Example - CRUD Operations: Walkthrough a real-world example, building a RESTful application with CRUD operations (GET, POST, DELETE, PUT) using an H2 database.
+
+Many-to-One Relationship: Implement and understand the Many-to-One relationship in the context of a Spring Boot application.
+------------------------------------------------------------------------------------------------------------------------------
+SPRING BOOT SETUP:
+
+normal dependencies:
+1. spring web
+2. spring boot dev tools
+3. spring data jpa
+4. MySQL driver
+5. lambok
+
+micro services:
+server:
+1. eureka server
+client:
+1. eureka discovery client
+2. openfeign
+api gateway:
+1. eureka discovery client
+2. reactive gateway
+
+in application.properties file:
+
+#app name
+spring.application.name=mycart
+
+#default port
+server.port = 8082
+
+db connection:
+
+#database config
+spring.datasource.url=jdbc:mysql://localhost:3306/mycart
+spring.datasource.username=root
+spring.datasource.password=Admin@123
+
+#Hibernate config
+spring.jpa.hibernate.ddl-auto=update
+
+#eureka server app config
+server.port=8761
+eureka.instance.hostname=localhost
+eureka.client.fetch-registry=false
+eureka.client.registry-with-eureka=false
+
+#eureka client app config
+eureka.instance.hostname=localhost
+eureka.client.fetch-registry=true
+eureka.client.registry-with-eureka=true
+
+#api gateway
+server.port=8770
+spring.cloud.gateway.discovery.locator.enabled=true
+spring.cloud.gateway.discovery.locator.lower-case-service-id=true
+
+
+main class file:
+
+eureka server app:
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+@EnableEurekaServer
+
+eureka client app:
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+@EnableDiscoveryClient
+@EnableFeignClients
+
+
+------------------------------------------------------------------------------------------------------------------------------
+
+vithal: before gateway url
+
+Skill set Requirement – Java BED (Java, Spring Boot, Microservices, AWS, Docker, Kubernetes’s, JIRA, Agile, JSON, web API, Kafka, Azure, CI/CD), Java Full stack Developer (Java BED+ React JS/Angular, Kafka)    

@@ -1,0 +1,45 @@
+d/b useEffect hook and useMomo hook ? 
+export default React.memo(Header) - wht is this memo method?
+d/b function and method?
+why states not providing the newly updated values and it shows only on the next state updates?
+any major diff b/w .js and .jsx while naming the file
+redux toolkit?
+useContext hook is a another way of sharing data between 2 components though its not related with parent/child
+redux devtools is a browser extension to track redux activities
+onClick={myHandler} - just using the function as reference but onClick={()=>myHandler(id)} - here we calling and passing some values into the functions
+
+
+useeffect - needs 2 arguments, one is call back and another one is  dependency(its optional)
+-> if we  dont mention any in the 2nd argument, it will execute whenever any state updates happens in the component. its called side effect of the application changes.
+-> when we use [] as an 2nd argument, the effect will call only once when the component is loaded.
+-> if we mention any variable/state inside the array, the effect will call only when the particular state changes happens
+-> we can put multiple variables/states in the array
+
+
+USEREF:
+-> use ref is a react hook, that allow us to create a mutable variables, which will not re-render the component.
+-> it is also used for accessing the DOM elements.
+-> it will not re-render the component, whenever its state gets changed
+-> useRef(0) the 0 is the initial value, that is optional
+
+-> d/b useState and useRef - in useState, it will re-render the component whenever its state gets changed but in useRef it will not re-render the component whenever its state gets changed
+
+USEMEMO:
+-> the useMemo hook return a memoized value (like caching a value so that it does not needs to be recalculated )
+-> this hook only runs when one of its dependency gets updated.
+-> this can improve the performance of the application and one more hook in the react to improve the performance called useCallback hook.
+-> d/b useMemo and useCallback is useMemo returns a memoized value and useCallback returns a memoized function
+
+
+USECALLBACK:
+-> useCallback hook that let us cache a function definition between re-renders.
+-> it means, when we use the callback hook, it doesn't create multiple instance of same function when re-render happens
+-> instead of creating a new instance of a function, its returns a cached instance of a function on re-renders
+
+
+CSS Modules:
+-> The CSS inside a module is available only for the component that imported it, and you do not have to worry about name conflicts.
+
+
+component: 
+the component is used with multiple places with different input data

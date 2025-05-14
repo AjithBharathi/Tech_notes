@@ -1,0 +1,61 @@
+MVVM design pattern - its brings and manages the business logic and use to storage and manipulate the data
+Model - 
+View - View is responsible for presenting the content and get gestures and inputs from the user. its face of the app
+ViewModel - 
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+NGRX
+action, reducer, store, selector, effects
+
+ng add @ngrx/store
+
+while using @input and @output data can only be passed between parent and child components or sibling components
+
+if we want to pass data between component that are not directly related in the component tree. as app grows and more components needs to access and share data
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+system design
+advance algorithms
+
+what is the purpose of dependency injection?
+
+mutate function in signal introduced in ng 16 but dropped in ng 17. we can use update instead of that
+
+what is standalone component
+
+> npm install -g http-server (this is a server package, we can use this to create a web server in our machine)
+> http-server -p 8080 (command for running the web server in any of our project)
+8080 is a free port
+
+algorithms and data structures helps to improve the program's performance
+
+
+
+without cli:
+1. npm init @angular myApp
+2. cd myApp
+3. npm start
+
+4. npm install -g @angular/cli
+Set-ExecutionPolicy  -Scope CurrentUser -ExecutionPolicy RemoteSigned (to accessing ng command)
+
+d/b  npm init @angular myApp and npm install -g @angular/cli (if we want to ng command we have to install cli)
+
+5. ng new myApp --no-standalone
+
+one way binding, event binding (helps to update data in one way binding)
+string interpolation is not to bind data from component to view also we can write the conditional expression in the view, we can call a function
+
+6. property binding is used to assign some values to the html properties from view (innnerText, disabled etc)
+7. safe navigation operator (user?.name) inside the property binding
+8. event binding is nothing but just function binding
+9. *ngFor, pipe is in under the common module
+ngfor properties/variables (index, first, last, even, odd)
+10. {{myDate | date:'meduim'}} medium is an argument (will comes after the colon)
+11. #itemRef - template variable
+12. why are we using redirectTo path instead of duplicating the path in route configuration
+13. to avoid default assignment of value to a property - name!:string; (non assignable property)
+13. change detection on push will checks on input, output(event emitter) and observable
