@@ -145,3 +145,18 @@ body {
 .li_item_code {
   list-style: none;
 }
+.gotop {
+  border-radius: 27px;
+  padding-bottom: 12px;
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  height: 40px;
+  width: 40px;
+  background: #000;
+  color: #fff;
+  border-color: lawngreen;
+  cursor: pointer;
+  font-weight: 900;
+  font-size: 27px;
+}

@@ -157,6 +157,13 @@ const angular = [
     ],
   },
   {
+    topic: 'pure pipe vs impure pipe',
+    points: [
+      'impure pipe is triggered for every change detection cycle',
+
+    ]
+  },
+  {
     topic: 'Custom directive',
     points: [
       'Directives are to alter the behavior/appearance of an element',
