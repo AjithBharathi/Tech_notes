@@ -467,6 +467,49 @@ const javascript = [
     ],
   },
   {
+    topic: 'ARROW FUNCTION',
+    points: [
+      'An arrow function is a shorter syntax to write function expressions in JavaScript. It also behaves differently in terms of how it handles this, making it a favorite in many modern JS applications.',
+      `code::
+        // Traditional function
+        function add(a, b) {
+          return a + b;
+        }
+        
+        // Arrow function
+        const add = (a, b) => a + b;
+        
+      `,
+      'h:: 🔑 Key Features:',
+      '"Short syntax": Arrow functions are more concise.',
+      '"No this binding": They don\'t have their own this; they inherit it from the parent scope.',
+      '"No arguments object:" They don\'t have their own arguments.',
+      '"Not suitable as constructors:" You can\'t use them with new.',
+      '"Implicit return:" Single-line arrow functions return the value without needing return.',
+      'hr:: 🧠 this Behavior Example:',
+      `code::
+        const person = {
+          name: "Ajith",
+          greet: function () {
+            setTimeout(() => {
+              console.log("Hi, " + this.name);
+            }, 1000);
+          }
+        };
+        
+        person.greet();  // ✅ "Hi, Ajith" (arrow function uses parent's \`this\`)      
+      `,
+      'h:: ⛔ Why Not Use Arrow Functions Everywhere?',
+      'Avoid them for:',
+      'Object methods (when you need your own this)',
+      'Constructor functions',
+      'Dynamic context functions like event handlers where this matters',
+      'Dynamic context functions like event handlers where this matters',
+      '“An arrow function is a concise way to write functions in JavaScript. Unlike regular functions, arrow functions do not have their own this, making them useful for callbacks and methods where this should come from the outer scope.”'
+      
+    ]
+  },
+  {
     topic: 'D/B FUNCTION DECLARATION AND FUNCTION EXPRESSION',
     points: [
       'Function declarations are defined using the function keyword.',
