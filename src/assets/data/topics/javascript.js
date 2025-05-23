@@ -1720,43 +1720,128 @@ const javascript = [
     ],
   },
   {
+    topic: 'EVENT LOOP',
+    points: [
+      'The event loop is the core mechanism in JavaScript that handles asynchronous operations and allows non-blocking behavior despite being single-threaded.',
+      'The event loop is a continuously running process that checks the call stack and task queues, and moves tasks from the queues to the stack when the stack is empty.',
+      '“The event loop is the mechanism in JavaScript that manages execution order between synchronous and asynchronous code. It processes microtasks first, then macro tasks, and keeps the app responsive even with async operations.”',
+      'h:: 🧠 Why It\'s Important:',
+      'JavaScript is single-threaded, so the event loop ensures that:',
+      'Synchronous code runs first.',
+      'Asynchronous tasks (like setTimeout, Promises, I/O) are handled without blocking the main thread.',
+      'h:: 🔁 Event Loop Flow:',
+      'Execute all synchronous code (Call Stack)',
+      'Process all microtasks (e.g., Promise.then)',
+      'Take the next macro task (e.g., setTimeout) and put it on the stack',
+      'Repeat',
+      'h:: Event Loop Components:',
+      'there are 3 main components in event loop',
+      '"Call Stack": Executes code (sync and async when ready)',
+      '"Microtask Queue:" Handles high-priority async (e.g. Promises)',
+      '"Macro Task Queue": Handles lower-priority async (e.g. timers)',
+      'h:: Example:',
+      `code::
+        console.log("Start");
+
+        setTimeout(() => {
+          console.log("Timeout");
+        }, 0);
+        
+        Promise.resolve().then(() => {
+          console.log("Promise");
+        });
+        
+        console.log("End");     
+        
+        
+        Output:
+
+        Start
+        End
+        Promise
+        Timeout
+
+      `,
+      'h:: 📌 Why?:',
+      'setTimeout goes to the macro task queue',
+      '.then() goes to the microtask queue',
+      'Microtasks are processed before macro tasks'
+    ]
+  },
+  {
     topic: 'WHAT IS CALL STACK?',
-    points: [],
+    points: [
+      'The call stack is a fundamental part of the JavaScript engine. It keeps track of function calls — what function is currently being executed and what functions should run next.',
+      'The call stack is a stack data structure (LIFO — Last In, First Out) that records function invocations during execution.',
+      'How It Works: When a function is called, it is pushed onto the stack. When a function is called, it is pushed onto the stack. The top of the stack is the currently running function.',
+      '“The call stack in JavaScript is a LIFO structure that tracks function calls. When a function is invoked, it\'s added to the stack, and removed once it finishes. It\'s essential for managing synchronous execution in JavaScript.”'
+    ],
   },
   {
     topic: 'WHAT IS QUEUE AND ITS TYPE?',
     points: [
       'callback queue or macro task queue  or task queue(browser internal tasks)',
       'micro task queue (tasks happening outside of the browser)',
+      'A queue is a fundamental data structure that follows the FIFO (First In, First Out) principle.',
+      'A queue is a linear data structure where the first element added is the first one to be removed.',
+      '“A queue is a FIFO data structure where elements are added to the end and removed from the front. In JavaScript, queues play a crucial role in asynchronous programming, especially in the event loop\'s task handling.”',
+      'Queues are used in: Event loop for macro and micro task queues. Asynchronous task scheduling. Message/event handling in web workers'
     ],
   },
   {
     topic: 'WHAT IS MACRO TASK QUEUE  OR TASK QUEUE OR CALLBACK QUEUE?',
-    points: [],
+    points: [
+      'In JavaScript’s event loop model, the macro task queue (also known as the task queue or callback queue) is a queue where callback functions of asynchronous tasks (like setTimeout, setInterval, I/O, etc.) are placed to be executed after the current execution stack is empty.',
+      'The macro task queue stores tasks that are scheduled to run after the current script and all microtasks have completed.',
+      '“The macro task queue in JavaScript holds scheduled tasks like setTimeout, setInterval, and I/O. After executing the current code and all microtasks, the event loop picks a macro task from the queue. This helps JavaScript handle asynchronous behavior efficiently.”',
+      'Example: SetTimeout, setInterval, setImmediate() (Node.js), I/O operations (e.g. file read), UI rendering events'
+    ],
   },
   {
     topic: 'MICRO TASK QUEUE',
     points: [
       'all the call back functions which comes through promises will go inside the microtask queue',
       'mutation observer',
+      'A microtask is a type of asynchronous task that is scheduled to run after the current synchronous code finishes but before any macro tasks (like setTimeout) are executed.',
+      'Microtasks are asynchronous callbacks that run immediately after the current execution stack and before the next macro task.',
+      '“Microtasks in JavaScript include promise callbacks and queueMicrotask(). They are executed immediately after the current stack clears and before the next macro task. This mechanism ensures high-priority asynchronous operations are handled promptly.”',
+      'example: Promises'
     ],
   },
   {
     topic: 'WHAT IS EXECUTION CONTEXT?',
-    points: ['2 main phases', 'creation phase', 'execution phase'],
+    points: [
+      '2 main phases', 'creation phase', 'execution phase',
+      'Execution Context is a foundational concept in JavaScript. It defines the environment in which code is evaluated and executed. Every time your code runs, it runs inside an execution context.',
+      'An Execution Context is the container where variables, functions, and the value of this are stored and managed during the execution of code.',
+
+    ],
   },
 
   {
     topic: 'WHAT IS EVENT LISTENER REGISTRY?',
-    points: ['its a part of web api environment'],
+    points: [
+      'its a part of web api environment',
+      '“The event listener registry is an internal data structure browsers use to track which elements are listening for which events. It ensures that the right callback functions are triggered during event propagation. This also plays a critical role in adding, removing, and optimizing event listeners.”',
+      'The Event Listener Registry is a system that stores references to all active event listeners (functions) associated with specific event types and elements in your JavaScript code.',
+
+    ],
   },
   {
     topic: 'WHAT IS TASK STARVATION?',
-    points: ['its a part of web api environment'],
+    points: ['its a part of web api environment',
+      '“In JavaScript, task starvation can occur if microtasks like Promises are endlessly queued, preventing the event loop from reaching other tasks like timers. Properly yielding control back to the loop using setTimeout or breaking tasks into smaller units can help avoid starvation.”',
+
+    ],
   },
   {
     topic: 'WHAT IS GARBAGE COLLECTION?',
-    points: []
+    points: [
+      'Garbage Collection (GC) is the automatic memory management process in JavaScript. It frees up memory that is no longer reachable or needed by the program, helping to avoid memory leaks and improve performance.',
+      'JavaScript manages memory for you. When objects are created, memory is allocated. But when they\'re no longer needed, that memory must be released. Garbage collection does this automatically.',
+      '“Garbage collection in JavaScript automatically reclaims memory by detecting unreachable objects, primarily using the mark-and-sweep algorithm. This helps prevent memory leaks and ensures efficient memory usage without manual deallocation.”',
+
+    ]
   },
   {
     topic:
@@ -2051,7 +2136,16 @@ const javascript = [
       'Real-world examples: You could refer to modular approaches in libraries like React or Lodash.',
     ],
   },
-  { topic: 'COOKIES', points: [] },
+  {
+    topic: 'CACHE AND COOKIES',
+    points: [
+      'Cookies are small pieces of data (usually key-value pairs) that are stored by the browser and sent to the server automatically with every HTTP request to the same domain.',
+      '“Cookies are small text files stored in the browser used for managing sessions, preferences, and tracking. They are automatically sent with HTTP requests and can be secured using flags like HttpOnly, Secure, and SameSite.”',
+
+    ]
+  },
+  { topic: 'REGULAR EXPRESSION - RegEx', points: [] },
+  { topic: 'INDEXED DB', points: [] },
   // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   {
     topic: '***** INFO *****',
