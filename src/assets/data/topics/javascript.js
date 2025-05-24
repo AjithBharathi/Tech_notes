@@ -1,19 +1,186 @@
 const javascript = [
   {
-    topic: 'JAVASCRIPT RUNTIME',
+    topic: 'JAVASCRIPT',
     points: [
-      'Call Stack',
-      'Memory Heap',
-      'Event Loop',
-      'Web APIs',
-      'Task Queue',
-      'Micro Task',
-      'Callback Queue',
+      'Netscape developed JavaScript and was created by Brenden Eich in the year of 1995.',
+      'Dynamically typed, interpreted',
+      'Runs in a browser or Node.js',
+      'Prototype-based inheritance',
+      'Interpreted directly by browser',
+      'Single-threaded, async with event loop',
+      'Weakly typed',
+      'Supports object-oriented but more flexible',
+      'Automatic garbage collection (browser)'
     ],
   },
   {
+    topic: 'Variable Terms',
+    points: [
+      `code::
+          let x;        // declared
+          x = 5;        // initialized
+          let y = 10;   // defined (declared + initialized)      
+      `
+    ]
+  },
+  {
     topic: 'VAR, LET, CONST',
-    points: [],
+    points: [
+      'In JavaScript, var, let, and const are used to declare variables, but they differ in terms of scope, hoisting, reassignment, and redeclaration.',
+      'h:: var (Old way — function scoped):',
+      'Scope: Function-scoped.',
+      'Hoisting: Hoisted and initialized with undefined.',
+      'Re-declaration: Allowed within the same scope.',
+      'Reassignment: Allowed.',
+      `code::
+          function test() {
+            if (true) {
+              var x = 10;
+            }
+            console.log(x); // 10 — function-scoped, not block-scoped
+          }
+      `,
+      'h:: let (Modern — block scoped):',
+      'Scope: Block-scoped ({}).',
+      'Hoisting: Hoisted but not initialized, so using it before declaration throws a ReferenceError.',
+      'Re-declaration: ❌ Not allowed in the same scope.',
+      'Reassignment: ✅ Allowed.',
+      `code:: 
+          if (true) {
+            let x = 10;
+            console.log(x); // 10
+          }
+          console.log(x); // ReferenceError: x is not defined      
+      `,
+      'h:: const (Block scoped + constant reference):',
+      'Scope: Block-scoped.',
+      'Hoisting: Hoisted but not initialized.',
+      'Re-declaration: ❌ Not allowed.',
+      'Reassignment: ❌ Not allowed.',
+      'But note: Objects/Arrays declared with const can still be mutated.',
+      `code:: 
+          const person = { name: "Alice" };
+          person.name = "Bob"; // ✅ allowed (modifying property)
+          person = {};          // ❌ TypeError (reassignment not allowed)
+
+      `
+    ],
+  },
+  {
+    topic: 'HOISTING',
+    points: [
+      'Hoisting is JavaScript’s behavior of moving declarations (variables and functions) to the top of their scope during the compilation phase, before the code is executed.',
+      'Declarations are moved up (not the actual code).',
+      'Initializations stay where they are.',
+      'hr::',
+      'Declarations are hoisted (functions, var variables).',
+      'Assignments/initializations are not hoisted.',
+      'h::',
+      'h:: Variable Hoisting (var)',
+      `code::
+      console.log(a); // undefined
+      var a = 10;
+      console.log(a); // 10
+      `,
+      `code::
+      var a;
+      console.log(a); // undefined
+      a = 10;
+      console.log(a); // 10
+      `,
+      'var is hoisted and initialized as undefined.',
+      'h:: Function Hoisting',
+      `code::
+      greet(); // "Hello!"
+
+      function greet() {
+        console.log("Hello!");
+      }
+      `,
+      'Function Declarations are fully hoisted (both name and body).',
+      `code::
+      greet(); // ❌ Error: greet is not a function
+
+      var greet = function() {
+        console.log("Hi!");
+      };
+      `,
+      'Function Expressions (like assigning to a var) behave like normal variables — only the variable name is hoisted (initialized to undefined), not the function body.',
+      'hr::',
+      'h:: Hoisting Behavior by Type',
+      'var → hoisted, initialized to undefined',
+      'let - let / const → hoisted, but not initialized (TDZ error)',
+      'function declaration → hoisted with full body',
+      'Function Declaration - Hoisted (Yes (fully)) - Initialized? (Yes)',
+      'function expression → variable hoisted, function not',
+      'hr::',
+      'h:: Important: Temporal Dead Zone (TDZ)',
+      'let and const are also hoisted but are not accessible before their declaration.',
+      'Accessing them early throws an error.',
+      `code::
+      console.log(b); // ❌ ReferenceError: Cannot access 'b' before initialization
+      let b = 20;
+      `,
+      'TDZ is the time between the start of the scope and the line where the variable is declared.',
+      'hr::',
+      'Variables behave differently (var, let, const).',
+      'Functions behave differently (declaration vs expression).',
+      'hr::',
+      'hoisting is applicable for arrow function declaration',
+      'reference error will be thrown when the arrow function declared with let,const',
+      'type error will be thrown when the arrow function declared with var',
+    ],
+  },
+  {
+    topic: 'TEMPORAL DEAD ZONE (TDZ)',
+    points: ['TDZ (Temporal Dead Zone) is the time between the hoisting of a let or const variable and its actual initialization, where accessing it leads to a ReferenceError. It enforces better coding practices by preventing the use of variables before they are declared.']
+  },
+  {
+    topic: 'PRIMITIVE TYPES VS REFERENCE TYPES',
+    points: [
+      'h:: PRIMITIVE TYPES:',
+      'The predefined data types provided by JavaScript language are known as primitive data type.',
+      'Primitive data types are also known as in-built data types.',
+      'Immutable',
+      'Stored in stack memory',
+      'Stored by value',
+      'changes affect original',
+      'Types: String, Number, Boolean, Undefined, Null, Symbol, BigInt',
+      `code::
+          let a = 10;
+          let b = a;     // b gets a *copy* of a
+          b = 20;
+          
+          console.log(a); // 10
+          console.log(b); // 20      
+
+          // b is a copy of a. Changing b does not affect a—each holds a separate value.
+      `,
+      'h:: REFERENCE TYPES:',
+      'The data types that are derived from primitive data types are known as non-primitive data types.',
+      'It is also known as derived data types or reference data types.',
+      'Mutable (by default)',
+      'Stored in heap memory, with reference in stack',
+      'Stored by reference',
+      'changes not affect original',
+      'Types: Object, Array, Function, Date, etc.',
+      `code::
+          let obj1 = { name: "Alice" };
+          let obj2 = obj1;  // obj2 is a reference to obj1
+          
+          obj2.name = "Bob";
+          
+          console.log(obj1.name); // Bob — obj1 is also changed      
+
+          // Both obj1 and obj2 point to the same object in memory. Changing one affects the other.
+      `,
+    ],
+  },
+  {
+    topic: 'IMPLICIT TYPE COERCIEON',
+    points: [
+      'Type coercion refers to the automatic conversion of values from one data type to another, typically performed during operations or comparisons involving different data types. By using Type Coercion, JavaScript attempts to make the data types compatible to complete the operation or comparison.',
+    ],
   },
   {
     topic: 'SCOPES',
@@ -51,44 +218,7 @@ const javascript = [
     links: [],
   },
   {
-    topic: 'PRIMITIVE TYPES VS REFERENCE TYPES',
-    points: [
-      'h:: PRIMITIVE TYPES:',
-      'Immutable',
-      'Stored in stack memory',
-      'Stored by value',
-      'changes affect original',
-      'Types: String, Number, Boolean, Undefined, Null, Symbol, BigInt',
-      `code::
-          let a = 10;
-          let b = a;     // b gets a *copy* of a
-          b = 20;
-          
-          console.log(a); // 10
-          console.log(b); // 20      
-
-          // b is a copy of a. Changing b does not affect a—each holds a separate value.
-      `,
-      'h:: REFERENCE TYPES:',
-      'Mutable (by default)',
-      'Stored in heap memory, with reference in stack',
-      'Stored by reference',
-      'changes not affect original',
-      'Types: Object, Array, Function, Date, etc.',
-      `code::
-          let obj1 = { name: "Alice" };
-          let obj2 = obj1;  // obj2 is a reference to obj1
-          
-          obj2.name = "Bob";
-          
-          console.log(obj1.name); // Bob — obj1 is also changed      
-
-          // Both obj1 and obj2 point to the same object in memory. Changing one affects the other.
-      `,
-    ],
-  },
-  {
-    topic: 'LEXICAL SCOPE',
+    topic: 'LEXICAL SCOPE OR STATIC SCOPE',
     points: [
       "able to call the parent scope's variable from the inner scope",
       'Inner functions have access to variables declared in their outer functions based on their physical location in the code.',
@@ -160,71 +290,6 @@ const javascript = [
     ],
   },
   {
-    topic: 'HOISTING',
-    points: [
-      'Hoisting is JavaScript’s behavior of moving declarations (variables and functions) to the top of their scope during the compilation phase, before the code is executed.',
-      'Declarations are moved up (not the actual code).',
-      'Initializations stay where they are.',
-      'hr::',
-      'Declarations are hoisted (functions, var variables).',
-      'Assignments/initializations are not hoisted.',
-      'h::',
-      'h:: Variable Hoisting (var)',
-      `code::
-      console.log(a); // undefined
-      var a = 10;
-      console.log(a); // 10
-      `,
-      `code::
-      var a;
-      console.log(a); // undefined
-      a = 10;
-      console.log(a); // 10
-      `,
-      'var is hoisted and initialized as undefined.',
-      'h:: Function Hoisting',
-      `code::
-      greet(); // "Hello!"
-
-      function greet() {
-        console.log("Hello!");
-      }
-      `,
-      'Function Declarations are fully hoisted (both name and body).',
-      `code::
-      greet(); // ❌ Error: greet is not a function
-
-      var greet = function() {
-        console.log("Hi!");
-      };
-      `,
-      'Function Expressions (like assigning to a var) behave like normal variables — only the variable name is hoisted (initialized to undefined), not the function body.',
-      'hr::',
-      'h:: Hoisting Behavior by Type',
-      'var → hoisted, initialized to undefined',
-      'let - let / const → hoisted, but not initialized (TDZ error)',
-      'function declaration → hoisted with full body',
-      'Function Declaration - Hoisted (Yes (fully)) - Initialized? (Yes)',
-      'function expression → variable hoisted, function not',
-      'hr::',
-      'h:: Important: Temporal Dead Zone (TDZ)',
-      'let and const are also hoisted but are not accessible before their declaration.',
-      'Accessing them early throws an error.',
-      `code::
-      console.log(b); // ❌ ReferenceError: Cannot access 'b' before initialization
-      let b = 20;
-      `,
-      'TDZ is the time between the start of the scope and the line where the variable is declared.',
-      'hr::',
-      'Variables behave differently (var, let, const).',
-      'Functions behave differently (declaration vs expression).',
-      'hr::',
-      'hoisting is applicable for arrow function declaration',
-      'reference error will be thrown when the arrow function declared with let,const',
-      'type error will be thrown when the arrow function declared with var',
-    ],
-  },
-  {
     topic: 'SHADOWING',
     points: [
       'a variable can be redeclared into the another block',
@@ -290,74 +355,6 @@ const javascript = [
     links: [],
   },
   {
-    topic: 'METHOD OVERRIDING',
-    points: [
-      'to overwrite/redefine the parent class method into the derived class as per the derived class requirement.',
-      'Method overriding happens when a subclass (child class) provides a specific implementation of a method that is already defined in its parent class (superclass). This new method in the subclass replaces the parent class method when called on an instance of the subclass.',
-      'In JavaScript, method overriding is used when we extend a class using class syntax (introduced in ES6).',
-      'hr::',
-      'h:: Key Points of Method Overriding:',
-      'Subclass redefines a method of the parent class.',
-      'The overridden method in the subclass has the same name and signature as the parent class method.',
-      'When the method is called on an instance of the subclass, the subclass’s method will be executed instead of the parent’s method.',
-      'Super keyword is used to call the parent class method from the subclass if needed.',
-      `code::
-      // Parent class
-      class Animal {
-        speak() {
-          console.log("Animal makes a sound");
-        }
-      }
-      
-      // Child class (overrides the method)
-      class Dog extends Animal {
-        speak() {
-          console.log("Woof! Woof!");
-        }
-      }
-      
-      const animal = new Animal();
-      const dog = new Dog();
-      
-      animal.speak(); // "Animal makes a sound"
-      dog.speak(); // "Woof! Woof!"
-      `,
-      'The speak() method is defined in both the Animal (parent) and Dog (child) classes.',
-      'When calling dog.speak(), the method from the Dog class is invoked, overriding the one from Animal.',
-      'h:: Example with super:',
-      'Sometimes, you might want to call the parent method inside the overridden method. This can be done using the super keyword.',
-      `code::
-        class Animal {
-          speak() {
-            console.log("Animal makes a sound");
-          }
-        }
-        
-        class Dog extends Animal {
-          speak() {
-            super.speak();  // Calling the parent method
-            console.log("Woof! Woof!");  // Child class method
-          }
-        }
-        
-        const dog = new Dog();
-        dog.speak(); 
-        // Output:
-        // "Animal makes a sound"
-        // "Woof! Woof!"
-      `,
-      'super.speak() calls the speak() method from the parent (Animal).',
-      'After that, the Dog’s speak() method is executed, so we see both outputs.',
-      'hr::',
-      'h:: Key Differences Between Method Overriding and Method Overloading:',
-      'Method Overloading (not supported directly in JavaScript):',
-      'In other languages (like Java or C++), overloading means having multiple methods with the same name but different parameters.',
-      'JavaScript does not support true method overloading, but you can simulate it by checking the number of arguments or types within the method.',
-      'Method Overriding:',
-      'Occurs in inheritance when a subclass method replaces the parent method.',
-    ],
-  },
-  {
     topic: 'STATIC VARIABLE / STATIC METHOD',
     points: [
       'h:: Static Variables:',
@@ -416,6 +413,241 @@ const javascript = [
       'Static Methods:',
       'These are useful for utility functions that don’t need to interact with instance properties.',
       'Example: Utility classes like Math functions or helper functions that don’t rely on instance state.',
+    ],
+  },
+
+  {
+    topic: 'MUTABILITY and IMMUTABILITY and its benifits?',
+    points: [
+      'h:: MUTABILITY',
+      "An object is mutable if it can be changed after it's created.",
+      'EXAMPLES: Objects, Arrays, Functions',
+      "Data can be changed after it's created",
+      `code::
+          let user = { name: "Alice" };
+          user.name = "Bob";  // Original object is modified      
+      `,
+      'h:: IMMUTABILITY:',
+      'It means you cannot change the original value. If you perform an operation on a primitive, it creates a new value instead of modifying the original one.',
+
+      'EXAMPLES:  String, Number, Boolean, Null, Undefined, Symbol, BigInt',
+      `code::
+        let a = 10;
+        let b = a;     // b gets a *copy* of a
+        b = 20;
+        
+        console.log(a); // 10
+        console.log(b); // 20
+      
+      `,
+      'An object is immutable if it cannot be changed after it is created. Instead, a new copy is made with the change.',
+      'Use spread (...) to copy arrays/objects',
+      'Use Object.freeze(obj) to shallow-freeze an object',
+      `code::
+        const person = { name: 'Alice' };
+        const updatedPerson = { ...person, name: 'Bob' }; // Create a new object
+        console.log(person);        // { name: 'Alice' }
+        console.log(updatedPerson); // { name: 'Bob' }
+    `,
+    ],
+  },
+  {
+    topic: 'FUNCTION',
+    points: [
+      'regular function',
+      'function expression',
+      'arrow function',
+      'anonymous fuction',
+      'self invoking function or immediately invoked function(IIFE)',
+      'hr::',
+      'h:: Arrow Function',
+      'arrow functions are not hiosted',
+      '"this" keyword in the arrow function is binded to the previous value of "this"',
+      'the value of "this" inside an arrow function is basically what its value would\'ve been outside the arrow function',
+    ],
+  },
+  {
+    topic: 'ARROW FUNCTION',
+    points: [
+      'An arrow function is a shorter syntax to write function expressions in JavaScript. It also behaves differently in terms of how it handles this, making it a favorite in many modern JS applications.',
+      `code::
+        // Traditional function
+        function add(a, b) {
+          return a + b;
+        }
+        
+        // Arrow function
+        const add = (a, b) => a + b;
+        
+      `,
+      'h:: 🔑 Key Features:',
+      '"Short syntax": Arrow functions are more concise.',
+      '"No this binding": They don\'t have their own this; they inherit it from the parent scope.',
+      '"No arguments object:" They don\'t have their own arguments.',
+      '"Not suitable as constructors:" You can\'t use them with new.',
+      '"Implicit return:" Single-line arrow functions return the value without needing return.',
+      'hr:: 🧠 this Behavior Example:',
+      `code::
+        const person = {
+          name: "Ajith",
+          greet: function () {
+            setTimeout(() => {
+              console.log("Hi, " + this.name);
+            }, 1000);
+          }
+        };
+        
+        person.greet();  // ✅ "Hi, Ajith" (arrow function uses parent's \`this\`)      
+      `,
+      'h:: ⛔ Why Not Use Arrow Functions Everywhere?',
+      'Avoid them for:',
+      'Object methods (when you need your own this)',
+      'Constructor functions',
+      'Dynamic context functions like event handlers where this matters',
+      'Dynamic context functions like event handlers where this matters',
+      '“An arrow function is a concise way to write functions in JavaScript. Unlike regular functions, arrow functions do not have their own this, making them useful for callbacks and methods where this should come from the outer scope.”'
+      
+    ]
+  },
+  {
+    topic: 'D/B FUNCTION DECLARATION AND FUNCTION EXPRESSION',
+    points: [
+      'Function declarations are defined using the function keyword.',
+      'Function expressions are defined by assigning a function to a variable.',
+      'Function declarations are hoisted.',
+      'while function expressions are not.',
+    ],
+  },
+  {
+    topic: 'HIGHER ORDER FUNCTION - MAP, FILTER, REDUCE ETC...',
+    points: [
+      'A higher-order function is a function',
+      'Takes another function as an argument.',
+      'Returns another function as its result.',
+      'hr::',
+      'Higher-order functions help make your code more reusable and modular by allowing you to work with functions like any other value.',
+      'hr::',
+      'opular Higher Order Functions in JavaScript',
+      'h:: Map',
+      'The map function is used to transform an array by applying a callback function to each element. It returns a new array.',
+      'h:: Filter',
+      'The filter function is used to create a new array containing elements that satisfy a given condition.',
+      'h:: Reduce',
+      ''
+    ],
+  },
+  {
+    topic: 'PURE FUNCTION AND IMPURE FUNCTION',
+    points: [
+      'A pure function is a function that always returns the same output when given the same input, and it does not have any side effects.',
+      'An impure function is a function that has side effects or does not always return the same output when given the same input. Side effects can include modifying a global variable, changing the state of an object, or making a network request.'
+    ],
+  },
+  {
+    topic: 'GENERATOR FUNCTION',
+    points: [
+      'The Iterators are objects with a special structure in JavaScript. They must have a next() method that returns an object with the value and done properties. The value property represents the next value in the sequence and the done property indicates whether there are more values to be iterated. The Iterators are commonly used for iterating over data structures like arrays, maps, and sets.',
+      'A generator function is a special type of function that can pause its execution at any point and resume later. They are defined using the function* syntax and use the yield keyword to pause execution and return a value.'
+    ],
+  },
+  {
+    topic: 'ITERATORS AND GENERATORS',
+    points: [
+      'h:: Iterator:',
+      'So, in short, an iterator gives you fine-grained control over iteration, useful for custom logic, lazy evaluation, or working with non-standard data structures.',
+      'hr::',
+      'An iterator in JavaScript is an object that defines a sequence and allows you to access its elements one at a time. It follows a specific protocol — it must have a .next() method that returns an object with two properties:',
+      'value: the current item',
+      'done: a boolean indicating whether the sequence has finished.',
+      'Iterators are especially useful when you want custom control over iteration, or when working with lazy-loaded data or custom data structures.',
+      'Built-in structures like Arrays, Maps, Sets, and Strings already implement the iterator protocol through the Symbol.iterator method, which makes them compatible with for...of loops and spread syntax.',
+      'You can also create your own iterators, or use them behind the scenes with generators, which simplify complex iteration logic.',
+      `code::
+        const arr = [10, 20, 30];
+        const iterator = arr[Symbol.iterator]();
+        
+        console.log(iterator.next()); // { value: 10, done: false }
+        console.log(iterator.next()); // { value: 20, done: false }
+        console.log(iterator.next()); // { value: 30, done: false }
+        console.log(iterator.next()); // { value: undefined, done: true }      
+      `,
+      'hr::',
+      'h:: Generator:',
+      'In short, generators let you control execution step-by-step, which is powerful for managing data streams, state machines, and asynchronous flows.',
+      'hr::',
+      'The Generators are a special type of function in JavaScript that can be paused and resumed during their execution. They are defined using the asterisk (*) after the function keyword. The Generators use the yield keyword to yield control back to the caller while preserving their execution context. The Generators are useful for creating iterators, asynchronous code, and handling sequences of data without loading all the data into the memory at once.',
+      'h:: Difference between Iterator and for loop:',
+      'An iterator is a standardized way in JavaScript to traverse a data structure, typically using the .next() method, which returns an object with value and done properties. It\'s especially useful when working with custom or complex data structures, or when implementing lazy loading — as it produces values only when needed.',
+      'In contrast, a traditional for loop is a general-purpose control structure that\'s best suited for iterating over indexable collections like arrays. It requires explicit control over the index and boundaries.',
+      "The key difference is that iterators give you more control and flexibility, such as pausing, resuming, or skipping values, and can be used with structures like Maps, Sets, or even custom objects that implement the Symbol.iterator. They're also memory-efficient and integrate well with features like for...of, generators, and async operations.",
+      "I’d use a traditional for loop for simple indexed data, and an iterator when I need custom logic or lazy evaluation.",
+      `code::
+        function* numberGen() {
+          yield 1;
+          yield 2;
+          yield 3;
+        }
+        
+        const gen = numberGen();
+        
+        console.log(gen.next()); // { value: 1, done: false }
+        console.log(gen.next()); // { value: 2, done: false }
+        console.log(gen.next()); // { value: 3, done: false }
+        console.log(gen.next()); // { value: undefined, done: true }      
+      `
+    ]
+  },
+  {
+    topic: 'FUNCTION COMPOSITION',
+    points: ['Function composition is the process of combining two or more functions in such a way that the output of one function becomes the input of the next. It allows you to build complex operations by chaining simple functions together — making code cleaner, reusable, and more declarative.',
+      `code::
+        const add5 = x => x + 5;
+        const double = x => x * 2;
+        
+        // Compose: first add 5, then double
+        const composed = x => double(add5(x));
+        
+        console.log(composed(3)); // Output: 16 → (3 + 5 = 8, 8 * 2 = 16)    
+    `
+    ]
+  },
+  {
+    topic: 'CURRYING',
+    points: [
+      'currying is a function that takes one argument at a time and returns a new function and expecting the next argument',
+      'Currying in JavaScript is a technique of transforming a function with multiple arguments into a sequence of functions, each taking a single argument.',
+      'curried functions are constructed by chaining, closures by immediately returned their inner function simultaneously.',
+      'infinite currying - sum(1)(1)(2)...(n)',
+    ],
+  },
+  {
+    topic: 'PARTIAL APPLICATION (which is closely related to currying)',
+    points: [
+      'Partial application is a functional programming technique where a function is pre-filled with one or more arguments, producing a new function that takes the remaining arguments.',
+      'It’s closely related to currying, but there\'s a key difference:',
+      'Partial application sets some arguments now.',
+      'Currying transforms a multi-arg function into a series of single-argument functions.',
+      `code::
+        function multiply(a, b, c) {
+          return a * b * c;
+        }
+        
+        // Partial application: fix \`a\` = 2
+        function partialMultiplyBy2(b, c) {
+          return multiply(2, b, c);
+        }
+        
+        console.log(partialMultiplyBy2(3, 4)); // 24 → (2 * 3 * 4)      
+      `,
+      'h:: Partial Application vs Currying:',
+      'h:: Partial Application',
+      'PURPOSE: Pre-fill some arguments',
+      'FLEXIBILITY: Can apply any number of initial args',
+      'EXECUTION: Done once, remaining args supplied later',
+      'h:: Currying',
+      'PURPOSE: Transform to single-argument functions',
+      'FLEXIBILITY: Applies one arg at a time',
+      'EXECUTION: Chained call: f(a)(b)(c)',
     ],
   },
   {
@@ -498,148 +730,140 @@ const javascript = [
     ],
   },
   {
-    topic: 'MODULE',
+    topic: 'CHAINING VS CURRYING',
     points: [
-      'use to write the code into multiple files',
-      'hr::',
-      'A module in JavaScript is a file that contains reusable code which can be shared between different parts of your application. Modules help in organizing your code, improving maintainability, and avoiding naming conflicts between different parts of the application.',
-      'In JavaScript, the concept of modules was officially introduced with ES6 (ECMAScript 2015) using the import and export keywords. Prior to that, developers used various libraries like CommonJS (Node.js) or AMD for modules.',
-      'hr::',
-      'h:: Types of Modules in JavaScript:',
-      'ES6 Modules (ECMAScript Modules - ESM)',
-      'CommonJS',
-      'AMD (Asynchronous Module Definition)',
-      'h:: ES6 Modules (ECMAScript Modules - ESM):',
-      'Introduced in ES6 and are now the standard for modern JavaScript applications.',
-      'Use export to make code available outside the module, and import to bring code into the module.',
-      '1. Exporting Code:',
-      'You can export variables, functions, or classes from a module to make them available for import in other modules.',
-      'Named Exports: You can export multiple variables, functions, or classes from a module using named exports.',
-      `code::
-      // math.js (module)
-      export const add = (a, b) => a + b;
-      export const subtract = (a, b) => a - b;
-      `,
-      'Default Export: You can export a single value, function, or class as the default export.',
-      `code::
-      // calculator.js (module)
-      const multiply = (a, b) => a * b;
-      export default multiply;
-      `,
-      '2. Importing Code:',
-      'To use the exported code in another file, you import it using import.',
-      'Named Imports: When importing named exports, you must use the exact name of the variable, function, or class.',
-      `code::
-      // main.js (using math.js)
-      import { add, subtract } from './math.js';
-
-      console.log(add(2, 3)); // 5
-      console.log(subtract(5, 3)); // 2
-      `,
-      'Default Imports: You can import the default export using any name of your choice.',
-      `code:: 
-      // main.js (using calculator.js)
-      import multiply from './calculator.js';
-
-      console.log(multiply(3, 4)); // 12
-      `,
-      'h:: Module Syntax in ES6:',
-      '1. Exporting Everything: You can export everything from a module at once.',
-      `code::
-      // utilities.js
-      const add = (a, b) => a + b;
-      const subtract = (a, b) => a - b;
-
-      export { add, subtract }; // Named export
-      `,
-      '2. Importing Everything: You can import everything from a module into a single object.',
-      `code::
-      // main.js
-      import * as utils from './utilities.js';
-      
-      console.log(utils.add(3, 2)); // 5
-      console.log(utils.subtract(5, 3)); // 2
-      `,
-      '3. Renaming Imports: You can rename imports when you import them.',
-      `code::
-      // main.js
-      import { add as addition } from './math.js';
-
-      console.log(addition(4, 6)); // 10
-      `,
-      'hr::',
-      'h:: CommonJS:',
-      'Used primarily in Node.js for server-side JavaScript.',
-      'CommonJS is primarily used in Node.js and works with require() and module.exports.',
-      `code::
-      // math.js (CommonJS)
-      const add = (a, b) => a + b;
-      const subtract = (a, b) => a - b;
-
-      module.exports = { add, subtract };
-
-      ----------------
-
-      // main.js (CommonJS)
-      const { add, subtract } = require('./math.js');
-
-      console.log(add(2, 3)); // 5
-      console.log(subtract(5, 3)); // 2
-      `,
-      'hr::',
-      'h:: Benefits of Using Modules:',
-      'Code Organization: Modules help break down large codebases into smaller, manageable files.',
-      'Reusability: Once a module is created, it can be reused in different parts of your application.',
-      'Namespace Management: Modules avoid naming conflicts by isolating code within a module.',
-      'Maintainability: Easier to update and maintain individual modules without affecting the entire codebase.',
-      'Dependency Management: Modules make managing dependencies between various parts of the application easier.',
-      'hr::',
-      'h:: When to Use Modules:',
-      'Large applications: In complex applications, using modules helps in splitting the code into smaller, manageable pieces.',
-      'Code sharing: If you want to reuse functionality across different parts of your application or even across multiple applications.',
-      'Cleaner code: Modularization makes the code cleaner and more maintainable.',
-      'hr::',
-      'Real-world examples: You could refer to modular approaches in libraries like React or Lodash.',
+      'h:: Definition',
+      'CURRYING: Transforms a function so it takes one argument at a time',
+      'CHAINING: Calls multiple methods on the same object in sequence',
+      'h:: Syntax',
+      'CURRYING: f(a)(b)(c)',
+      'CHAINING: obj.method1().method2().method3()',
+      'h:: Return Value',
+      'CURRYING: Each function returns another function (until final call)',
+      'CHAINING: Each method returns the object (this) for chaining',
+      'h:: Purpose',
+      'CURRYING: Function decomposition and partial application',
+      'CHAINING: Fluent interface and readable method sequences',
+      'h:: Used With',
+      'CURRYING: Pure functions',
+      'CHAINING: Objects or classes with methods',
+      'h:: Example Use Case',
+      'CURRYING: Functional programming, React props',
+      'CHAINING: jQuery, Lodash, class-based utilities',
     ],
   },
   {
-    topic: 'MEMORY ALLOCATION',
+    topic: 'CALL, APPLY, BIND (Method Borrowing)',
     points: [
-      'Primitive data types are string, number, bigint, boolean, undefined, symbol, null',
-      'reference data types are array, functions, all objects (math, date, etc',
+      'h:: call()',
+      'Use call when you want to invoke a function with a custom this and pass arguments directly.',
+      'this keyword will work independently on function call and use to tie a function to an object',
+      'custom this property can be created',
+      'h:: apply()',
+      'apply() was designed for situations where your arguments are already in an array or array-like object (like arguments, NodeList, etc.).',
+      'h:: bind()',
+      'Use bind when you want to store a function with a fixed this to be called later (e.g., in event listeners, callbacks).',
+      'Method borrowing: bind allows you to borrow methods from one object and apply them to another object, even if they were not originally designed to work with that object.',
       'hr::',
-      'Memory allocation refers to the process by which JavaScript sets aside (reserves) a portion of the computer’s memory for storing data — like variables, objects, functions, etc.',
-      'Whenever you create a variable, object, or function, JavaScript automatically allocates memory for it behind the scenes. Later, when that data is no longer needed, JavaScript tries to "free up (deallocate)" that memory to avoid memory leaks — this process is handled by "Garbage Collection".',
-      'h:: Types of Memory Allocation in JavaScript',
-      'In JavaScript, memory can be categorized into two main types:',
-      'Stack Memory - Primitives (number, string, boolean, undefined, null, symbol, bigint)',
-      'Heap Memory - Objects, arrays, functions',
-      'hr::',
-      'h:: 1. Stack Memory:',
-      'Used for primitive data types (simple and small data).',
-      'Memory is allocated in a Last In, First Out (LIFO) order.',
-      'Very fast access.',
+      'Method borrowing is when one object uses a method that belongs to another object, typically by using the call(), apply(), or bind() methods to explicitly set this.',
+    ],
+  },
+  {
+    topic: 'IMPLICIT AND EXPLICIT BINDING',
+    points: [
+      'In implicit binding, this is set automatically based on the calling object. In explicit binding, you manually set this using .call(), .apply(), or .bind().',
+      'Implicit is Object methods and Explicit is Function reuse with different this values',
+      'h:: IMPLICIT',
+      'When a function is called as a method of an object, this refers to the object to the left of the dot ..',
+      'Object.method()',
+      'The object before the dot',
       `code::
-      let name = "John";   // String primitive
-      let age = 30;        // Number primitive
-      `,
-      'Both name and age are stored directly in the stack.',
-      'h:: Heap Memory',
-      'Used for reference data types like objects, arrays, and functions.',
-      'Memory is allocated in a larger, unordered memory pool.',
-      'Slower access compared to stack.',
+          const person = {
+            name: "Alice",
+            greet() {
+              console.log("Hello, " + this.name);
+            }
+          };
+          
+          person.greet();  // Hello, Alice
+    `,
+      'h:: EXPLICIT:',
+      'Explicit binding refers to the process of explicitly setting the value of this for a function. This can be done by using the call, bind, or apply methods provided by JavaScript.',
+      'Using call, apply, or bind',
+      'The object you explicitly pass',
       `code::
-      let person = {
-        name: "John",
-        age: 30
-      };
-      
-      let numbers = [1, 2, 3, 4, 5];
+          function greet() {
+            console.log("Hi, " + this.name);
+          }
+          
+          const user = { name: "Bob" };
+          
+          greet.call(user);  // Hi, Bob      
+          
       `,
-      'The person object and numbers array are stored in the heap.',
-      'The variable person itself holds only a reference (address/pointer) in the stack that points to the actual object in the heap.',
+      "Arrow functions do not have their own this — they inherit it from the surrounding scope (lexical binding). So they're not suitable for implicit/explicit binding patterns.",
+    ],
+  },
+  {
+    topic: 'DEBOUNCING AND THROTTLING',
+    points: [
+      'Both debounce and throttle are techniques to control how often a function executes, especially during frequent events like scroll, resize, or typing — but they behave differently.',
+      'h:: Debouncing:',
+      'Debouncing is a technique used to limit how often a function is executed, especially in response to frequently triggered events like: resize events, scroll events, scroll events',
+      'It ensures that the function runs only after a specified delay once the event has stopped firing.',
+      'Real-World Analogy:',
+      'Without debouncing: an API call is made on every keystroke of search something | With debouncing: API call happens only after you pause typing',
+
       'hr::',
-      'h:: NEED REFER FOR MORE CONTENT (Garbage Collection, Memory Leaks)',
+      'Limit high-frequency function calls. Runs after the last event stops. Search box, resize, auto-save input are the real world scenarios',
+      'h:: Throttling:',
+      'At regular intervals while events are firing',
+      'Scroll position, resize window, mouse movement',
+    ],
+  },
+  {
+    topic: 'RECURSION', points: [
+      'Recursion is a technique where a function calls itself to solve smaller instances of the same problem.',
+      'It’s used to divide complex problems into simpler ones, and each recursive call should bring the problem closer to a base case (a condition to stop recursion).',
+      'h::  Two Key Parts of Recursion:',
+      'Base Case – the stopping condition.',
+      'Recursive Case – where the function calls itself.',
+      `code::
+        function factorial(n: number): number {
+          if (n === 0) return 1;          // Base case
+          return n * factorial(n - 1);    // Recursive case
+        }
+        
+        console.log(factorial(5)); // Output: 120    
+    `
+    ]
+  },
+  {
+    topic: 'POLYFILLS',
+    points: [
+      'A polyfill is code that emulates a missing feature in older browsers, allowing developers to use modern JavaScript features while maintaining backward compatibility.',
+      `code::
+          if (!Array.prototype.includes) {
+            Array.prototype.includes = function(value) {
+              return this.indexOf(value) !== -1;
+            };
+          }
+      `
+    ],
+  },
+  {
+    topic: 'PROTOTYPE',
+    points: [
+      'The prototype in JavaScript enables objects to inherit methods and properties from other objects, forming a prototype chain used for efficient memory usage and shared behavior.'
+    ],
+  },
+  {
+    topic: 'PROTOTYPAL AND CLASSICAL INHERITANCE',
+    points: [
+      'h::  Classical Inheritance:',
+      'Classical inheritance is the object-oriented inheritance model used in languages like Java, C++, where classes define blueprints, and objects are created as instances of these classes.',
+      'h:: Prototypal Inheritance:',
+      'Prototypal inheritance is a JavaScript-specific model where objects inherit directly from other objects using the prototype chain.'
     ],
   },
   {
@@ -697,97 +921,18 @@ const javascript = [
   },
   {
     topic: 'SYNCHRONOUS VS ASYNCHRONOUS',
-    points: ['javascript is a sync programming language in nature', ``],
-  },
-  {
-    topic: 'JAVASCRIPT EXECUTION ENGINE',
     points: [
-      'all stack, browser, call back queue, event loop, data structure',
-      'async methods (setTimeout, addEventListener)',
-      "even though the setTimeout is 0, that won't call right immediately that will wait in BROWSER and CALL BACK QUEUE untill the global items to complete in CALL STACK",
-      'hr::',
-      'The JavaScript Execution Engine is the program that reads, interprets, and executes JavaScript code.',
-      'It turns your human-readable JavaScript code into machine code that the computer can actually run.',
-      'It handles everything — parsing, compiling, optimizing, executing.',
-      'h:: The most famous JavaScript engine is:',
-      'V8 (used by Chrome and Node.js)',
-      'SpiderMonkey (Firefox)',
-      'JavaScriptCore (Safari)',
-      'Chakra (Old Edge)',
-      'hr::',
-      'h:: Main Components Inside a JavaScript Engine',
-      'Memory Heap - Allocates memory for objects and variables (dynamic memory)',
-      'Call Stack - Tracks function calls (where in the code we are)',
-      'Interpreter - Quickly reads and executes code line-by-line (initially)',
-      'Compiler (JIT) - Converts JS code into optimized machine code (for better speed)',
-      "Garbage Collector - Frees up memory that's no longer used",
-      'hr::',
-      'h:: NEED REFER FOR MORE CONTENT',
+      'javascript is a sync programming language in nature',
+      'h:: Synchronous:',
+      'In synchronous code, tasks are executed one after another, in a blocking manner.',
+      'Each line of code waits for the previous line to finish before it runs.',
+      'Everything runs in order, blocking the next until done.',
+      'h:: Asynchronous:',
+      'In asynchronous code, tasks can be executed non-blocking, often using callbacks, Promises, or async/await.',
+      'JavaScript doesn’t wait for a task to finish and continues executing the next line.',
+      'The setTimeout runs after the rest of the code, even though it’s written earlier.'
     ],
   },
-  {
-    topic: 'MUTABILITY and IMMUTABILITY and its benifits?',
-    points: [
-      'h:: MUTABILITY',
-      "An object is mutable if it can be changed after it's created.",
-      'EXAMPLES: Objects, Arrays, Functions',
-      "Data can be changed after it's created",
-      `code::
-          let user = { name: "Alice" };
-          user.name = "Bob";  // Original object is modified      
-      `,
-      'h:: IMMUTABILITY:',
-      'It means you cannot change the original value. If you perform an operation on a primitive, it creates a new value instead of modifying the original one.',
-
-      'EXAMPLES:  String, Number, Boolean, Null, Undefined, Symbol, BigInt',
-      `code::
-        let a = 10;
-        let b = a;     // b gets a *copy* of a
-        b = 20;
-        
-        console.log(a); // 10
-        console.log(b); // 20
-      
-      `,
-      'An object is immutable if it cannot be changed after it is created. Instead, a new copy is made with the change.',
-      'Use spread (...) to copy arrays/objects',
-      'Use Object.freeze(obj) to shallow-freeze an object',
-      `code::
-        const person = { name: 'Alice' };
-        const updatedPerson = { ...person, name: 'Bob' }; // Create a new object
-        console.log(person);        // { name: 'Alice' }
-        console.log(updatedPerson); // { name: 'Bob' }
-    `,
-    ],
-  },
-  {
-    topic: 'FUNCTION',
-    points: [
-      'regular function',
-      'function expression',
-      'arrow function',
-      'anonymous fuction',
-      'self invoking function or immediately invoked function(IIFE)',
-      'hr::',
-      'h:: Arrow Function',
-      'arrow functions are not hiosted',
-      '"this" keyword in the arrow function is binded to the previous value of "this"',
-      'the value of "this" inside an arrow function is basically what its value would\'ve been outside the arrow function',
-    ],
-  },
-  {
-    topic: 'HIGHER ORDER FUNCTION - MAP, FILTER, REDUCE ETC...',
-    points: [],
-  },
-  {
-    topic: 'PURE FUNCTION AND IMPURE FUNCTION',
-    points: [],
-  },
-  {
-    topic: 'GENERATOR FUNCTION',
-    points: [],
-  },
-  { topic: 'FUNCTION COMPOSITION', points: [] },
   {
     topic: 'CALLBACK FUNCTION',
     points: [
@@ -1042,6 +1187,28 @@ const javascript = [
     ],
   },
   {
+    topic: 'EVENT BUBBLING AND CAPTURING - DOM Event Flow ',
+    points: [
+      'Event capturing goes from the root down to the target, while event bubbling starts at the target and bubbles up — and bubbling is the default in most browsers.',
+      'h:: Event Bubbling:',
+      'Event bubbling is the process where an event triggered on a child element propagates upward through its ancestors — from the target element up to the document.',
+      'It is the default event propagation mechanism in the DOM.',
+      '“In event bubbling, the event moves from the target element upward through the DOM tree. It’s the default behavior in JavaScript and is commonly used for event delegation to reduce the number of event listeners.”',
+      'EVENT DELEGATION uses bubbling to listen to many child events with one parent listener.',
+      'h:: Event Capturing:',
+      'Event capturing is the phase in DOM event propagation where an event travels from the root (document) down to the target element — basically the opposite of event bubbling.',
+      'It happens before the event reaches the target and before bubbling starts.',
+      '"Event capturing happens before the event reaches the target, traveling top-down from the root to the target element. It’s not the default behavior — you enable it by passing true as the third parameter in addEventListener."',
+      'To intercept or handle events early before they reach children.',
+      'Useful in complex UI frameworks or when you want to catch events before bubbling.',
+      'h:: How to Enable Capturing?',
+      'You pass a third argument as true in addEventListener:',
+      `code::
+        element.addEventListener(eventType, callback, true);
+      `
+    ],
+  },
+  {
     topic: ' EVENT DELEGATION',
     points: [
       'Instead of attaching event listeners to each child element individually, attach it to the parent element and use event bubbling.',
@@ -1050,86 +1217,27 @@ const javascript = [
       'h:: NEED REFER FOR MORE CONTENT',
     ],
   },
-  { topic: 'EVENT PHASES', points: [] },
   {
-    topic: 'CALL, APPLY, BIND (Method Borrowing)',
+    topic: 'EVENT PHASES', points: [
+      'In the DOM event model, when an event occurs (like a click), it goes through three distinct phases:',
+      'h:: Three Phases of Event Flow',
+      'h:: 1. Capturing Phase (Event Capturing / Trickling):',
+      'The event starts at the window/document level and moves down the DOM tree toward the target element.',
+      'This phase allows interception before the event reaches the target.',
+      'h:: 2. Target Phase:',
+      'The event reaches the actual element that was clicked (or triggered the event).',
+      'Event handlers registered on the target are executed here, regardless of capture or bubble.',
+      '3. Bubbling Phase:',
+      'After reaching the target, the event bubbles up from the target element to its ancestors, up to the document.',
+      'This is the default phase for most events in JavaScript.'
+    ]
+  },
+  {
+    topic: 'YIELD - KEYWORD',
     points: [
-      'h:: call()',
-      'Use call when you want to invoke a function with a custom this and pass arguments directly.',
-      'this keyword will work independently on function call and use to tie a function to an object',
-      'custom this property can be created',
-      'h:: apply()',
-      'apply() was designed for situations where your arguments are already in an array or array-like object (like arguments, NodeList, etc.).',
-      'h:: bind()',
-      'Use bind when you want to store a function with a fixed this to be called later (e.g., in event listeners, callbacks).',
-      'Method borrowing: bind allows you to borrow methods from one object and apply them to another object, even if they were not originally designed to work with that object.',
-      'hr::',
-      'Method borrowing is when one object uses a method that belongs to another object, typically by using the call(), apply(), or bind() methods to explicitly set this.',
-    ],
+      'The yield keyword in JavaScript is used to pause and resume a generator function asynchronously. A generator function works similarly to a normal function, but instead of returning values with return, it uses yield.'
+    ]
   },
-  {
-    topic: 'EVENT BUBBLING AND CAPTURING - DOM Event Flow ',
-    points: [],
-  },
-  {
-    topic: 'DEBOUNCING AND THROTTLING',
-    points: [
-      'Both debounce and throttle are techniques to control how often a function executes, especially during frequent events like scroll, resize, or typing — but they behave differently.',
-      'h:: Debouncing:',
-      'Debouncing is a technique used to limit how often a function is executed, especially in response to frequently triggered events like: resize events, scroll events, scroll events',
-      'It ensures that the function runs only after a specified delay once the event has stopped firing.',
-      'Real-World Analogy:',
-      'Without debouncing: an API call is made on every keystroke of search something | With debouncing: API call happens only after you pause typing',
-
-      'hr::',
-      'Limit high-frequency function calls. Runs after the last event stops. Search box, resize, auto-save input are the real world scenarios',
-      'h:: Throttling:',
-      'At regular intervals while events are firing',
-      'Scroll position, resize window, mouse movement',
-    ],
-  },
-  {
-    topic: 'POLYFILLS',
-    points: [],
-  },
-
-  {
-    topic: 'CURRYING',
-    points: [
-      'currying is a function that takes one argument at a time and returns a new function and expecting the next argument',
-      'Currying in JavaScript is a technique of transforming a function with multiple arguments into a sequence of functions, each taking a single argument.',
-      'curried functions are constructed by chaining, closures by immediately returned their inner function simultaneously.',
-      'infinite currying - sum(1)(1)(2)...(n)',
-    ],
-  },
-  {
-    topic: 'PARTIAL APPLICATION (which is closely related to currying)',
-    points: [],
-  },
-  {
-    topic: 'CHAINING VS CURRYING',
-    points: [
-      'h:: Definition',
-      'CURRYING: Transforms a function so it takes one argument at a time',
-      'CHAINING: Calls multiple methods on the same object in sequence',
-      'h:: Syntax',
-      'CURRYING: f(a)(b)(c)',
-      'CHAINING: obj.method1().method2().method3()',
-      'h:: Return Value',
-      'CURRYING: Each function returns another function (until final call)',
-      'CHAINING: Each method returns the object (this) for chaining',
-      'h:: Purpose',
-      'CURRYING: Function decomposition and partial application',
-      'CHAINING: Fluent interface and readable method sequences',
-      'h:: Used With',
-      'CURRYING: Pure functions',
-      'CHAINING: Objects or classes with methods',
-      'h:: Example Use Case',
-      'CURRYING: Functional programming, React props',
-      'CHAINING: jQuery, Lodash, class-based utilities',
-    ],
-  },
-
   {
     topic: 'NEW - KEYWORD',
     points: [
@@ -1156,54 +1264,386 @@ const javascript = [
       'if "this" in inside of a function is null or undefined, javascript will move that to global object',
     ],
   },
-  { topic: 'SET - KEYWORD', points: [] },
+  {
+    topic: 'SET - KEYWORD', points: [
+      'The Set is a built-in JavaScript object that stores unique values of any type, whether primitive or object references. Unlike arrays, a Set automatically removes duplicates and only keeps one instance of each value.',
+      'h:: Key Points about Set:',
+      'It only stores unique elements.',
+      'Elements in a Set are ordered by insertion order.',
+      'It allows fast lookup, addition, and deletion of values.',
+      'You can iterate over the values in insertion order.',
+      'Values can be of any type — primitives or objects.',
+      '"A Set is a collection of unique values that preserves insertion order and provides efficient operations for adding, deleting, and checking existence of items. It’s useful when you want to avoid duplicates without manually filtering."',
+      `code::
+        const mySet = new Set();
+
+        mySet.add(1);
+        mySet.add(5);
+        mySet.add(1);  // Duplicate, ignored
+        
+        console.log(mySet); // Set { 1, 5 }
+        
+        console.log(mySet.has(5)); // true
+        
+        mySet.delete(1);
+        
+        console.log(mySet.size); // 1    
+    `
+    ]
+  },
   {
     topic: 'MAP - KEYWORD or MAP OBJECT',
     points: [
       ' A Map is a built-in JavaScript object that stores key-value pairs and remembers the original insertion order of the keys.',
+      '"Map is a collection of key-value pairs with keys of any type. It maintains insertion order and provides convenient methods for managing data, making it more flexible than plain objects for certain use cases."',
+      `code::
+          const myMap = new Map();
+
+          myMap.set('name', 'Ajith');
+          myMap.set(1, 'one');
+          myMap.set(true, 'boolean key');
+          myMap.set({ id: 5 }, 'object key');
+          
+          console.log(myMap.get('name'));   // Ajith
+          console.log(myMap.get(1));        // one
+          console.log(myMap.has(true));     // true
+          
+          console.log(myMap.size);          // 4
+          
+          myMap.delete(1);
+          console.log(myMap.has(1));        // false      
+      `,
+      'h:: Key Features of Map:',
+      'Keys can be any type, including objects and functions.',
+      'Maintains insertion order when iterating.',
+      'Has a .size property to get the number of entries.',
+      'Provides easy methods like .set(), .get(), .has(), .delete(), and .clear().',
+      'Different from plain objects which only allow string or symbol keys.'
     ],
+
   },
-  { topic: 'WEAKMAP AND WEAKSET', points: [] },
-  { topic: 'MEMOIZATION AND CACHING', points: [] },
-  { topic: 'DEEP COPY VS SHALLOW COPY', points: [] },
-  { topic: 'WEB WORKER', points: [] },
-  { topic: 'SERVICE WORKER', points: [] },
   {
-    topic: 'IMPLICIT TYPE COERCIEON',
+    topic: 'WEAKMAP AND WEAKSET', points: [
+      'h:: WeakMap:',
+      'A WeakMap is a special kind of Map where keys must be objects, and the references to those keys are "weak", meaning they don’t prevent garbage collection.',
+      `code::
+        const weakMap = new WeakMap();
+        const obj = { name: 'Ajith' };
+        
+        weakMap.set(obj, 'some value');
+        console.log(weakMap.get(obj)); // 'some value'    
+    `,
+      'h::  Key Features of WeakMap:',
+      'Keys must be objects (not primitives).',
+      'Values can be anything.',
+      'Entries are not enumerable (you can’t loop over them).',
+      'Keys are garbage collected when no other reference exists.',
+      'Useful for private data storage in classes.',
+      `code:: 
+        const user = { id: 1 };
+        const metaData = new WeakMap();
+        
+        metaData.set(user, { loggedIn: true });
+        // if user is set to null, the metadata is garbage collected    
+    `,
+      'h:: WeakSet:',
+      'A Set of Weakly Held Objects',
+      'A WeakSet is similar to Set, but it can only store objects, and those object references are also weak (subject to garbage collection).',
+      `code::
+        const weakSet = new WeakSet();
+        const obj = { id: 101 };
+
+        weakSet.add(obj);
+        console.log(weakSet.has(obj)); // true
+    `,
+      'h:: Key Features of WeakSet:',
+      'Only objects can be stored (no primitives).',
+      'No size property, and not iterable.',
+      'Objects in a WeakSet are garbage collected if there are no other references.',
+      'Ideal for tracking object presence without memory leaks.'
+    ]
+  },
+  {
+    topic: 'MEMORY ALLOCATION',
     points: [
-      'Type coercion refers to the automatic conversion of values from one data type to another, typically performed during operations or comparisons involving different data types. By using Type Coercion, JavaScript attempts to make the data types compatible to complete the operation or comparison.',
+      'Primitive data types are string, number, bigint, boolean, undefined, symbol, null',
+      'reference data types are array, functions, all objects (math, date, etc',
+      'hr::',
+      'Memory allocation refers to the process by which JavaScript sets aside (reserves) a portion of the computer’s memory for storing data — like variables, objects, functions, etc.',
+      'Whenever you create a variable, object, or function, JavaScript automatically allocates memory for it behind the scenes. Later, when that data is no longer needed, JavaScript tries to "free up (deallocate)" that memory to avoid memory leaks — this process is handled by "Garbage Collection".',
+      'h:: Types of Memory Allocation in JavaScript',
+      'In JavaScript, memory can be categorized into two main types:',
+      'Stack Memory - Primitives (number, string, boolean, undefined, null, symbol, bigint)',
+      'Heap Memory - Objects, arrays, functions',
+      'hr::',
+      'h:: 1. Stack Memory:',
+      'Used for primitive data types (simple and small data).',
+      'Memory is allocated in a Last In, First Out (LIFO) order.',
+      'Very fast access.',
+      `code::
+      let name = "John";   // String primitive
+      let age = 30;        // Number primitive
+      `,
+      'Both name and age are stored directly in the stack.',
+      'h:: Heap Memory',
+      'Used for reference data types like objects, arrays, and functions.',
+      'Memory is allocated in a larger, unordered memory pool.',
+      'Slower access compared to stack.',
+      `code::
+      let person = {
+        name: "John",
+        age: 30
+      };
+      
+      let numbers = [1, 2, 3, 4, 5];
+      `,
+      'The person object and numbers array are stored in the heap.',
+      'The variable person itself holds only a reference (address/pointer) in the stack that points to the actual object in the heap.',
+      'hr::',
+      'h:: NEED REFER FOR MORE CONTENT (Garbage Collection, Memory Leaks)',
     ],
   },
+  {
+    topic: 'MEMOIZATION AND CACHING', points: [
+      'h:: Memoization:',
+      'Memoization is an optimization technique where you store the results of expensive function calls so that when the same inputs occur again, you return the stored result immediately instead of recomputing.',
+      'Typically used for pure functions (same inputs always produce the same output).',
+      'Usually done in-memory and scoped locally to a function.',
+      'h:: Caching:',
+      'Caching is a broader concept of storing any kind of data (not just function results) so it can be reused later to avoid repeating expensive operations like API calls, database queries, or file reads.',
+      'Can be implemented at multiple layers — in-memory, browser storage, server caches, CDN caches, etc.',
+      'May involve expiration policies, size limits, and invalidation strategies.'
+    ]
+  },
+  {
+    topic: 'DEEP COPY VS SHALLOW COPY',
+    points: [
+      'h:: Deep Copy:',
+      'A deep copy creates a new object with entirely new references, recursively copying all nested levels of the original data. Changes to the deep-copied object do not affect the original.',
+      '"A deep copy duplicates an object and all of its nested structures by value, ensuring no shared references. Unlike shallow copy, it maintains complete separation from the original object."',
+      `code::
+      // Deep copy
+        const deep = JSON.parse(JSON.stringify(original));
+        deep.address.city = "Mumbai";
+
+        console.log(original.address.city); // ✅ Chennai (unchanged)
+      `,
+      'we can also use "structuredClone" also for deep copy',
+      'h:: Shallow Copy:',
+      'A shallow copy means copying an object’s top-level properties into a new object, but nested objects are still referenced, not duplicated.',
+      'Changes to nested properties in the copied object will affect the original, because they share the same memory reference.',
+      `code::
+      const original = {
+        name: "Ajith",
+        address: { city: "Chennai" }
+      };
+      
+      // Create a shallow copy
+      const copy = { ...original };
+      
+      // Modify the copy
+      copy.address.city = "Bangalore";
+      
+      console.log(original.address.city); // ❌ 'Bangalore' (also changed!)      
+      `,
+      'h:: How to Create a Shallow Copy:',
+      '✅ Using Spread Syntax (...)',
+      `code::
+      const shallow = { ...original };
+      const arrShallow = [...array];      
+      `,
+      '✅ Using Object.assign()',
+      `code::
+      const shallow = Object.assign({}, original);
+      `,
+      '✅ Using Array Methods (for arrays)',
+      `code::
+      const arr = [1, 2, [3, 4]];
+      const shallowArr = arr.slice(); // or [...arr]
+      
+      `,
+      'h:: ⚠️ Important:',
+      'Shallow copy does not clone nested objects or arrays.',
+      `code::
+      const a = { x: { y: 1 } };
+      const b = { ...a };
+      b.x.y = 99;
+      console.log(a.x.y); // ❌ 99 (original modified)
+      
+      `,
+      '“A shallow copy duplicates the outer structure of an object or array, but keeps references to inner objects. It’s fast, but not safe for deeply nested structures when isolation is needed.”',
+      'hr::',
+      'h:: Shallow Copy vs Deep Copy:',
+      'h:: Shallow Copy: ',
+      'LEVEL OF COPY: Only first level',
+      'NESTED OBJECTS: Same reference (shared)',
+      'CHANGES IN COPY AFFECT ORIGINAL: ✅ Yes (for nested objects)',
+      'PERFORMANCE: ✅ Fast',
+      'USE CASE: When object is flat/simple',
+      'h:: DEEP Copy:',
+      'LEVEL OF COPY: Full recursive copy of all nested levels',
+      'NESTED OBJECTS: Completely new references',
+      'CHANGES IN COPY AFFECT ORIGINAL: ❌ No',
+      'PERFORMANCE: ⚠️ Slower (depends on depth/complexity)',
+      'USE CASE: When isolation is needed (e.g., Redux state)'
+    ]
+  },
+  {
+    topic: 'JAVASCRIPT RUNS',
+    points: [
+      'browser, inside browser js engine is there, inside js engine call stack is there',
+      'similarly browser have web apis but web apis are not part of javascript',
+      'browser provides web api access to call stack in js engine',
+    ],
+  },
+  {
+    topic: 'JAVASCRIPT RUNTIME',
+    points: [
+      'Call Stack',
+      'Memory Heap',
+      'Event Loop',
+      'Web APIs',
+      'Task Queue',
+      'Micro Task',
+      'Callback Queue',
+    ],
+  },
+  {
+    topic: 'JAVASCRIPT EXECUTION ENGINE',
+    points: [
+      'all stack, browser, call back queue, event loop, data structure',
+      'async methods (setTimeout, addEventListener)',
+      "even though the setTimeout is 0, that won't call right immediately that will wait in BROWSER and CALL BACK QUEUE untill the global items to complete in CALL STACK",
+      'hr::',
+      'The JavaScript Execution Engine is the program that reads, interprets, and executes JavaScript code.',
+      'It turns your human-readable JavaScript code into machine code that the computer can actually run.',
+      'It handles everything — parsing, compiling, optimizing, executing.',
+      'h:: The most famous JavaScript engine is:',
+      'V8 (used by Chrome and Node.js)',
+      'SpiderMonkey (Firefox)',
+      'JavaScriptCore (Safari)',
+      'Chakra (Old Edge)',
+      'hr::',
+      'h:: Main Components Inside a JavaScript Engine',
+      'Memory Heap - Allocates memory for objects and variables (dynamic memory)',
+      'Call Stack - Tracks function calls (where in the code we are)',
+      'Interpreter - Quickly reads and executes code line-by-line (initially)',
+      'Compiler (JIT) - Converts JS code into optimized machine code (for better speed)',
+      "Garbage Collector - Frees up memory that's no longer used",
+      'hr::',
+      'h:: NEED REFER FOR MORE CONTENT',
+    ],
+  },
+
+
   {
     topic: 'STRICT MODE',
     points: [
       'In JavaScript, every function has its own this context, which refers to the object that the function is bound to. By default, this refers to the global object in non-strict mode and undefined in strict mode. However, the value of this can be changed by using different binding methods.',
     ],
   },
-  { topic: 'ERROR HANDLING', points: [] },
-  { topic: 'RECURSION', points: [] },
-  { topic: 'ABORT CONTROLLER', points: [] },
-  { topic: 'ITERATORS AND GENERATORS', points: [] },
   {
-    topic: 'D/B FUNCTION DECLARATION AND FUNCTION EXPRESSION',
+    topic: 'ERROR HANDLING',
     points: [
-      'Function declarations are defined using the function keyword, while function expressions are defined by assigning a function to a variable. Function declarations are hoisted, while function expressions are not.',
-    ],
+      "JavaScript handles exceptions using try...catch for synchronous code, and .catch() or try...catch with async/await for asynchronous flows. You can also throw custom errors and set global handlers for broader coverage.",
+      'JavaScript provides structured ways to catch, handle, and recover from runtime errors without crashing the entire program.',
+      'h:: 🔥 1. try...catch',
+      'Used to wrap code that might throw an error, and to handle it gracefully.',
+      `code::
+          try {
+            // Code that may throw an error
+            let result = riskyFunction();
+            console.log(result);
+          } catch (error) {
+            // Error handling
+            console.error("Something went wrong:", error.message);
+          }      
+      `,
+      'try block: runs the code',
+      'catch block: handles any thrown error',
+      'Works only for runtime errors, not syntax errors',
+      'h:: 🔁 2. try...catch...finally',
+      'Use finally for cleanup code (runs whether an error occurred or not).',
+      `code::
+      try {
+        // risky code
+      } catch (error) {
+        console.error("Error:", error.message);
+      } finally {
+        console.log("Cleanup tasks done.");
+      }
+      
+      `,
+      'h:: 📌 3. Custom Errors using throw',
+      'Manually throw an error to signal something went wrong.',
+      `code::
+      function divide(a, b) {
+        if (b === 0) {
+          throw new Error("Cannot divide by zero");
+        }
+        return a / b;
+      }      
+      `,
+      'h:: 🧨 Throw Custom Error Types:',
+      `code::
+      const err = new Error("User not found");
+      err.name = "NotFoundError";
+      throw err;
+      
+      `,
+      'h:: ✅ 4. Handling Async Errors with try...catch in async/await',
+      `code::
+      async function getData() {
+        try {
+          const res = await fetch("https://api.example.com/data");
+          const data = await res.json();
+          console.log(data);
+        } catch (error) {
+          console.error("Failed to fetch:", error.message);
+        }
+      }
+      
+      `,
+      'h:: 📦 5. .then().catch() for Promises',
+      `code::
+      fetch("https://api.example.com/data")
+      .then(res => res.json())
+      .then(data => console.log(data))
+      .catch(err => console.error("Fetch failed:", err));
+    
+      `,
+      '"JavaScript handles errors using try...catch, custom throw statements, and .catch() in Promises. try...catch helps trap runtime errors, finally ensures cleanup, and async/await works seamlessly with error handling using try...catch too."',
+
+    ]
+  },
+  {
+    topic: 'ABORT CONTROLLER',
+    points: ['AbortController is an interface that allows you to cancel asynchronous operations like fetch requests, timers, or any promise-based tasks. ',
+      'We create an AbortController instance which provides:',
+      'An abort() method to cancel operations',
+      'A signal property (an AbortSignal) that gets passed to cancelable APIs',
+      'Cancelling fetch requests to avoid unnecessary network traffic',
+      'Cancelling multiple requests simultaneously',
+      'Implementing request timeouts',
+      'Once aborted, the same controller can\'t be reused'
+    ]
   },
   {
     topic: 'PROXIES',
-    points: [],
+    points: [
+      'A Proxy is an ES6 feature that allows you to create a wrapper around an object or function to intercept and customize fundamental operations like property lookup, assignment, enumeration, function invocation, etc.',
+    ],
   },
   {
-    topic: 'PROTOTYPE',
-    points: [],
+    topic: 'exec () and test () methods',
+    points: [
+      'These are two important methods available on JavaScript RegExp objects that serve different purposes when working with regular expressions.',
+      'h:: test() Method:',
+      'The test() method executes a search for a match between a regular expression and a specified string. It returns true or false.',
+      'h:: exec() Method:',
+      'The exec() method executes a search for a match in a specified string. It returns the result array or null.'
+    ]
   },
-  {
-    topic: 'PROTOTYPAL AND CLASSICAL INHERITANCE',
-    points: [],
-  },
-  { topic: 'TEMPORAL DEAD ZONE', points: [] },
-  { topic: 'exec () and test () methods', points: [] },
   {
     topic: 'template literals (back ticks)',
     points: ['`${}`'],
@@ -1315,60 +1755,145 @@ const javascript = [
     topic: 'what is the clean up function?',
     points: [],
   },
-  {
-    topic: 'what is service worker?',
-    points: [],
-  },
-  {
-    topic: 'what is web worker?',
-    points: [],
-  },
+  { topic: 'what is 1e9', points: [] },
   {
     topic: 'what is kernel?',
-    points: [],
-  },
-  {
-    topic: 'what is queue and its types?',
     points: [
-      'callback queue or macro task queue  or task queue(browser internal tasks)',
-      'micro task queue (tasks happening outside of the browser)',
+      '“A kernel is the core of the operating system that manages system resources like CPU, memory, and I/O devices. It enables communication between hardware and software through system calls. For example, when a program reads a file, it doesn’t interact with the hard drive directly—it asks the kernel to do it on its behalf.”'
     ],
   },
   {
-    topic: 'what is callback queue or macro task queue  or task queue?',
-    points: [],
+    topic: 'EVENT LOOP',
+    points: [
+      'The event loop is the core mechanism in JavaScript that handles asynchronous operations and allows non-blocking behavior despite being single-threaded.',
+      'The event loop is a continuously running process that checks the call stack and task queues, and moves tasks from the queues to the stack when the stack is empty.',
+      '“The event loop is the mechanism in JavaScript that manages execution order between synchronous and asynchronous code. It processes microtasks first, then macro tasks, and keeps the app responsive even with async operations.”',
+      'h:: 🧠 Why It\'s Important:',
+      'JavaScript is single-threaded, so the event loop ensures that:',
+      'Synchronous code runs first.',
+      'Asynchronous tasks (like setTimeout, Promises, I/O) are handled without blocking the main thread.',
+      'h:: 🔁 Event Loop Flow:',
+      'Execute all synchronous code (Call Stack)',
+      'Process all microtasks (e.g., Promise.then)',
+      'Take the next macro task (e.g., setTimeout) and put it on the stack',
+      'Repeat',
+      'h:: Event Loop Components:',
+      'there are 3 main components in event loop',
+      '"Call Stack": Executes code (sync and async when ready)',
+      '"Microtask Queue:" Handles high-priority async (e.g. Promises)',
+      '"Macro Task Queue": Handles lower-priority async (e.g. timers)',
+      'h:: Example:',
+      `code::
+        console.log("Start");
+
+        setTimeout(() => {
+          console.log("Timeout");
+        }, 0);
+        
+        Promise.resolve().then(() => {
+          console.log("Promise");
+        });
+        
+        console.log("End");     
+        
+        
+        Output:
+
+        Start
+        End
+        Promise
+        Timeout
+
+      `,
+      'h:: 📌 Why?:',
+      'setTimeout goes to the macro task queue',
+      '.then() goes to the microtask queue',
+      'Microtasks are processed before macro tasks'
+    ]
   },
   {
-    topic: 'what is execution context?',
-    points: ['2 main phases', 'creation phase', 'execution phase'],
+    topic: 'WHAT IS CALL STACK?',
+    points: [
+      'The call stack is a fundamental part of the JavaScript engine. It keeps track of function calls — what function is currently being executed and what functions should run next.',
+      'The call stack is a stack data structure (LIFO — Last In, First Out) that records function invocations during execution.',
+      'How It Works: When a function is called, it is pushed onto the stack. When a function is called, it is pushed onto the stack. The top of the stack is the currently running function.',
+      '“The call stack in JavaScript is a LIFO structure that tracks function calls. When a function is invoked, it\'s added to the stack, and removed once it finishes. It\'s essential for managing synchronous execution in JavaScript.”'
+    ],
   },
   {
-    topic: 'what is call stack?',
-    points: [],
+    topic: 'WHAT IS QUEUE AND ITS TYPE?',
+    points: [
+      'callback queue or macro task queue  or task queue(browser internal tasks)',
+      'micro task queue (tasks happening outside of the browser)',
+      'A queue is a fundamental data structure that follows the FIFO (First In, First Out) principle.',
+      'A queue is a linear data structure where the first element added is the first one to be removed.',
+      '“A queue is a FIFO data structure where elements are added to the end and removed from the front. In JavaScript, queues play a crucial role in asynchronous programming, especially in the event loop\'s task handling.”',
+      'Queues are used in: Event loop for macro and micro task queues. Asynchronous task scheduling. Message/event handling in web workers'
+    ],
   },
   {
-    topic: 'what is event listener registry?',
-    points: ['its a part of web api environment'],
+    topic: 'WHAT IS MACRO TASK QUEUE  OR TASK QUEUE OR CALLBACK QUEUE?',
+    points: [
+      'In JavaScript’s event loop model, the macro task queue (also known as the task queue or callback queue) is a queue where callback functions of asynchronous tasks (like setTimeout, setInterval, I/O, etc.) are placed to be executed after the current execution stack is empty.',
+      'The macro task queue stores tasks that are scheduled to run after the current script and all microtasks have completed.',
+      '“The macro task queue in JavaScript holds scheduled tasks like setTimeout, setInterval, and I/O. After executing the current code and all microtasks, the event loop picks a macro task from the queue. This helps JavaScript handle asynchronous behavior efficiently.”',
+      'Example: SetTimeout, setInterval, setImmediate() (Node.js), I/O operations (e.g. file read), UI rendering events'
+    ],
   },
   {
-    topic: 'what is task starvation?',
-    points: ['its a part of web api environment'],
+    topic: 'MICRO TASK QUEUE',
+    points: [
+      'all the call back functions which comes through promises will go inside the microtask queue',
+      'mutation observer',
+      'A microtask is a type of asynchronous task that is scheduled to run after the current synchronous code finishes but before any macro tasks (like setTimeout) are executed.',
+      'Microtasks are asynchronous callbacks that run immediately after the current execution stack and before the next macro task.',
+      '“Microtasks in JavaScript include promise callbacks and queueMicrotask(). They are executed immediately after the current stack clears and before the next macro task. This mechanism ensures high-priority asynchronous operations are handled promptly.”',
+      'example: Promises'
+    ],
+  },
+  {
+    topic: 'WHAT IS EXECUTION CONTEXT?',
+    points: [
+      '2 main phases', 'creation phase', 'execution phase',
+      'Execution Context is a foundational concept in JavaScript. It defines the environment in which code is evaluated and executed. Every time your code runs, it runs inside an execution context.',
+      'An Execution Context is the container where variables, functions, and the value of this are stored and managed during the execution of code.',
+
+    ],
+  },
+
+  {
+    topic: 'WHAT IS EVENT LISTENER REGISTRY?',
+    points: [
+      'its a part of web api environment',
+      '“The event listener registry is an internal data structure browsers use to track which elements are listening for which events. It ensures that the right callback functions are triggered during event propagation. This also plays a critical role in adding, removing, and optimizing event listeners.”',
+      'The Event Listener Registry is a system that stores references to all active event listeners (functions) associated with specific event types and elements in your JavaScript code.',
+
+    ],
+  },
+  {
+    topic: 'WHAT IS TASK STARVATION?',
+    points: ['its a part of web api environment',
+      '“In JavaScript, task starvation can occur if microtasks like Promises are endlessly queued, preventing the event loop from reaching other tasks like timers. Properly yielding control back to the loop using setTimeout or breaking tasks into smaller units can help avoid starvation.”',
+
+    ],
+  },
+  {
+    topic: 'WHAT IS GARBAGE COLLECTION?',
+    points: [
+      'Garbage Collection (GC) is the automatic memory management process in JavaScript. It frees up memory that is no longer reachable or needed by the program, helping to avoid memory leaks and improve performance.',
+      'JavaScript manages memory for you. When objects are created, memory is allocated. But when they\'re no longer needed, that memory must be released. Garbage collection does this automatically.',
+      '“Garbage collection in JavaScript automatically reclaims memory by detecting unreachable objects, primarily using the mark-and-sweep algorithm. This helps prevent memory leaks and ensures efficient memory usage without manual deallocation.”',
+
+    ]
   },
   {
     topic:
       'what is global execution context and how it related with call stack?',
     points: [''],
   },
+
   {
-    topic: 'javascript runs',
-    points: [
-      'browser, inside browser js engine is there, inside js engine call stack is there',
-      'similarly browser have web apis but web apis are not part of javascript',
-      'browser provides web api access to call stack in js engine',
-    ],
-  },
-  {
-    topic: 'web APIs',
+    topic: 'WEB APIs',
     points: [
       'web apis are not part of javascript. its browser provided feature',
       'main apis are timer api(settimeout), user interaction api(dom api), network api(fetch), storage api(local storage), logs api(console), location access api(geo location)',
@@ -1376,54 +1901,74 @@ const javascript = [
     ],
   },
   {
-    topic: 'fetch()',
+    topic: 'FETCH()',
     points: ['fetch always returns a promise'],
   },
   {
-    topic: 'micro task queue',
-    points: [
-      'all the call back functions which comes through promises will go inside the microtask queue',
-      'mutation observer',
+    topic: 'WEB WORKER',
+    points: ['A Web Worker is a feature in JavaScript that allows you to run scripts in a background thread, separate from the main execution thread of a web application. It is used to perform CPU-intensive tasks (like data processing or large calculations) without blocking the UI thread, helping keep the app responsive.',
+      'h:: Why Use Web Workers?',
+      'In JavaScript, everything normally runs on a single thread (the main thread). If you perform heavy operations, it can freeze the UI.',
+      'Web Workers help by offloading those operations to another thread.',
+      'h:: Key Characteristics',
+      'Runs in the background.',
+      'Cannot access the DOM directly.',
+      'Cannot access the DOM directly.',
+      'Has its own global scope (self instead of window).',
+      'Can import scripts using importScripts().',
+      '“Web Workers let us offload heavy operations like data parsing or computations to a background thread, which helps prevent the main UI thread from blocking, leading to smoother performance and better user experience.”',
+      'h:: ✅ Real-World Use Cases',
+      'Image processing (e.g., resizing, filters).',
+      'Parsing large JSON files.',
+      'Real-time data processing (e.g., charts, audio).',
+      'Complex mathematical calculations.',
+      'Compression or encryption.'
     ],
   },
   {
-    topic: 'implicit and explicit binding',
+    topic: 'SERVICE WORKER',
     points: [
-      'h:: IMPLICIT',
-      'When a function is called as a method of an object, this refers to the object to the left of the dot ..',
-      'Object.method()',
-      'The object before the dot',
-      `code::
-          const person = {
-            name: "Alice",
-            greet() {
-              console.log("Hello, " + this.name);
-            }
-          };
-          
-          person.greet();  // Hello, Alice
-    `,
-      'h:: EXPLICIT:',
-      'Explicit binding refers to the process of explicitly setting the value of this for a function. This can be done by using the call, bind, or apply methods provided by JavaScript.',
-      'Using call, apply, or bind',
-      'The object you explicitly pass',
-      `code::
-          function greet() {
-            console.log("Hi, " + this.name);
-          }
-          
-          const user = { name: "Bob" };
-          
-          greet.call(user);  // Hi, Bob      
-          
-      `,
-      "Arrow functions do not have their own this — they inherit it from the surrounding scope (lexical binding). So they're not suitable for implicit/explicit binding patterns.",
+      'A Service Worker is a special type of Web Worker that acts as a proxy between your web application and the network (or cache). It runs in the background, separate from the web page, and enables features like:',
+      'Offline support by caching resources.',
+      'Intercepting and handling network requests.',
+      'Push notifications.',
+      'Background sync (sync data when back online).',
+      'h:: Key Characteristics:',
+      'Runs independently of the web page (lives even if page is closed).',
+      'Works on HTTPS (secure context) only.',
+      'Uses event-driven lifecycle (install, activate, fetch).',
+      'Cannot access DOM directly.',
+      'h:: Basic Lifecycle Events:',
+      'install — Cache important files on install.',
+      'activate — Cleanup old caches.',
+      'fetch — Intercept network requests and respond from cache or fetch.',
+      'hr::',
+      '“Service Workers enable web apps to work offline, improve performance by caching, and allow background tasks. They have a well-defined lifecycle and intercept network requests to provide smarter responses.”'
     ],
   },
-
   {
     topic: 'why cookie is best way to store JWT rater than local storage?',
-    points: [],
+    points: [
+      '“Cookies are preferred for storing JWTs in authentication because they can be configured with HttpOnly, Secure, and SameSite flags, offering protection from XSS and CSRF. In contrast, localStorage exposes tokens to XSS and requires manual handling in every request.”',
+      '“localStorage exposes JWTs to XSS attacks, whereas HttpOnly cookies protect the token by making it inaccessible to JavaScript.”',
+      'h:: 🔐 1. Protection Against XSS (Cross-Site Scripting):',
+      '"localStorage is vulnerable to XSS attacks:" If an attacker injects JavaScript into your app, they can directly access localStorage and steal the token.',
+      '"Cookies can be secured with HttpOnly flag:" When you set the cookie with HttpOnly, JavaScript cannot access it — even if XSS is present.',
+      'h:: 🛡️ 2. Automatic Sending with Requests:',
+      'Cookies are automatically sent with every HTTP request to the server for the matching domain (unless SameSite=Strict).',
+      'This makes authentication seamless.',
+      'With localStorage, you must manually attach the JWT in headers like Authorization: Bearer <token>.',
+      'h:: 🔒 3. Better with Server-Side Security Controls:',
+      'Cookies allow use of:',
+      'Secure (only sent over HTTPS)',
+      'SameSite (prevent CSRF)',
+      'HttpOnly (prevent XSS)',
+      'These headers give granular control over token behavior, which localStorage lacks.',
+      'h:: ❗ But What About CSRF?:',
+      'Cookies are vulnerable to CSRF (Cross-Site Request Forgery).',
+      'But modern defenses like SameSite=Lax/Strict and anti-CSRF tokens help mitigate this risk.',
+      'localStorage is not vulnerable to CSRF, but is to XSS.'
+    ],
   },
 
   {
@@ -1448,7 +1993,202 @@ const javascript = [
     topic: 'INHERITANCE',
     points: ['parent class into the derived class is called inheritance'],
   },
+  {
+    topic: 'METHOD OVERRIDING',
+    points: [
+      'to overwrite/redefine the parent class method into the derived class as per the derived class requirement.',
+      'Method overriding happens when a subclass (child class) provides a specific implementation of a method that is already defined in its parent class (superclass). This new method in the subclass replaces the parent class method when called on an instance of the subclass.',
+      'In JavaScript, method overriding is used when we extend a class using class syntax (introduced in ES6).',
+      'hr::',
+      'h:: Key Points of Method Overriding:',
+      'Subclass redefines a method of the parent class.',
+      'The overridden method in the subclass has the same name and signature as the parent class method.',
+      'When the method is called on an instance of the subclass, the subclass’s method will be executed instead of the parent’s method.',
+      'Super keyword is used to call the parent class method from the subclass if needed.',
+      `code::
+      // Parent class
+      class Animal {
+        speak() {
+          console.log("Animal makes a sound");
+        }
+      }
+      
+      // Child class (overrides the method)
+      class Dog extends Animal {
+        speak() {
+          console.log("Woof! Woof!");
+        }
+      }
+      
+      const animal = new Animal();
+      const dog = new Dog();
+      
+      animal.speak(); // "Animal makes a sound"
+      dog.speak(); // "Woof! Woof!"
+      `,
+      'The speak() method is defined in both the Animal (parent) and Dog (child) classes.',
+      'When calling dog.speak(), the method from the Dog class is invoked, overriding the one from Animal.',
+      'h:: Example with super:',
+      'Sometimes, you might want to call the parent method inside the overridden method. This can be done using the super keyword.',
+      `code::
+        class Animal {
+          speak() {
+            console.log("Animal makes a sound");
+          }
+        }
+        
+        class Dog extends Animal {
+          speak() {
+            super.speak();  // Calling the parent method
+            console.log("Woof! Woof!");  // Child class method
+          }
+        }
+        
+        const dog = new Dog();
+        dog.speak(); 
+        // Output:
+        // "Animal makes a sound"
+        // "Woof! Woof!"
+      `,
+      'super.speak() calls the speak() method from the parent (Animal).',
+      'After that, the Dog’s speak() method is executed, so we see both outputs.',
+      'hr::',
+      'h:: Key Differences Between Method Overriding and Method Overloading:',
+      'Method Overloading (not supported directly in JavaScript):',
+      'In other languages (like Java or C++), overloading means having multiple methods with the same name but different parameters.',
+      'JavaScript does not support true method overloading, but you can simulate it by checking the number of arguments or types within the method.',
+      'Method Overriding:',
+      'Occurs in inheritance when a subclass method replaces the parent method.',
+    ],
+  },
+  {
+    topic: 'EXTENDS VS IMPLEMENTS',
+    points: [
+      'h:: Extends',
+      'it inherits methods and properties from another class to the child class',
+      'there is not compulsory to use or override the properties and methods to the child class like "implements"',
+      'only one class can be extended',
+      'h:: Implements:',
+      'it implements interface to a class',
+      'if a class implements an interface, then it has to implement all its methods and properties which defined in the interface',
+      'implements multiple interfaces'
+    ]
+  },
+  {
+    topic: 'MODULE',
+    points: [
+      'use to write the code into multiple files',
+      'hr::',
+      'A module in JavaScript is a file that contains reusable code which can be shared between different parts of your application. Modules help in organizing your code, improving maintainability, and avoiding naming conflicts between different parts of the application.',
+      'In JavaScript, the concept of modules was officially introduced with ES6 (ECMAScript 2015) using the import and export keywords. Prior to that, developers used various libraries like CommonJS (Node.js) or AMD for modules.',
+      'hr::',
+      'h:: Types of Modules in JavaScript:',
+      'ES6 Modules (ECMAScript Modules - ESM)',
+      'CommonJS',
+      'AMD (Asynchronous Module Definition)',
+      'h:: ES6 Modules (ECMAScript Modules - ESM):',
+      'Introduced in ES6 and are now the standard for modern JavaScript applications.',
+      'Use export to make code available outside the module, and import to bring code into the module.',
+      '1. Exporting Code:',
+      'You can export variables, functions, or classes from a module to make them available for import in other modules.',
+      'Named Exports: You can export multiple variables, functions, or classes from a module using named exports.',
+      `code::
+      // math.js (module)
+      export const add = (a, b) => a + b;
+      export const subtract = (a, b) => a - b;
+      `,
+      'Default Export: You can export a single value, function, or class as the default export.',
+      `code::
+      // calculator.js (module)
+      const multiply = (a, b) => a * b;
+      export default multiply;
+      `,
+      '2. Importing Code:',
+      'To use the exported code in another file, you import it using import.',
+      'Named Imports: When importing named exports, you must use the exact name of the variable, function, or class.',
+      `code::
+      // main.js (using math.js)
+      import { add, subtract } from './math.js';
 
+      console.log(add(2, 3)); // 5
+      console.log(subtract(5, 3)); // 2
+      `,
+      'Default Imports: You can import the default export using any name of your choice.',
+      `code:: 
+      // main.js (using calculator.js)
+      import multiply from './calculator.js';
+
+      console.log(multiply(3, 4)); // 12
+      `,
+      'h:: Module Syntax in ES6:',
+      '1. Exporting Everything: You can export everything from a module at once.',
+      `code::
+      // utilities.js
+      const add = (a, b) => a + b;
+      const subtract = (a, b) => a - b;
+
+      export { add, subtract }; // Named export
+      `,
+      '2. Importing Everything: You can import everything from a module into a single object.',
+      `code::
+      // main.js
+      import * as utils from './utilities.js';
+      
+      console.log(utils.add(3, 2)); // 5
+      console.log(utils.subtract(5, 3)); // 2
+      `,
+      '3. Renaming Imports: You can rename imports when you import them.',
+      `code::
+      // main.js
+      import { add as addition } from './math.js';
+
+      console.log(addition(4, 6)); // 10
+      `,
+      'hr::',
+      'h:: CommonJS:',
+      'Used primarily in Node.js for server-side JavaScript.',
+      'CommonJS is primarily used in Node.js and works with require() and module.exports.',
+      `code::
+      // math.js (CommonJS)
+      const add = (a, b) => a + b;
+      const subtract = (a, b) => a - b;
+
+      module.exports = { add, subtract };
+
+      ----------------
+
+      // main.js (CommonJS)
+      const { add, subtract } = require('./math.js');
+
+      console.log(add(2, 3)); // 5
+      console.log(subtract(5, 3)); // 2
+      `,
+      'hr::',
+      'h:: Benefits of Using Modules:',
+      'Code Organization: Modules help break down large codebases into smaller, manageable files.',
+      'Reusability: Once a module is created, it can be reused in different parts of your application.',
+      'Namespace Management: Modules avoid naming conflicts by isolating code within a module.',
+      'Maintainability: Easier to update and maintain individual modules without affecting the entire codebase.',
+      'Dependency Management: Modules make managing dependencies between various parts of the application easier.',
+      'hr::',
+      'h:: When to Use Modules:',
+      'Large applications: In complex applications, using modules helps in splitting the code into smaller, manageable pieces.',
+      'Code sharing: If you want to reuse functionality across different parts of your application or even across multiple applications.',
+      'Cleaner code: Modularization makes the code cleaner and more maintainable.',
+      'hr::',
+      'Real-world examples: You could refer to modular approaches in libraries like React or Lodash.',
+    ],
+  },
+  {
+    topic: 'CACHE AND COOKIES',
+    points: [
+      'Cookies are small pieces of data (usually key-value pairs) that are stored by the browser and sent to the server automatically with every HTTP request to the same domain.',
+      '“Cookies are small text files stored in the browser used for managing sessions, preferences, and tracking. They are automatically sent with HTTP requests and can be secured using flags like HttpOnly, Secure, and SameSite.”',
+
+    ]
+  },
+  { topic: 'REGULAR EXPRESSION - RegEx', points: [] },
+  { topic: 'INDEXED DB', points: [] },
   // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   {
     topic: '***** INFO *****',
@@ -1483,6 +2223,7 @@ const javascript = [
       'difference between callback queue and micro task queue',
       'difference between using Promise() and new Promise() / how to use web apis with and without new keyword',
       'Declarative Code (vs Imperative)',
+      'what is traversing of an array?'
     ],
   },
 ];

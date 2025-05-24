@@ -60,7 +60,7 @@ function Topic({ title }) {
       cntn.expand = true;
       return cntn;
     });
-    console.log(alterCntn);
+    // console.log(alterCntn);
     setContent(alterCntn);
   }
 
