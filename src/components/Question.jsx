@@ -7,6 +7,7 @@ import {
   NodeQuestion,
   JavaQuestion,
   SpringBootQuestion,
+  ProjectInfoQuestion
 } from '/src/assets/data/questions/allQuestions.js';
 import Content from './Content';
 
@@ -41,6 +42,10 @@ function Question({ title }) {
       }
       case 'springboot': {
         setContent(SpringBootQuestion);
+        break;
+      }
+      case 'projectInfo': {
+        setContent(ProjectInfoQuestion);
         break;
       }
     }

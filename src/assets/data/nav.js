@@ -18,6 +18,7 @@ const subHeader = {
     { label: 'javascript', value: 'javascript' },
     { label: 'angular', value: 'angular' },
     { label: 'react', value: 'react' },
+    { label: 'projectInfo', value: 'projectInfo' },
   ],
 };
 

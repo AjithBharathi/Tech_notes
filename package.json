@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist" 
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "react": "^19.0.0",
@@ -28,5 +28,4 @@
     "vite": "^6.2.2"
   },
   "homepage": "https://ajithbharathi.github.io/Tech_notes"
-
 }

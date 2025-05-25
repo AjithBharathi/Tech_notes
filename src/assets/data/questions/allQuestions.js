@@ -5,6 +5,7 @@ import react from '/src/assets/data/questions/react';
 import node from '/src/assets/data/questions/node';
 import java from '/src/assets/data/questions/java';
 import springBoot from '/src/assets/data/questions/springBoot';
+import projectInfo from '/src/assets/data/questions/projectInfo';
 
 export {
   html as HtmlQuestion,
@@ -14,4 +15,5 @@ export {
   node as NodeQuestion,
   java as JavaQuestion,
   springBoot as SpringBootQuestion,
+  projectInfo as ProjectInfoQuestion,
 };
