@@ -11,8 +11,8 @@ function Content({
         <div className="content_title_box">
           <p className="content_title">{title}</p>
           <div>
-            <button onClick={collapseAllHandler}>collapse all</button>
             <button onClick={expandAllHandler}>expand all</button>
+            <button onClick={collapseAllHandler}>collapse all</button>
           </div>
         </div>
         <div className="content_grp">
