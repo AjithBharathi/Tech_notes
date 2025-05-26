@@ -249,6 +249,34 @@ const projectInfo = [
             '"In Angular, real-time updates can be achieved via WebSockets for persistent server communication, RxJS polling for periodic checks, Firebase for built-in real-time data sync, or GraphQL subscriptions. I typically use WebSockets or Firebase depending on the backend setup."'
         ],
     },
+    {
+        topic: 'Do you have any questions for us?',
+        points: [
+            '“Can you tell me more about the team I’ll be working with?”',
+            'How does the team approach performance optimization for large-scale applications?',
+            'What are the key challenges the team is currently facing in terms of scalability and performance?',
+            'How does the team handle code reviews and ensure code quality?',
+            'What tools and processes does the team use for continuous integration and deployment?',
+            'How does the team stay updated with the latest Angular features and best practices?',
+            'What opportunities are there for professional development and growth within the team?',
+            'How does the team handle collaboration with other teams, such as backend or UX/UI teams?',
+            'What is the team’s approach to testing and quality assurance in Angular applications?',
+            'How does the team prioritize and manage technical debt in the codebase?',
+            'What is the team’s approach to handling real-time data updates in Angular applications?',
+            'How does the team ensure cross-browser compatibility and accessibility in Angular applications?',
+            'What is the team’s process for gathering and incorporating user feedback into the development cycle?',
+            'How does the team handle performance monitoring and optimization in production environments?',
+            'What is the team’s approach to handling state management in complex Angular applications?',
+            'How does the team ensure that the Angular applications are scalable and maintainable as they grow?',
+            'What is the team’s approach to handling security concerns in Angular applications?',
+            'How does the team handle onboarding new developers and knowledge sharing?',
+            'What is the team’s approach to handling feature requests and prioritizing them in the development cycle?',
+            'How does the team handle technical challenges and problem-solving in Angular development?',
+            'What is the team’s approach to handling legacy code and refactoring in Angular applications?',
+            'How does the team ensure that the Angular applications are optimized for performance and user experience?',
+            'What is the team’s approach to handling third-party libraries and dependencies in Angular applications?',
+        ]
+    },
 ];
 export default projectInfo;
 

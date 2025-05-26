@@ -357,24 +357,154 @@ const angular = [
     points: ['Trigger the response after multiple API call ends.'],
   },
   {
-    topic: '',
+    topic: 'why DI is loose coupling?',
     points: [''],
   },
   {
-    topic: '',
-    points: [''],
+    topic: 'what is the entry point of angular application',
+    points: [
+      'The entry point of an Angular application is the main.ts file, which bootstraps the root module (usually AppModule) and starts the application.',
+    ],
+
   },
   {
-    topic: '',
-    points: [''],
+    topic: 'what is the use of package.json, package-lock.json and angular.json',
+    points: [
+      'package.json - It contains metadata about the project, including dependencies, scripts, and other configurations.',
+      'package-lock.json - It locks the versions of dependencies to ensure consistent installs across different environments.',
+      'package.json is used to manage project dependencies, while package-lock.json ensures that the exact versions of those dependencies are installed.',
+      'angular.json - It contains configuration settings for the Angular CLI, such as build options, file replacements, and project structure.',
+      'angular.json is used to configure the Angular CLI for building, serving, and testing the application.',
+      ''
+    ],
+
   },
   {
-    topic: '',
-    points: [''],
+    topic: 'difference between constructor and ngOnInit in Angular',
+    points: [
+      'The constructor is a TypeScript feature used to initialize class members and inject dependencies, while ngOnInit is a lifecycle hook that is called after the component has been initialized, allowing for additional setup.',
+      'The constructor is called when the component is created, while ngOnInit is called after the component has been initialized and its inputs have been set.',
+    ],
   },
   {
-    topic: '',
-    points: [''],
+    topic: 'difference between promise and observable in Angular',
+    points: [
+      'A Promise is a one-time asynchronous operation that resolves to a single value, while an Observable can emit multiple values over time and can be cancelled.',
+      'Promises are eager, meaning they start executing immediately, while Observables are lazy and only execute when subscribed to.',
+      'Promises cannot be cancelled, while Observables can be unsubscribed to stop receiving values.',
+      'Promises are part of the JavaScript language, while Observables are part of the RxJS library used in Angular.',
+      'Promises are typically used for single asynchronous operations, while Observables are used for streams of data that can change over time.',
+      'Promises are simpler to use for single values, while Observables provide more powerful operators for handling complex asynchronous scenarios.',
+      ''
+    ],
+  },
+  {
+    topic: 'what are the directives and explain the types of directives in Angular',
+    points: [
+      'Directives are classes that add behavior to elements in Angular applications.',
+      'There are three types of directives in Angular:',
+      '1. Components: Directives with a template that define a view.',
+      '2. Structural Directives: Change the DOM layout by adding or removing elements (e.g., *ngIf, *ngFor).',
+      '3. Attribute Directives: Change the appearance or behavior of an element (e.g., ngClass, ngStyle).',
+
+    ],
+
+  },
+  {
+    topic: 'what is data binding in Angular',
+    points: [
+      'Data binding is the process of synchronizing data between the model (component class) and the view (template).',
+      'There are four types of data binding in Angular:',
+      '1. Interpolation: Binding data from the component to the template using {{}} syntax.',
+      '2. Property Binding: Binding data to an element property using square brackets [] syntax.',
+      '3. Event Binding: Listening to events and executing methods in the component using parentheses () syntax.',
+      '4. Two-way Binding: Combining property and event binding using [(ngModel)] syntax.',
+
+    ],
+  },
+  {
+    topic: 'what is the dependency injection in Angular',
+    points: [
+      'Dependency Injection (DI) is a design pattern used in Angular to manage the dependencies of components and services.',
+      'It allows components to receive their dependencies from an external source rather than creating them internally.',
+      'DI promotes modularity, testability, and reusability of code by decoupling components from their dependencies.',
+      'In Angular, DI is implemented using providers, which can be registered at different levels (root, module, or component).',
+      'Components can inject services or other dependencies through their constructors.',
+    ],
+  },
+  {
+    topic: 'what is service worker and its role in Angular',
+    points: [
+      'A Service Worker is a script that runs in the background of a web application, allowing it to intercept network requests and cache resources.',
+      'In Angular, Service Workers are used to enable Progressive Web App (PWA) features such as offline support, caching, and background synchronization.',
+      'Service Workers can cache static assets, API responses, and other resources to improve performance and provide a better user experience.',
+      'Angular provides built-in support for Service Workers through the @angular/service-worker package, which simplifies the implementation of PWA features.',
+    ],
+  },
+  {
+    topic: 'what is eager loading and lazy loading in Angular',
+    points: [
+      'Eager loading is the process of loading all modules and their dependencies at the start of the application, which can lead to longer initial load times.',
+      'Lazy loading is a technique where modules are loaded on demand, only when they are needed, which improves initial load time and performance.',
+      'In Angular, lazy loading is implemented using the loadChildren property in the routing configuration, allowing specific modules to be loaded only when their routes are activated.',
+      'Lazy loading helps reduce the size of the initial bundle and improves the overall performance of the application.',
+    ],
+  },
+  {
+    topic: 'how do you pass headers to httpclent in Angular',
+    points: [
+      'In Angular, you can pass headers to HttpClient requests by using the HttpHeaders class.',
+      'You can create an instance of HttpHeaders and set the desired headers, then pass it as an options object in the HttpClient request.',
+      `code::
+      import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+      const headers = new HttpHeaders({ 'Authorization': 'Bearer token' });
+
+      this.http.get('api/endpoint', { headers }).subscribe(response => {
+        console.log(response);
+      });
+      `,
+    ],
+  },
+  {
+    topic: 'what is safe navigation operator in Angular',
+    points: [
+      'The safe navigation operator (?.) is used in Angular templates to prevent errors when accessing properties of an object that may be null or undefined.',
+      'It allows you to safely access nested properties without throwing an error if the object is not defined.',
+      `code::
+      <div>{{ user?.profile?.name }}</div>
+      `,
+      'If user or profile is null or undefined, the expression will evaluate to undefined instead of throwing an error.',
+    ],
+  },
+  {
+    topic: 'What is content projection, Angular Universal, ng-content, and ng-template?',
+    points: [
+      'Content Projection: A pattern in Angular that allows you to pass content from a parent component into a child component. It is commonly used to create reusable components that can accept dynamic content.',
+      'Angular Universal: A technology for server-side rendering (SSR) of Angular applications. It allows Angular apps to be rendered on the server, improving performance and SEO.',
+      'ng-content: An Angular directive used for content projection. It acts as a placeholder in a component\'s template where dynamic content from the parent component will be inserted.',
+      `code::
+      // Parent component template
+      <app-card>
+        <p>This content will be projected!</p>
+      </app-card>
+
+      // Child component template
+      <div class="card">
+        <ng-content></ng-content>
+      </div>
+      `,
+      'ng-template: An Angular directive that defines a template that can be rendered dynamically. It is not rendered by default, but can be used with structural directives like *ngIf or *ngFor.',
+      `code::
+      <ng-template #myTemplate>
+        <p>This is a template!</p>
+      </ng-template>
+
+      <div *ngIf="show; else myTemplate">
+        <p>Show is true!</p>
+      </div>
+      `,
+    ],
   },
 ];
 export default angular;

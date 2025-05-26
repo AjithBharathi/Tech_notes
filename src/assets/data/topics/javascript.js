@@ -18,7 +18,7 @@ const javascript = [
     points: [
       `code::
           let x;        // declared
-          x = 5;        // initialized
+          x = 5;        // initialized / assigned
           let y = 10;   // defined (declared + initialized)      
       `
     ]
@@ -40,9 +40,10 @@ const javascript = [
             console.log(x); // 10 — function-scoped, not block-scoped
           }
       `,
+      'it leaks outside of the block',
       'h:: let (Modern — block scoped):',
       'Scope: Block-scoped ({}).',
-      'Hoisting: Hoisted but not initialized, so using it before declaration throws a ReferenceError.',
+      'Hoisting: Hoisted but not initialized (in Temporary Dead Zone (TDZ)), so using it before declaration throws a ReferenceError.',
       'Re-declaration: ❌ Not allowed in the same scope.',
       'Reassignment: ✅ Allowed.',
       `code:: 
@@ -54,7 +55,7 @@ const javascript = [
       `,
       'h:: const (Block scoped + constant reference):',
       'Scope: Block-scoped.',
-      'Hoisting: Hoisted but not initialized.',
+      'Hoisting: Hoisted but not initialized. in TDZ',
       'Re-declaration: ❌ Not allowed.',
       'Reassignment: ❌ Not allowed.',
       'But note: Objects/Arrays declared with const can still be mutated.',
@@ -126,9 +127,9 @@ const javascript = [
       'Variables behave differently (var, let, const).',
       'Functions behave differently (declaration vs expression).',
       'hr::',
-      'hoisting is applicable for arrow function declaration',
-      'reference error will be thrown when the arrow function declared with let,const',
-      'type error will be thrown when the arrow function declared with var',
+      'hoisting is not applicable for arrow function declaration',
+      'reference error will be thrown when the arrow function declared with let,const (same for function expression)',
+      'type error will be thrown when the arrow function declared with var (same for function expression)',
     ],
   },
   {
@@ -457,7 +458,7 @@ const javascript = [
       'regular function',
       'function expression',
       'arrow function',
-      'anonymous fuction',
+      'anonymous fuction (with no name, either as function expressions or as arguments to other functions)',
       'self invoking function or immediately invoked function(IIFE)',
       'hr::',
       'h:: Arrow Function',
@@ -470,6 +471,7 @@ const javascript = [
     topic: 'ARROW FUNCTION',
     points: [
       'An arrow function is a shorter syntax to write function expressions in JavaScript. It also behaves differently in terms of how it handles this, making it a favorite in many modern JS applications.',
+       'it is not hoisted',
       `code::
         // Traditional function
         function add(a, b) {
@@ -1757,6 +1759,113 @@ const javascript = [
   },
   { topic: 'what is 1e9', points: [] },
   {
+    topic: 'what is implicit and explicit',
+    points: [
+      'Explicit means done clearly and intentionally by the developer, like using Number("5").',
+      'Implicit means done automatically by JavaScript, like "5" * 2, where it converts the string to a number behind the scenes.not directly stated',
+      'h:: ✅ Examples:',
+      'Explicit type conversion:',
+      `code::
+        let num = "5";
+        let converted = Number(num); // You explicitly converted string to number      
+      `,
+      'Explicit return in functions:',
+      `code::
+        const add = (a, b) => {
+          return a + b; // Clearly using 'return'
+        };      
+      `,
+      'Implicit type conversion:',
+      `code::
+        let result = "5" * 2; // JavaScript implicitly converts "5" to number
+      `,
+      'Implicit return in arrow functions:',
+      `code::
+        const add = (a, b) => a + b; // No 'return', but it happens automatically
+      `,
+      'Implicit this binding:',
+      `code::
+        const person = {
+          name: "Ajith",
+          greet() {
+            console.log(this.name); // 'this' is implicitly bound to 'person'
+          }
+        };      
+      `
+    ]
+  },
+  {
+    topic: 'Implicit Global Variable Creation',
+    points: [
+      'it leads to global pollution',
+      'When you assign a value to a variable without declaring it first (no var, let, or const), JavaScript automatically creates a global variable:',
+      'Looks for the variable in current function scope. If not found, looks in outer function scopes. If still not found, creates a property on the global object (window in browsers, global in Node.js)',
+      'to avoid this, use proper Declarations, Use Strict Mode (throws error for implicit globals), Linters Help',
+
+    ]
+  },
+  {
+    topic: 'Explicit Global Variable Creation',
+    points: [
+      '*** NEED TO RESEARCH MORE FOR VARIABLE CRASH WITH LIBRARIES ***',
+      'Explicit global variables should be created intentionally and carefully, as they can be accessed from anywhere in your code. Here are the proper ways to create them:',
+      'h:: Browser Environment (using window)',
+      `code::
+          // Explicit global variable creation
+          window.appName = "MyApplication";
+          
+          // Explicit global function
+          window.showAlert = function(message) {
+            alert(message);
+          };
+          
+          // Later usage
+          console.log(window.appName); // "MyApplication"
+          window.showAlert("Hello world");
+      `,
+      'h:: Node.js Environment (using global)',
+      `code::
+          // Explicit global variable
+          global.appVersion = "1.0.0";
+          
+          // Explicit global utility
+          global.formatDate = function(date) {
+            return date.toISOString();
+          };
+          
+          // Later usage
+          console.log(global.appVersion); // "1.0.0"
+          console.log(global.formatDate(new Date()));
+      `,
+      'h:: Universal Approach (using globalThis)',
+      `code:: 
+          // Works in both browsers and Node.js
+          globalThis.sharedData = {
+            environment: "production",
+            maxUsers: 1000
+          };
+          
+          // Later usage
+          console.log(globalThis.sharedData.environment);
+      `,
+      'h:: Best Practices for Explicit Globals',
+      'Use a Namespace to avoid collisions:',
+      `code::
+          globalThis.MY_APP = {
+            config: {
+              apiKey: "abc123",
+              timeout: 5000
+            },
+            utils: {
+              formatCurrency: function(amount) { /* ... */ }
+            }
+          };
+      `,
+      'Remember: Explicit globals should be rare in modern JavaScript. Always consider module-based alternatives first, and when you must use globals, make them as contained and well-documented as possible.',
+
+    ]
+  },
+  {
     topic: 'what is kernel?',
     points: [
       '“A kernel is the core of the operating system that manages system resources like CPU, memory, and I/O devices. It enables communication between hardware and software through system calls. For example, when a program reads a file, it doesn’t interact with the hard drive directly—it asks the kernel to do it on its behalf.”'
@@ -2187,6 +2296,7 @@ const javascript = [
 
     ]
   },
+  { topic: 'CORS', points: [] },
   { topic: 'REGULAR EXPRESSION - RegEx', points: [] },
   { topic: 'INDEXED DB', points: [] },
   // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -2223,7 +2333,9 @@ const javascript = [
       'difference between callback queue and micro task queue',
       'difference between using Promise() and new Promise() / how to use web apis with and without new keyword',
       'Declarative Code (vs Imperative)',
-      'what is traversing of an array?'
+      'what is traversing of an array?',
+      'Linters - ESLint',
+      'namespace, collisions'
     ],
   },
 ];
