@@ -1,0 +1,484 @@
+11. What is the purpose of the `bind()`, `call()`, and `apply()` methods in JavaScript?  
+    **Answer:** These methods are used to set the value of `this` in a function. `call()` and `apply()` invoke the function immediately with a specified `this` value, with `call()` accepting arguments individually and `apply()` as an array. `bind()` returns a new function with a bound `this` value.
+
+12. What are arrow functions and how are they different from regular functions?  
+    **Answer:** Arrow functions provide a shorter syntax for writing functions and do not have their own `this`, `arguments`, or `super`. They inherit `this` from the enclosing scope.
+
+13. What is the difference between synchronous and asynchronous code?  
+    **Answer:** Synchronous code is executed sequentially, blocking further execution until the current operation completes. Asynchronous code allows other operations to run while waiting for tasks like I/O to finish.
+
+14. How can you create an object in JavaScript?  
+    **Answer:** Objects can be created using object literals (`{}`), the `Object` constructor, or using classes and constructor functions.
+
+15. What is destructuring in JavaScript?  
+    **Answer:** Destructuring is a syntax that allows unpacking values from arrays or properties from objects into distinct variables.
+
+16. What is the spread operator (`...`) and how is it used?  
+    **Answer:** The spread operator expands iterable elements (like arrays or objects) into individual elements. It is used for copying, merging, or passing arguments.
+
+17. How do you prevent an object from being modified in JavaScript?  
+    **Answer:** You can use `Object.freeze()` to make an object immutable, or `Object.seal()` to prevent adding or removing properties.
+
+18. What is the purpose of the `setTimeout` and `setInterval` functions?  
+    **Answer:** `setTimeout` executes a function after a specified delay, while `setInterval` repeatedly executes a function at specified intervals.
+
+19. What is a callback function?  
+    **Answer:** A callback is a function passed as an argument to another function, to be executed after a certain event or operation completes.
+
+20. How do you handle errors in JavaScript?  
+    **Answer:** Errors can be handled using `try...catch` blocks, and by handling promise rejections with `.catch()` or `async/await` with `try...catch`.
+
+
+  
+### Real-Time Use Cases in JavaScript Interview Questions (with Answers)
+
+1. **Form Validation:**  
+   *How would you implement real-time form validation to provide instant feedback to users as they type?*  
+   **Answer:** Use JavaScript event listeners like `input` or `keyup` to validate form fields as the user types. Update the UI with error messages or styling based on validation results.
+
+2. **Live Search/Autocomplete:**  
+   *Describe how you would build a live search feature that fetches and displays suggestions as the user types.*  
+   **Answer:** Attach an event listener to the search input, debounce the input, and fetch suggestions from an API using `fetch` or `XMLHttpRequest`. Display results dynamically as the user types.
+
+3. **Real-Time Chat Application:**  
+   *What JavaScript techniques and APIs would you use to implement a real-time chat system?*  
+   **Answer:** Use WebSockets or libraries like Socket.IO to establish a persistent connection between client and server, enabling instant message exchange.
+
+4. **Live Data Updates (e.g., Stock Prices):**  
+   *How can you update UI elements in real time when receiving data from a server, such as live stock prices or notifications?*  
+   **Answer:** Use WebSockets, Server-Sent Events, or polling to receive updates from the server and update the DOM with new data as it arrives.
+
+5. **Collaborative Editing:**  
+   *Explain how you would enable multiple users to edit a document simultaneously and see each other's changes in real time.*  
+   **Answer:** Use WebSockets for bi-directional communication and implement operational transformation or CRDT algorithms to merge changes from multiple users.
+
+6. **Drag and Drop Functionality:**  
+   *How would you implement a drag-and-drop interface for rearranging items in a list?*  
+   **Answer:** Use the HTML5 Drag and Drop API or libraries like `react-beautiful-dnd` to handle drag events and update the list order in the UI.
+
+7. **Real-Time Formatted Input:**  
+   *How can you format user input (like phone numbers or credit cards) in real time as they type?*  
+   **Answer:** Listen for input events and use JavaScript to format the value (e.g., inserting spaces or dashes) as the user types.
+
+8. **Progress Indicators:**  
+   *Describe how you would show real-time progress (such as file upload progress) to users.*  
+   **Answer:** Use the `progress` event from `XMLHttpRequest` or the Fetch API with streams to update a progress bar as the upload progresses.
+
+9. **Debouncing and Throttling:**  
+   *When and how would you use debouncing or throttling in real-time user interactions?*  
+   **Answer:** Use debouncing to limit the rate of function execution (e.g., API calls during typing), and throttling to ensure a function runs at most once in a specified interval (e.g., during window resizing or scrolling).
+
+10. **WebSockets and Server-Sent Events:**  
+    *What are WebSockets and Server-Sent Events, and how would you use them for real-time communication in a web app?*  
+    **Answer:** WebSockets provide full-duplex communication between client and server, suitable for chat or games. Server-Sent Events allow the server to push updates to the client over HTTP, useful for notifications or live feeds.
+
+
+    ### Frequently Asked HTML and CSS Interview Questions (with Answers)
+
+    1. **What are semantic HTML elements and why are they important?**  
+        **Answer:** Semantic elements (like `<header>`, `<nav>`, `<main>`, `<article>`, `<section>`, `<footer>`) clearly describe their meaning in the document structure, improving accessibility, SEO, and code readability.
+
+    2. **How do you make a website accessible?**  
+        **Answer:** Use semantic HTML, provide alt text for images, ensure proper heading structure, use ARIA attributes when necessary, and ensure keyboard navigation.
+
+    3. **Explain the difference between `id` and `class` attributes.**  
+        **Answer:** `id` is unique within a page and used to identify a single element, while `class` can be used on multiple elements for styling or scripting.
+
+    4. **What is the box model in CSS?**  
+        **Answer:** The box model consists of content, padding, border, and margin. It defines how elements are rendered and how spacing and sizing are calculated.
+
+    5. **How does CSS specificity work?**  
+        **Answer:** Specificity determines which CSS rule applies if multiple rules match. Inline styles > IDs > classes/attributes/pseudo-classes > elements/pseudo-elements.
+
+    6. **What are CSS preprocessors and why use them?**  
+        **Answer:** Preprocessors like SASS or LESS add features like variables, nesting, and mixins to CSS, making stylesheets more maintainable and modular.
+
+    7. **How do you create a responsive layout?**  
+        **Answer:** Use media queries, flexible grids (like CSS Grid or Flexbox), relative units (%, em, rem), and responsive images (`srcset`, `picture`).
+
+    8. **What is Flexbox and when would you use it?**  
+        **Answer:** Flexbox is a CSS layout model for arranging items in a row or column, distributing space and aligning items efficiently, especially for 1D layouts.
+
+    9. **What is CSS Grid and how is it different from Flexbox?**  
+        **Answer:** CSS Grid is a 2D layout system for creating complex layouts with rows and columns. Flexbox is best for 1D layouts (row or column).
+
+    10. **How do you center an element horizontally and vertically?**  
+         **Answer:** Use Flexbox (`display: flex; justify-content: center; align-items: center;`) or Grid (`display: grid; place-items: center;`). For inline elements, use `text-align: center;` (horizontal) and `line-height` (vertical).
+
+    11. **What are pseudo-classes and pseudo-elements?**  
+         **Answer:** Pseudo-classes (e.g., `:hover`, `:focus`) target elements based on state. Pseudo-elements (e.g., `::before`, `::after`) style specific parts of an element.
+
+    12. **How do you optimize CSS for performance?**  
+         **Answer:** Minify CSS, combine files, use efficient selectors, avoid inline styles, and remove unused CSS.
+
+    13. **What is the difference between `inline`, `block`, and `inline-block` elements?**  
+         **Answer:** `block` elements start on a new line and take full width. `inline` elements flow within text and only take as much width as needed. `inline-block` elements flow inline but respect width and height.
+
+    14. **How do you implement CSS animations and transitions?**  
+         **Answer:** Use `transition` for smooth changes between states and `@keyframes` with `animation` for more complex animations.
+
+    15. **What are custom properties (CSS variables) and how do you use them?**  
+         **Answer:** CSS variables (e.g., `--main-color: #333;`) allow you to reuse values throughout your stylesheet and update them dynamically with JavaScript.
+
+    16. **How do you handle browser compatibility issues in CSS?**  
+         **Answer:** Use vendor prefixes, feature queries (`@supports`), CSS resets/normalize, and test in multiple browsers.
+
+    17. **What is progressive enhancement and graceful degradation?**  
+         **Answer:** Progressive enhancement builds a basic, functional experience for all users, adding advanced features for capable browsers. Graceful degradation starts with a full-featured site and ensures it still works in older browsers.
+
+    18. **How do you hide content visually but keep it accessible to screen readers?**  
+         **Answer:** Use CSS like `.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px); }`.
+
+    19. **What is the difference between `em` and `rem` units?**  
+         **Answer:** `em` is relative to the font-size of the parent, while `rem` is relative to the root (`html`) font-size.
+
+    20. **How do you create a sticky or fixed header?**  
+         **Answer:** Use `position: sticky; top: 0;` for sticky headers, or `position: fixed; top: 0; width: 100%;` for fixed headers.
+
+
+        ### CSS Variables (Custom Properties) with Examples
+
+        CSS variables, also known as custom properties, allow you to store values in reusable variables. They are defined using the `--variable-name` syntax and accessed with the `var()` function.
+
+        **Example: Basic Usage**
+        ```css
+        :root {
+            --main-bg: #f5f5f5;
+            --primary-color: #3498db;
+            --padding: 16px;
+        }
+
+        body {
+            background: var(--main-bg);
+            color: var(--primary-color);
+            padding: var(--padding);
+        }
+        ```
+
+        **Example: Overriding Variables in a Component**
+        ```css
+        .button {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        .button.secondary {
+            --primary-color: #e67e22;
+        }
+        ```
+
+        **Example: Changing Variables with JavaScript**
+        ```js
+        document.documentElement.style.setProperty('--primary-color', '#e74c3c');
+        ```
+
+        **Benefits:**
+        - Easier theme management
+        - Dynamic updates with JavaScript
+        - Scoped to elements or globally via `:root`
+        - Improved maintainability
+
+
+
+        ### Is Angular Material Responsive?
+
+        **Answer:**  
+        Yes, Angular Material is designed with responsiveness in mind. Its components use Flex Layout and CSS media queries to adapt to different screen sizes. Many components, such as the toolbar, sidenav, and grid list, provide built-in options for responsive behavior. For advanced layouts, Angular Material can be used alongside the `@angular/flex-layout` library to create flexible, adaptive UIs that work well on both desktop and mobile devices.
+
+
+
+    ### What are Decorators and Their Types in Angular?
+
+    **Decorators** are special functions in Angular (and TypeScript) that add metadata to classes, methods, properties, or parameters. They are prefixed with `@` and help Angular understand how to process and instantiate different elements.
+
+    #### Common Types of Decorators in Angular
+
+    1. **Class Decorators**
+        - Applied to classes to define their purpose.
+        - Examples:
+          - `@Component` – Declares a component.
+          - `@Directive` – Declares a directive.
+          - `@Pipe` – Declares a pipe.
+          - `@Injectable` – Marks a class as available for dependency injection.
+          - `@NgModule` – Declares an Angular module.
+
+    2. **Property Decorators**
+        - Applied to properties within classes.
+        - Examples:
+          - `@Input()` – Marks a property as an input binding.
+          - `@Output()` – Marks a property as an output event emitter.
+          - `@ViewChild()` / `@ViewChildren()` – Access child components or elements.
+          - `@ContentChild()` / `@ContentChildren()` – Access projected content.
+
+    3. **Method Decorators**
+        - Applied to methods within classes.
+        - Example:
+          - `@HostListener()` – Listens to events on the host element.
+
+    4. **Parameter Decorators**
+        - Applied to constructor parameters to specify how they should be injected.
+        - Example:
+          - `@Inject()` – Specifies a custom provider to inject.
+
+    **Summary Table:**
+
+    | Decorator Type      | Example           | Usage                                  |
+    |---------------------|-------------------|----------------------------------------|
+    | Class               | `@Component`      | Declares a component                   |
+    | Property            | `@Input`          | Input property binding                 |
+    | Method              | `@HostListener`   | Listen to host element events          |
+    | Parameter           | `@Inject`         | Custom dependency injection            |
+
+    Decorators are essential for Angular's dependency injection, component configuration, and template binding.
+
+
+    ### What is a Custom Directive in Angular?
+
+    A **custom directive** in Angular is a user-defined directive that allows you to extend the behavior of HTML elements and components. While Angular provides built-in directives like `*ngIf` and `*ngFor`, you can create your own to encapsulate reusable logic or manipulate the DOM.
+
+    **Types of Custom Directives:**
+    - **Attribute Directives:** Change the appearance or behavior of an element (e.g., highlight, show/hide).
+    - **Structural Directives:** Change the DOM layout by adding or removing elements (less common for custom directives).
+
+    **Example: Creating a Simple Attribute Directive**
+    ```typescript
+    import { Directive, ElementRef, Renderer2, HostListener } from '@angular/core';
+
+    @Directive({
+        selector: '[appHighlight]'
+    })
+    export class HighlightDirective {
+        constructor(private el: ElementRef, private renderer: Renderer2) {}
+
+        @HostListener('mouseenter') onMouseEnter() {
+            this.renderer.setStyle(this.el.nativeElement, 'backgroundColor', 'yellow');
+        }
+
+        @HostListener('mouseleave') onMouseLeave() {
+            this.renderer.removeStyle(this.el.nativeElement, 'backgroundColor');
+        }
+    }
+    ```
+    **Usage in Template:**
+    ```html
+    <p appHighlight>Hover to highlight me!</p>
+    ```
+
+    **Benefits:**
+    - Encapsulate and reuse DOM logic
+    - Keep templates clean and declarative
+    - Enhance maintainability and testability
+
+
+    ### 10 Useful RxJS Operators (with Descriptions)
+
+    1. **map**  
+        Transforms each emitted value using a projection function.
+        ```js
+        import { map } from 'rxjs/operators';
+        source$.pipe(map(x => x * 2));
+        ```
+
+    2. **filter**  
+        Emits only values that satisfy a given condition.
+        ```js
+        import { filter } from 'rxjs/operators';
+        source$.pipe(filter(x => x > 10));
+        ```
+
+    3. **mergeMap (flatMap)**  
+        Projects each value to an Observable and flattens all inner Observables.
+        ```js
+        import { mergeMap } from 'rxjs/operators';
+        source$.pipe(mergeMap(val => getData(val)));
+        ```
+
+    4. **switchMap**  
+        Maps to a new Observable, unsubscribing from previous inner Observables.
+        ```js
+        import { switchMap } from 'rxjs/operators';
+        source$.pipe(switchMap(val => getData(val)));
+        ```
+
+    5. **concatMap**  
+        Maps each value to an Observable, subscribing to them one at a time in order.
+        ```js
+        import { concatMap } from 'rxjs/operators';
+        source$.pipe(concatMap(val => getData(val)));
+        ```
+
+    6. **debounceTime**  
+        Emits a value from the source Observable only after a particular time span has passed without another source emission.
+        ```js
+        import { debounceTime } from 'rxjs/operators';
+        source$.pipe(debounceTime(300));
+        ```
+
+    7. **distinctUntilChanged**  
+        Emits only when the current value is different from the last.
+        ```js
+        import { distinctUntilChanged } from 'rxjs/operators';
+        source$.pipe(distinctUntilChanged());
+        ```
+
+    8. **take**  
+        Emits only the first N values from the source Observable.
+        ```js
+        import { take } from 'rxjs/operators';
+        source$.pipe(take(3));
+        ```
+
+    9. **catchError**  
+        Catches errors on the source Observable and returns a new Observable or throws an error.
+        ```js
+        import { catchError } from 'rxjs/operators';
+        source$.pipe(catchError(err => of('Fallback value')));
+        ```
+
+    10. **combineLatest**  
+         Combines the latest values from multiple Observables whenever any of them emits.
+         ```js
+         import { combineLatest } from 'rxjs';
+         combineLatest([obs1$, obs2$]).subscribe(([val1, val2]) => { ... });
+         ```
+
+    ---
+
+    ### Additional Commonly Used RxJS Operators
+
+    11. **startWith**  
+        Emits a specified value before the source Observable begins emitting.
+        ```js
+        import { startWith } from 'rxjs/operators';
+        source$.pipe(startWith('Initial value'));
+        ```
+
+    12. **tap**  
+        Performs a side effect for every emission on the source Observable, useful for debugging or logging.
+        ```js
+        import { tap } from 'rxjs/operators';
+        source$.pipe(tap(val => console.log(val)));
+        ```
+
+    13. **shareReplay**  
+        Shares the source Observable and replays the specified number of emissions to new subscribers.
+        ```js
+        import { shareReplay } from 'rxjs/operators';
+        source$.pipe(shareReplay(1));
+        ```
+
+    14. **finalize**  
+        Invokes a callback when the Observable completes or errors.
+        ```js
+        import { finalize } from 'rxjs/operators';
+        source$.pipe(finalize(() => console.log('Completed')));
+        ```
+
+    15. **withLatestFrom**  
+        Combines the source Observable with the latest values from other Observables when the source emits.
+        ```js
+        import { withLatestFrom } from 'rxjs/operators';
+        source$.pipe(withLatestFrom(other$));
+        ```
+
+    16. **retry**  
+        Automatically resubscribes to the source Observable a specified number of times if it errors.
+        ```js
+        import { retry } from 'rxjs/operators';
+        source$.pipe(retry(2));
+        ```
+
+    17. **takeUntil**  
+        Emits values from the source Observable until another Observable emits.
+        ```js
+        import { takeUntil } from 'rxjs/operators';
+        source$.pipe(takeUntil(stop$));
+        ```
+
+    18. **reduce**  
+        Applies an accumulator function over the source Observable and emits the accumulated result when the source completes.
+        ```js
+        import { reduce } from 'rxjs/operators';
+        source$.pipe(reduce((acc, val) => acc + val, 0));
+        ```
+
+    These operators are widely used for handling streams, side effects, error handling, and combining or transforming data in RxJS.
+
+### JavaScript Interview Questions (Intermediate & Advanced) – Concise Answers
+
+1. **What is closure?**  
+    A closure is a function that retains access to its lexical scope even when executed outside that scope.
+
+2. **ç.**  
+    Objects inherit properties and methods from other objects via the prototype chain.
+
+3. **What is event delegation?**  
+    Attaching a single event listener to a parent element to handle events from its children using event bubbling.
+
+4. **Difference between `==` and `===`?**  
+    `==` compares values with type coercion; `===` compares values and types strictly.
+
+5. **What is a promise?**  
+    An object representing the eventual completion or failure of an asynchronous operation.
+
+6. **Explain async/await.**  
+    Syntactic sugar over promises for writing asynchronous code in a synchronous style.
+
+7. **What is the purpose of `Symbol`?**  
+    To create unique identifiers for object properties, avoiding name collisions.
+
+8. **What is a generator function?**  
+    A function that can pause and resume execution using `function*` and `yield`.
+
+9. **Explain currying.**  
+    Transforming a function with multiple arguments into a sequence of functions each taking a single argument.
+
+10. **What is memoization?**  
+     Caching function results to optimize repeated calls with the same arguments.
+
+11. **How does the event loop work?**  
+     It processes the call stack and handles asynchronous callbacks from the task queue.
+
+12. **What is debouncing?**  
+     Limiting a function’s execution so it only runs after a specified time has elapsed since the last call.
+
+13. **What is throttling?**  
+     Ensuring a function is called at most once in a specified interval.
+
+14. **Explain the module pattern.**  
+     Encapsulates code in a function scope, exposing only selected variables/methods.
+
+15. **What is the difference between `map`, `filter`, and `reduce`?**  
+     - `map`: Transforms each array element.
+     - `filter`: Returns elements that match a condition.
+     - `reduce`: Accumulates array values into a single result.
+
+16. **What is hoisting?**  
+     Variable and function declarations are moved to the top of their scope before code execution.
+
+17. **Explain the Temporal Dead Zone (TDZ).**  
+     The period between entering scope and variable declaration where `let`/`const` cannot be accessed.
+
+18. **What is the difference between `null` and `undefined`?**  
+     `undefined`: Variable declared but not assigned.  
+     `null`: Explicitly assigned “no value”.
+
+19. **How do you deep clone an object?**  
+     Use `structuredClone(obj)` or `JSON.parse(JSON.stringify(obj))` (with limitations).
+
+20. **What is tail call optimization?**  
+     A feature where the last function call’s stack frame is reused, preventing stack overflows in recursion.
+
+
+21. **What is recursion?**  
+    Recursion is a programming technique where a function calls itself to solve a problem by breaking it down into smaller subproblems. Each recursive call should approach a base case, which stops further recursion. Recursion is commonly used for tasks like traversing trees, calculating factorials, or solving problems that can be divided into similar subproblems.
+
+    **Example: Factorial using recursion**
+    ```js
+    function factorial(n) {
+        if (n === 0) return 1; // base case
+        return n * factorial(n - 1); // recursive call
+    }
+    ```
+
+

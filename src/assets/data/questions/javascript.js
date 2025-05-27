@@ -18,5 +18,32 @@ const javascript = [
       'Closures are powerful but can lead to memory leaks if not handled carefully—especially when unintentionally holding references to large objects or DOM elements in long-lived closures.',
     ],
   },
+  {
+    topic: 'what is Debouncing?',
+    points: [
+      'Debouncing ensures a function runs only after a certain amount of inactivity. It waits for the user to stop triggering the event, like when typing in a search box.',
+
+    ]
+
+  },
+  {
+    topic: 'What is Throttling?',
+    points: [
+      'Throttling ensures a function runs at most once every X milliseconds, no matter how many times the event is triggered. It\'s great for limiting high-frequency actions like scrolling or mouse movement.'
+    ]
+  },
+  {
+    topic: 'What is Memoization?',
+    points: [
+      'Memoization is an optimization technique where we store the results of expensive function calls and reuse them when the same inputs occur again instead of recomputing.'
+    ]
+  },
+  {
+    topic: 'What is a generator function?',
+    points: [
+      'A generator function is a special type of function that can pause its execution and later resume from where it left off. It uses the `function*` syntax and yields values using the `yield` keyword.',
+      'Generators are useful for creating iterators, handling asynchronous operations, or managing state in a more controlled manner.'
+    ]
+  },
 ];
 export default javascript;
