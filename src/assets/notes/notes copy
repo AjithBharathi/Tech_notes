@@ -482,3 +482,14 @@
     ```
 
 
+// NODE JS
+
+    explain the event loop phase in nod js
+    how to prevent callback hell in node js
+    how nodejs handle multiple cpu cores - cluster
+    what is process.nexttick()
+    what is await inside the loop is the bad idea in node js
+    d/b process.nexttick() vs setimmediate()
+    how does nodejs prevent blocking operations in a single threaded environment
+    d/b fs.readfile() vs fs.createreadstream()
+    what will happen if you call res.end() twice in an http server
