@@ -1256,7 +1256,7 @@ const angular = [
     },
     {
         topic: 'UNIT TESTING',
-        points: [   
+        points: [
             ' Unit testing is a type of software testing where individual units/components (like a function, service, or component) are tested in isolation to ensure they work correctly.',
             'h:: 🔸 Purpose of Unit Testing',
             'Verify correct behavior of a unit (component/service/directive/pipe).',
@@ -1680,7 +1680,7 @@ const angular = [
             'DOM Manipulation - Renderer2, ElementRef, RendererFactory2',
             'View Queries - @ViewChild(), @ViewChildren(), @ContentChild(), @ContentChildren()',
             'Best Practice - Use Renderer2 and queries instead of raw DOM APIs for security and compatibility',
-            
+
             'hr::',
             'Here’s a simple visualization showing how Renderer2, ElementRef, View Queries, and TemplateRef/ViewContainerRef fit together:',
             `code::
@@ -1852,7 +1852,7 @@ const angular = [
             '♿ **Accessibility** - Shared a11y standards across components',
             'Popular Angular Design Systems - Angular Material, PrimeNG, NG-ZORRO, Clarity, Nebular',
             'Build your own - Use ng generate library, SCSS tokens, Storybook'
-           
+
         ]
     },
     {
@@ -1939,6 +1939,256 @@ const angular = [
             'Role in Architecture: App modularization strategy',
             'hr::',
 
+        ]
+    },
+    {
+        topic: 'ROUTERLINKACTIVE (routerLinkActive)',
+        points: [
+            'In Angular, routerLinkActive is a directive that adds a class to an element when the associated route is active',
+            'commonly used to highlight navigation links.',
+            'h:: ✅ Basic Usage',
+            `code::
+            <a routerLink="/home" routerLinkActive="active">Home</a>
+            `,
+            'When the route is /home, this <a> element will get the class active.',
+            'h:: ✅ Example with Multiple Classes',
+            `code::
+            <a routerLink="/dashboard" routerLinkActive="active-link bold-link">Dashboard</a>
+            `,
+            'h:: ✅ Usage with <li> or Custom Tag',
+            'Apply it to the parent of the <a> tag:',
+            `code::
+            <li routerLinkActive="active">
+                <a routerLink="/about">About</a>
+            </li>
+
+            `,
+            'h:: ✅ Exact Matching',
+            'By default, routerLinkActive matches child routes too. Use [routerLinkActiveOptions] to only match exact path.',
+            `code::
+            <a routerLink="/home" routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
+             Home
+            </a>
+            `,
+            'h:: ✅ Inside Component HTML Example',
+            `code::
+            <nav>
+                <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+                <a routerLink="/users" routerLinkActive="active">Users</a>
+            </nav>
+
+            .active {
+                font-weight: bold;
+                color: #1976d2;
+              }
+              
+            `
+        ]
+    },
+    {
+        topic: 'TYPESCRIPT ROLE IN ANGULAR',
+        points: [
+            'TypeScript is the backbone of Angular, and it significantly enhances Angular development. ',
+            'h:: ✅ 1. Static Typing',
+            'TypeScript adds types to JavaScript, allowing you to catch errors at compile time instead of runtime.',
+            `code::
+            let name: string = 'Angular';
+            name = 42; // ❌ Error in TypeScript, but JS would allow it
+            `,
+            '✔ Helps prevent bugs early',
+            '✔ IDEs give better auto-completion and refactoring',
+            'h:: ✅ 2. Object-Oriented Programming (OOP)',
+            'Angular is built using classes, interfaces, inheritance, and access modifiers — all features supported and enhanced by TypeScript.',
+            `code::
+            export class User {
+                constructor(public name: string, public age: number) {}
+              }
+              
+            `,
+            '✔ Improves code structure',
+            '✔ Easy to model real-world entities',
+            'h:: ✅ 3. Decorators',
+            'Angular relies heavily on decorators (a TypeScript feature) to define metadata.',
+            `code::
+            @Component({
+                selector: 'app-hello',
+                templateUrl: './hello.component.html'
+              })
+              export class HelloComponent {}
+              
+            `,
+            '✔ @Component, @Injectable, @Input, @Output — all use decorators',
+            '✔ Without TypeScript, Angular’s metadata model wouldn’t work',
+            'h:: ✅ 4. Interfaces',
+            'Interfaces define contracts for classes, services, and data structures.',
+            `code::
+            interface User {
+                id: number;
+                name: string;
+              }
+              
+              const user: User = { id: 1, name: 'Alice' };
+              
+            `,
+            '✔ Ensures consistency in objects',
+            '✔ Great for HTTP responses and models',
+            'h:: ✅ 5. Advanced Tooling and IDE Support',
+            'Better IntelliSense/autocomplete',
+            'Refactoring support (rename, extract)',
+            'Error checking as you type',
+            'h:: ✅ 6. Improved Maintainability',
+            'In large apps, TypeScript helps:',
+            'Navigate code easily',
+            'Understand types and contracts',
+            'Avoid runtime bugs',
+            'Collaborate with large teams',
+            'h:: ✅ 7. Async/Await and Promises',
+            'TypeScript supports modern async/await syntax, which is clean and easy to work with.',
+            `code::
+                async ngOnInit() {
+                    const data = await this.apiService.getData();
+                }
+              
+            `,
+            'h:: ✅ 8. Compatibility with JavaScript',
+            'TypeScript is a superset of JavaScript — you can write JS code and gradually introduce types.'
+        ]
+    },
+    {
+        topic: 'All Angular built-in Directives',
+        points: [
+            'h:: ✅ 1. Structural Directives',
+            'They change the DOM structure by adding or removing elements.',
+            '*ngIf -  Conditionally include an element',
+            '*ngFor - Repeat an element for each item in a list',
+            '*ngSwitch, *ngSwitchCase, *ngSwitchDefault - Multiple condition rendering (like switch-case)',
+            '*ngTemplateOutlet - Dynamically insert templates',
+            'h:: ✅ 2. Attribute Directives',
+            'They change the appearance or behavior of an element, component, or directive.',
+            'ngClass - Dynamically add/remove CSS classes',
+            'ngStyle - Dynamically set styles',
+            'ngModel - Two-way data binding (FormsModule required)',
+            'ngModelGroup - Group multiple form fields in template-driven forms',
+            'ngForm - Applied to <form> element in template-driven forms',
+            'h:: ✅ 3. Form Directives',
+            '✅ Template-Driven Forms:',
+            'ngModel - Two-way binding',
+            'ngForm - Represents the form',
+            'ngModelGroup - Group inside form',
+            'required, minlength, maxlength, pattern - Built-in validators',
+            '✅ Reactive Forms:',
+            'formControlName - Binds input to FormControl',
+            'formGroup - Binds a FormGroup to a form',
+            'formArrayName - For dynamic sets of controls',
+            'formGroupName - Nested FormGroup',
+            'h:: ✅ 4. Router Directives',
+            'routerLink - Link to a route',
+            'routerLinkActive - Add CSS class when route is active',
+            '[routerLinkActiveOptions] - Customize match behavior (e.g., { exact: true })', ,
+            '<router-outlet> - Placeholder for routed component',
+            'router-outlet - Required to render routed components',
+            'h:: ✅ 5. Ng-container / Template Directives',
+            '<ng-container> - Logical container (does not render DOM)',
+            '<ng-template> - Define template block',
+            '<ng-content> - Project content (used in components)',
+            'ngTemplateOutlet - Render template dynamically',
+            'h:: ✅ 6. Content Projection Directives (for components)',
+            '<ng-content> - Project external content into component',
+            '<ng-content select="..."> - Project into specific slot (multi-slot)',
+            'h:: ✅ 7. Custom Directives',
+            'You can also create your own directives using:',
+            `code::
+            @Directive({
+                selector: '[yourCustomDirective]'
+              })
+              
+            `,
+            'h:: ✅ 8. Common HTML Attribute Directives Angular Recognizes',
+            'Some standard HTML attributes are enhanced by Angular:',
+            'required, disabled, readonly - Enhanced Behavior: Work with binding [required], [disabled]',
+            'checked, selected, value - Sync with [(ngModel)] or [formControl]'
+        ]
+    },
+    {
+        topic: 'ActivatedRoute in Angular',
+        points: [
+            'ActivatedRoute is a service provided by Angular’s Router module that gives access to information about the current route — like route parameters, query parameters, route data, and more.',
+            'h:: snapshot',
+            'Static snapshot of route at load time',
+            'route.snapshot.paramMap.get(\'id\')',
+            'ActivatedRouteSnapshot is a static snapshot of the route at a specific moment in time — typically used when you want immediate access to route information without subscribing to observables.',
+            'h:: paramMap',
+            'Observable of route parameters',
+            'route.paramMap.subscribe(...)',
+            'h:: queryParamMap',
+            'Observable of query parameters',
+            'route.queryParamMap.subscribe(...)',
+            'h:: data',
+            'Static route data from config',
+            'route.data.subscribe(...)',
+            'h:: url',
+            'Observable of route segments',
+            'route.url.subscribe(...)',
+            'h:: fragment',
+            'Observable of URL fragment',
+            'route.fragment.subscribe(...)',
+            'h:: parent, firstChild',
+            'To navigate route tree',
+            'route.parent.paramMap.get(...)',
+        ]
+    },
+    {
+        topic: 'Angular in-built services',
+        points: [
+            'Here\'s a complete list of inbuilt (built-in) Angular services categorized by functionality. These services are provided by Angular itself and are available for injection into your components, services, directives, etc.',
+            'h:: ✅ 1. Routing Services',
+            'Router - For navigation, URL manipulation',
+            'ActivatedRoute - Access route info like params, query params',
+            'ActivatedRouteSnapshot - Static snapshot of route data',
+            'RouterOutlet - Acts as a placeholder for routed components',
+            'RouteReuseStrategy - Customize how routes are cached/reused',
+            'h:: ✅ 2. HTTP Services (from @angular/common/http)',
+            'HttpClient - Perform HTTP requests (GET, POST, etc.)',
+            'HttpHeaders - Set HTTP headers',
+            'HttpParams - Set URL query parameters',
+            'HttpInterceptor - Intercept and modify HTTP requests/responses',
+            'HttpBackend - Low-level HTTP backend service',
+            '📦 Available only when HttpClientModule is imported.',
+            'h:: ✅ 3. Form Services',
+            'FormBuilder - Simplify reactive form creation',
+            'Validators - Provides built-in form validators',
+            'FormGroup, FormControl, FormArray - Represent form structure in reactive forms',
+            'h:: ✅ 4. Dependency Injection Services',
+            'Injector - Access services manually',
+            'InjectionToken - Create custom injection tokens',
+            'Optional, Inject, SkipSelf, Self, Host - DI resolution modifiers',
+            'h:: ✅ 5. Browser and Platform Services',
+            'PlatformLocation - Access browser URL, history, etc.',
+            'DOCUMENT - Inject global document object',
+            'Location - Control browser navigation (back, forward)',
+            'NgZone - Run code inside or outside Angular\'s zone',
+            'Renderer2 - Safe DOM manipulation (used in directives)',
+            'h:: ✅ 6. Change Detection and Application State',
+            'ChangeDetectorRef - Manually trigger change detection',
+            'ApplicationRef - Interact with Angular\'s component tree',
+            'ViewContainerRef - Dynamically add components/views',
+            'TemplateRef - Reference to a template block (<ng-template>)',
+            'ElementRef - Direct reference to a DOM element',
+            'h:: ✅ 7. Animation Services (if using @angular/animations)',
+            'AnimationBuilder - Build animations programmatically',
+            'AnimationPlayer - Control playback of animations',
+            'h:: ✅ 8. i18n (Internationalization)',
+            'LOCALE_ID - Token to set locale',
+            'CurrencyPipe, DatePipe, DecimalPipe - Locale-based formatting',
+            'h:: ✅ 9. Testing Utilities (Used in test files)',
+            'TestBed - Configure testing modules and components',
+            'HttpTestingController - Mock HTTP requests',
+            'h:: ✅ 10. Others / Miscellaneous',
+            'Title - Set the document title',
+            'Meta - Set meta tags for SEO',
+            'TransferState - Server-to-client state transfer (SSR)',
+            'KeyValuePipe - Used for rendering objects in templates'
         ]
     }
 ];
