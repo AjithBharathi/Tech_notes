@@ -442,7 +442,7 @@ const javascript = [
       
       `,
       'An object is immutable if it cannot be changed after it is created. Instead, a new copy is made with the change.',
-      'Use spread (...) to copy arrays/objects',
+      'Use spread (...) to copy arrays/objects to make the object immutable',
       'Use Object.freeze(obj) to shallow-freeze an object',
       `code::
         const person = { name: 'Alice' };
@@ -542,14 +542,18 @@ const javascript = [
     topic: 'PURE FUNCTION AND IMPURE FUNCTION',
     points: [
       'A pure function is a function that always returns the same output when given the same input, and it does not have any side effects.',
-      'An impure function is a function that has side effects or does not always return the same output when given the same input. Side effects can include modifying a global variable, changing the state of an object, or making a network request.'
+      'An impure function is a function that has side effects or does not always return the same output always when given the same input. Side effects can include modifying a global variable, changing the state of an object, or making a network request.'
     ],
   },
   {
     topic: 'GENERATOR FUNCTION',
     points: [
+      'A generator function is a special type of function that can pause its execution at any point and resume later.',
+      'the "function*" keyword is the syntax to create generator function',
+      'the "yield" keyword pause execution and returns a object with properties value(return value) and done(indicates the execution done or not).',
+      'The "next()" method resume the execution',
+      'hr::','hr::',
       'The Iterators are objects with a special structure in JavaScript. They must have a next() method that returns an object with the value and done properties. The value property represents the next value in the sequence and the done property indicates whether there are more values to be iterated. The Iterators are commonly used for iterating over data structures like arrays, maps, and sets.',
-      'A generator function is a special type of function that can pause its execution at any point and resume later. They are defined using the function* syntax and use the yield keyword to pause execution and return a value.'
     ],
   },
   {
@@ -809,6 +813,9 @@ const javascript = [
   {
     topic: 'DEBOUNCING AND THROTTLING',
     points: [
+      '"Debouncing is a technique, that delays the execution of the code until the user stops performing a certain action  for a specified amount of time. "',
+      '"Throttling is a technique, that limits the execution of the code to a certain frequency(to once in every specified time interval)."',
+      'hr::','hr::',
       'Both debounce and throttle are techniques to control how often a function executes, especially during frequent events like scroll, resize, or typing — but they behave differently.',
       'h:: Debouncing:',
       'Debouncing is a technique used to limit how often a function is executed, especially in response to frequently triggered events like: resize events, scroll events, scroll events',

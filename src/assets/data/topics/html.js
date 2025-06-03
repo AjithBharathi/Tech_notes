@@ -97,7 +97,31 @@ const html = [
   },
   {
     topic: 'box sizing',
-    points: [],
+    points: [
+      'box-sizing controls how the total size of an element (width and height) is calculated, including padding and borders.',
+      'content-box (default) - Total size = width + padding + border (padding and border add to the size)',
+      'border-box - Total size = width (padding and border are inside the box)',
+      'inherit - Inherits from the parent element',
+      `code::
+      ✅ content-box
+
+      box-sizing: content-box;
+      width: 200px; 
+      padding: 20px; 
+      border: 10px solid;
+
+      🔸 The actual size = 200 + 20×2 + 10×2 = 260px.
+
+      ✅ border-box
+
+      box-sizing: border-box;
+      width: 200px; 
+      padding: 20px; 
+      border: 10px solid;
+
+      🔸 The actual size = 200px (includes padding and border).
+      `
+    ],
   },
   {
     topic: 'functions',
