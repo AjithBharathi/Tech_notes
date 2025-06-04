@@ -105,7 +105,32 @@ const angular = [
         topic: 'MODULE',
         points: [
             'modules group related components, directives, pipes, and services, thereby simplifying the structure and maintainability of the application.',
-            ''
+            'A module in Angular is defined using the @NgModule() decorator ',
+            `code::
+            // app.module.ts
+            import { NgModule } from '@angular/core';
+            import { BrowserModule } from '@angular/platform-browser';
+            import { AppComponent } from './app.component';
+
+            @NgModule({
+                declarations: [AppComponent],
+                imports: [BrowserModule],
+                bootstrap: [AppComponent]
+            })
+            export class AppModule {}
+            `,
+            'h:: ✅ NgModule Metadata',
+            'declarations - Components, directives, pipes that belong to this module',
+            'imports - Other modules whose exported classes are needed',
+            'providers - Services used in this module (DI)',
+            'bootstrap - Root component to bootstrap (only in AppModule)',
+            'exports - Items that should be available to other modules',
+            'h:: ✅ Types of Modules',
+            'Root Module - Typically AppModule. Bootstraps the Angular app.',
+            'Feature Module - Used to encapsulate specific features.',
+            'Shared Module - Reusable components, pipes, directives (no services).',
+            'Core Module - Singleton services (loaded once in root).',
+            'Routing Module - Holds only routing configuration.'
         ]
     },
     {

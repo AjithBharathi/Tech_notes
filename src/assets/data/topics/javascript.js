@@ -471,7 +471,7 @@ const javascript = [
     topic: 'ARROW FUNCTION',
     points: [
       'An arrow function is a shorter syntax to write function expressions in JavaScript. It also behaves differently in terms of how it handles this, making it a favorite in many modern JS applications.',
-       'it is not hoisted',
+      'it is not hoisted',
       `code::
         // Traditional function
         function add(a, b) {
@@ -508,7 +508,7 @@ const javascript = [
       'Dynamic context functions like event handlers where this matters',
       'Dynamic context functions like event handlers where this matters',
       '“An arrow function is a concise way to write functions in JavaScript. Unlike regular functions, arrow functions do not have their own this, making them useful for callbacks and methods where this should come from the outer scope.”'
-      
+
     ]
   },
   {
@@ -552,7 +552,7 @@ const javascript = [
       'the "function*" keyword is the syntax to create generator function',
       'the "yield" keyword pause execution and returns a object with properties value(return value) and done(indicates the execution done or not).',
       'The "next()" method resume the execution',
-      'hr::','hr::',
+      'hr::', 'hr::',
       'The Iterators are objects with a special structure in JavaScript. They must have a next() method that returns an object with the value and done properties. The value property represents the next value in the sequence and the done property indicates whether there are more values to be iterated. The Iterators are commonly used for iterating over data structures like arrays, maps, and sets.',
     ],
   },
@@ -815,7 +815,7 @@ const javascript = [
     points: [
       '"Debouncing is a technique, that delays the execution of the code until the user stops performing a certain action  for a specified amount of time. "',
       '"Throttling is a technique, that limits the execution of the code to a certain frequency(to once in every specified time interval)."',
-      'hr::','hr::',
+      'hr::', 'hr::',
       'Both debounce and throttle are techniques to control how often a function executes, especially during frequent events like scroll, resize, or typing — but they behave differently.',
       'h:: Debouncing:',
       'Debouncing is a technique used to limit how often a function is executed, especially in response to frequently triggered events like: resize events, scroll events, scroll events',
@@ -2306,6 +2306,28 @@ const javascript = [
   { topic: 'CORS', points: [] },
   { topic: 'REGULAR EXPRESSION - RegEx', points: [] },
   { topic: 'INDEXED DB', points: [] },
+  {
+    topic: 'Unary operator',
+    points: [
+      'whenever we use + operator before any value, js will try to convert them into string',
+      'console.log(+true) // 1',
+      'console.log(+false) // 0',
+      'console.log(+"123") // 123',
+      'console.log(+null) // 0',
+      'console.log(+"") // 0',
+      'console.log(+"a") // NaN',
+      'console.log(+NaN) // NaN',
+      'console.log(+undefined) // NaN',
+    ]
+  },
+  {
+    topic: 'operator precedence',
+    points: []
+  },
+  {
+    topic: 'instanceOf',
+    points: []
+  },
   // ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   {
     topic: '***** INFO *****',
