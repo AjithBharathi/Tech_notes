@@ -2348,7 +2348,17 @@ const angular = [
 
             `
         ]
-    }
+    },
+    {
+        topic: 'dynamic components',
+        points: []
+    },
+    {
+        topic: 'Web Workers in Angular',
+        points: []
+    },
 ];
 export default angular;
 // ngrx, optimization, rxjs, observable, subject, data transfer, 404 ** , 
+
+
