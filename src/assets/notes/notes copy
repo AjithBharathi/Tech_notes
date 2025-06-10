@@ -493,3 +493,62 @@
     how does nodejs prevent blocking operations in a single threaded environment
     d/b fs.readfile() vs fs.createreadstream()
     what will happen if you call res.end() twice in an http server
+
+
+
+   ----------- infosys
+
+    let input = ["a","ccc","bb","aaaa","eeeee"]
+let input2 = ["aaa","ccccc","bb","aaaaaaa","eeeee"]
+
+/* output - ["a","bb","ccc","aaaa","eeeee"] */
+/* ["bb","aaa","ccccc","eeeee","aaaaaaa"] */
+
+function myfn(ip) {
+	
+  let result = []
+  let mylength = []
+  
+  for(let i=0;i<ip.length;i++){
+  	mylength.push({i:i, length: ip[i].length});
+    mylength.sort((a,b)=>a.length - b.length)
+  }
+  console.log(mylength)
+  for(let i=0;i<mylength.length;i++){
+  	result.push(ip[mylength[i].i])
+  }
+ 
+  console.log('my res',result)
+}
+
+
+
+
+ myfn(input2)
+ 
+ 
+ 
+ 
+ for(var i = 0;i < 10;i++){
+ setTimeout(()=>{
+ console.log(i);
+ });
+ } 
+
+
+
+/* let a = 10;
+
+var a = 20;
+
+console.log(a);
+ 
+var a = 20;
+let a = 10;
+
+console.log(a); */
+ 
+
+
+
+    infosys -----------

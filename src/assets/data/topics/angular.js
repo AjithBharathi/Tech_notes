@@ -400,7 +400,18 @@ const angular = [
             'Creates navigation links without a full page reload.',
             `code::
             <a routerLink="/about">About</a>
-            `
+            `,
+            'hr::',
+            'h:: pathMatch',
+            'full - ',
+            'hr::',
+            'h:: types of route data passing:',
+            'params',
+            'query params',
+            'data (static data)',
+            'state (dynamic data)',
+            'fragment (# - jumps to specific section of a html page)',
+            'resolve'
         ]
     },
     {
@@ -569,6 +580,14 @@ const angular = [
         ]
     },
     {
+        topic: 'RESOLVE GUARD',
+        points: []
+    },
+    {
+        topic: 'ROUTER EVENTS',
+        points:[]
+    },
+    {
         topic: 'NGRX',
         points: [
             'NgRx is a state management library for Angular, inspired by Redux (used in React).',
@@ -605,7 +624,8 @@ const angular = [
             'It doesn’t need to be declared in any Angular module (NgModule).',
             'It declares its own dependencies',
             'Simplifies code structure, making it modular and maintainable.',
-            'Better suited for lazy-loaded or shared components.'
+            'Better suited for lazy-loaded or shared components.',
+            'lazy load component is only possible with standalone component'
         ]
     },
     {
