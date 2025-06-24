@@ -32,3 +32,5 @@ cURL - use network call from remote server - NEED TO LOOK MORE
 
 
 https://github.com/manojjha86/
+
+Skills Required: Angular (including TypeScript), HTML5 CSS3 JavaScript, RxJS, Git, RESTful APIs, Webpack, Agile methodologies.
