@@ -1,0 +1,116 @@
+what is gen ai
+what is LLM
+AI CRM
+LLM vs gen ai 
+what is MCP 
+AI-first (perplexity)
+ai agent
+ai model
+what is fine tuning
+ai coding assistants (copilot, cursor, codeium)
+
+what is AI ML 
+
+what is AI ML engineer and data science
+
+what is connecting the MCP with Chatbots
+
+windsurff
+
+Focus on:
+LLM
+RAG
+MCP
+Agents
+
+| Model Approach    | Data Needed | Infra Needed | Difficulty |
+| ----------- | ----------- | ------------ | ---------- |
+| Build model | Massive     | Data center  | Very hard  |
+| Fine-tune   | Medium      | Some infra   | Medium     |
+| RAG         | Small       | Minimal      | Easy       |
+| API usage   | None        | None         | Very easy  |
+
+
+RAG = AI + your data (without training)
+
+RAG - read docs > Sends to LLM > LLM replies
+
+MCP vs AI agents 
+
+machine learning vs data science vs ai 
+
+
+Generative AI = AI that creates content (Text, Code, Images, Audio, Video)
+🧪 Examples:
+ChatGPT → generates text/code
+DALL·E → generates images
+ElevenLabs → generates voice
+
+Gen AI = “AI that produces something new”
+
+
+AI
+ ├── Generative AI (creates)
+ ├── Predictive AI (predicts)
+ ├── Analytical AI (analyzes)
+ ├── Conversational AI (talks)
+ └── Autonomous AI (acts)
+
+ | Type              | What it does | Example       |
+| ----------------- | ------------ | ------------- |
+| Generative AI     | Creates      | ChatGPT       |
+| Predictive AI     | Predicts     | Loan approval |
+| Analytical AI     | Analyzes     | Reports       |
+| Conversational AI | Talks        | Chatbots      |
+| Autonomous AI     | Acts         | Agents        |
+
+
+
+ AI
+ ├── Generative AI
+ │     ├── Text Models (LLMs)
+ │     ├── Image Generation Models
+ │     ├── Audio / Voice Models
+ │     ├── Video Models
+ │     └── Multimodal Models
+ │
+ ├── Predictive AI
+ │     ├── Regression Models
+ │     ├── Classification Models
+ │     └── Time Series Models
+ │
+ ├── Analytical AI
+ │     ├── Clustering Models
+ │     ├── Anomaly Detection Models
+ │     └── Pattern Recognition Models
+ │
+ ├── Conversational AI
+ │     ├── NLP Models
+ │     ├── Dialogue Models
+ │     └── Speech Models
+ │
+ └── Autonomous AI
+       ├── Agent Models
+       ├── Reinforcement Learning Models
+       └── Decision-Making Models
+
+
+
+ai agents without MCP is not scalable architecture
+
+ai agent without MCP is like ai api?
+
+what is mcp server? its architectural change from the old ai agent without mcp
+
+how to create an ai agent app with mcp server
+
+what is meta data driven and what is ai driven?
+
+whatis driven flow?
+
+multi agent system
+dbs vector
+
+claude code vs claude cowork
+
+what is open claw

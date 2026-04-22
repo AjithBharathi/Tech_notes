@@ -1,0 +1,37 @@
+DSA in JavaScript:
+1. sum of all natural numbers from 1 to n using for loop (eg: 1245 -> 1+2+4+5 = 12)
+2. count the number of digits of a number (eg: 34252 = 5)
+3. check if the give number is palindrome or not
+4. find fibonacci position of n
+5. find missing number
+6. sum of elements in the given array
+7. how to check if the given element is present in an array or not
+8. return index if an element is exist in an array
+9. how to delete, add, update elements from specific index
+10. D/B splice and slice
+11. how will you do copy of an array
+12. how to add 2 arrays
+13. how to check if arrays are equal
+14. how to sort an array
+15. how to reverse an array
+16. how to manipulate an array by using map, filter, reduce
+17. how to flat an array
+18. filter vs find
+19. search element in an array
+20. write a function to return number of negative numbers in an array
+21. write a function to return largest number in an array
+22. find second largest number in an array
+23. 
+
+
+find 
+---------------------
+A Tiny "Pro" Tip
+While your code is perfect for standard arrays, in competitive programming or with massive arrays, the way you calculate middle can technically cause an Integer Overflow if start + end exceeds the maximum number limit (
+ in JavaScript).
+The "Professional" way to write that line is:
+javascript
+let middle = Math.floor(start + (end - start) / 2);
+---------------------
+
+find second largest number in an array

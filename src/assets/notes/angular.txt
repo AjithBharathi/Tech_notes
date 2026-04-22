@@ -59,3 +59,25 @@ ngfor properties/variables (index, first, last, even, odd)
 12. why are we using redirectTo path instead of duplicating the path in route configuration
 13. to avoid default assignment of value to a property - name!:string; (non assignable property)
 13. change detection on push will checks on input, output(event emitter) and observable
+
+
+----------
+in signals:
+d/b in data for ui stage(sigal) and streams(rxjs) and enterpreise state(ngrx)
+
+Effects run during SSR too.
+So avoid browser-only code inside effects:
+❌ Wrong:
+effect(() => {
+  localStorage.setItem('count', this.count());
+});
+During SSR → crash.
+Correct Pattern
+if (isPlatformBrowser(this.platformId)) {
+  effect(() => {
+    localStorage.setItem('count', this.count());
+  });
+}
+Interview Insight
+Signals are SSR-safe, but effects must avoid browser APIs on server.
+

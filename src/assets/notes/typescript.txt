@@ -1,0 +1,80 @@
+tsc will convert let key word into var keyword finally because of various browser understanding
+also, we can provide value while declaring a variable. so it will consider its type as the assigned value's type
+why any keyword is not recommended
+d/b let arr:number[] vs arr:number of Array?
+
+ENUM:
+enum Color {Red, Blue, Green} - there is no value on it . by default it will consider those values are 0,1,2
+
+TYPE ASSERTIONS:
+
+let x='a' - it will Automatically consider the variable's type as string because we assigning string value while declaring the variable.
+let x;
+x='a' - here it will take the type as any, even though we assign string value because we are assinging it in next line. not in the line of where we declared the variable.
+
+now we can set the variable's type as string with help of type assertion even though we didn't mention in the first line 
+let y = (<string> x) or let y = (x as string)
+
+INTERFACE:
+CLASS:
+
+WHAT IS COHESION RULE IN PROGRAMMIG?
+
+eg with interface:
+interface Point {
+    x: number;
+    y: number;
+    z: number;
+    draw: ()=>void
+}
+
+we put the draw function inside the interface because of cohesion rule
+
+CLASS VS INTERFACE
+
+CONSTRUCTOR:
+ACCESS MODIFIER: (private, public keyword)
+
+constructor simply code: 
+
+class {
+    constructor(private x: number){}
+}// instead of
+class {
+    constructor(x: number){
+        this.x=x
+    } 
+    
+}
+
+OBJECT ACCESSORS:
+1. getter
+2. setter
+
+dont need to se method Parentheses() while callig getter and setter. we can directly read and write methods without funciton parentheses.
+
+get a(){
+    return this.x
+}
+set a(val){
+    this.x=val
+}
+// hope both getter and setter method name can be same.
+
+//getting:
+console.log(a)
+//setting
+a = 10
+
+MODULE: it is a separete file and we can export it and provide access to other files
+
+while importing a file, dont need to mention file type extension in TypeScript like .ts (import {...} from 'file' not 'file.ts')
+
+eg:
+import { Point } from './point';  (dont need to mention .ts)- relative path because we know the path.
+for using thrid party import we need to use @ symbol - imort {Signal} from '@angular/core'; because those packages are in node modules folder. for using those imports from node modules (from 3rd party) use @ sybmol. (check this statement in internet)
+
+DECORATORS:
+1. class decorators
+2. method decorators
+3. property decorators

@@ -1,0 +1,71 @@
+Here is the complete list of your questions in plain text format, cleaned and ready to copy:
+
+---
+
+Core Concepts
+
+1. What is artifact?
+2. What is Nginx and how is it different from Heroku?
+3. What are tools similar to Nginx?
+
+---
+
+Java / Spring Boot Context
+
+4. What are similar tools to Nginx used in Java / Spring Boot projects?
+5. Do we really need Nginx if Spring Boot already has Tomcat?
+6. Can Spring Boot handle everything that Nginx does?
+
+---
+
+Frontend Developer Perspective
+
+7. How can I understand the usage of Nginx as a frontend developer?
+8. What happens if we don’t use Nginx?
+9. If I use Nginx vs don’t use Nginx:
+
+   * What changes for me as a frontend developer?
+   * What tools do I need?
+   * What responsibilities shift?
+
+---
+
+Deployment & Hosting
+
+10. If I don’t use Nginx, who will serve my frontend application?
+11. When deploying on Heroku, AWS, or Azure:
+
+    * How is the frontend served?
+12. If I use Nginx, do I still need a Node server?
+
+---
+
+Routing & Request Flow
+
+13. What routing is handled by Nginx vs backend?
+14. How does routing work if Nginx is not used?
+
+---
+
+System Design Concepts
+
+15. What is the difference between Load Balancer and API Gateway?
+16. In microservices, if multiple clients hit the same service, how is heavy traffic managed?
+
+---
+
+Real-World Architecture
+
+17. Which architecture do FAANG companies use?
+18. What is the first entry point: Load Balancer or API Gateway?
+
+---
+
+If you want, I can next:
+
+* Convert this into categorized interview questions with answers
+* Or add difficulty levels (basic to advanced) for preparation
+
+
+IaaS, CaaS, PaaS, FaaS, BaaS, SaaS
+others: DBaaS, STaaS, DaaS 

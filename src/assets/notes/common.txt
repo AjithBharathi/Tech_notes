@@ -1,6 +1,7 @@
 code solving platforms:
 -> hackerrank
 ->leetcode
+what is cloudflare
 
 
 benifits of DSA:
@@ -34,3 +35,203 @@ cURL - use network call from remote server - NEED TO LOOK MORE
 https://github.com/manojjha86/
 
 Skills Required: Angular (including TypeScript), HTML5 CSS3 JavaScript, RxJS, Git, RESTful APIs, Webpack, Agile methodologies.
+
+
+----------
+DOCKER - CONTAINERIZATION
+earlier we use Hypervisor, which means virtual machines (vmware - famous software for VM)   
+we dont need virtual machines while using docker
+docker can create multiple containers and each containers can run its own application (docker will create multiple instances and each 
+instance, we can call it as containes)
+the containers can created with help of images
+docker can have multiple containers for code, dependencies, runtime, system tools, system libraries
+docker creates the containers and kubernets manages and orchestrate them across multiple servers
+what is yaml file format and how it is related with docker and kubernets
+--------
+DOCKER IS A CONTAINER PLATFORM
+KUBERNETES IS AN ORCHESTRATION PLATFORM
+--------
+core web vitals like LCP, INP, CLS
+------
+CSR - client side rendering
+SSR - server side rendering
+SSG - static site generation
+ISR - incremental static regeneration
+------
+while developing app, prioritize mobile first and then scale up for tablet and desktop.
+design and develop for mobile first and then enhance for larger screens
+
+-----
+DEVOPS:
+git/github
+docker - containerization
+kubernetes - helps to manage the multiple containers that how each container should work
+ansible - broadcasting the instruction and deploying several places
+
+-----
+reliable, scalable, optimize
+
+-----
+what is scalability and why it is more important in product based organizations?
+what is edge computing
+what is cloud fare
+
+-----
+Scalability
+Scaling
+How scalability calculated?
+Use Cases
+Growth in Features
+Data Volume
+Complexity
+Geographical Based Data
+Vertical Scaling
+Horizontal Scaling
+Load Balancing
+Caching
+Content Delivery Network (CDN)
+Data Partitioning
+Asynchronous Communication
+Microservices Architecture
+Auto-Scaling
+Multi-Region Deployment
+
+---------
+
+Core Concepts of Scalability
+Scaling: The fundamental ability of a system to handle increased load by adding resources.
+How Scalability is Calculated: Measuring performance metrics (throughput, latency, and resource utilization) as the workload grows.
+Use Cases: Determining when a system actually needs to scale versus when it needs optimization.
+Drivers of Scale
+Growth in Features: How adding new functionality impacts system overhead and codebase maintainability.
+Data Volume: Managing the storage and retrieval challenges as databases grow from gigabytes to petabytes.
+Complexity: The architectural strain caused by interconnected services and dependencies.
+Geographical Based Data: Handling latency and data sovereignty across different global regions.
+Scaling Strategies
+Vertical Scaling (Scaling Up): Increasing the power (CPU, RAM) of a single server.
+Horizontal Scaling (Scaling Out): Adding more machines to the resource pool to share the load.
+Infrastructure & Optimization
+Load Balancing: Distributing incoming network traffic across a group of backend servers.
+Caching: Storing frequently accessed data in high-speed memory to reduce database hits.
+Content Delivery Network (CDN): Distributing static content via a network of servers located close to the users.
+Advanced Architectures
+Data Partitioning: Splitting a large database into smaller, more manageable parts (sharding).
+Asynchronous Communication: Using message queues to decouple services and prevent bottlenecks.
+Microservices Architecture: Breaking a monolithic application into small, independent services.
+Auto-Scaling: Automatically adjusting the number of active resources based on real-time demand.
+Multi-Region Deployment: Running applications in multiple data centers globally for high availability and disaster recovery.
+
+
+
+dsa concepts:
+list
+stack
+queue
+tree
+graph
+
+what is pointer and what is memory
+
+most used data structures:
+stack, queue, recursion, array list, string manipulation, backtracking, DFS
+
+what is one billion row challenge
+
+complex front end task:
+doing excel while keep on scrolling
+
+---
+the website seo is based the website performance (optimization)
+--
+basic dsa for frontend devs:
+array, strings, sorting, hashing, set and map (when to use set and map)
+
+
+dsa vs cp (competative programming)
+developer vs coders:
+coders are usually write a code snippet to solve a particular problem statement
+coders are doing competetive programming
+coders coding platform CP (competetive programming):
+skill rack
+geeksforgeeks 
+  CP platform:
+  1. codechef
+  2. codeforces
+  3. hackerrank (will conduct more online assetment)
+  4. topcoder
+  5. atcoder
+  6. spoj
+  7. code gladiators
+  8. skill rack
+
+  codechef and hackerrank are most suggested platform
+  ::> check if colleges support skillrack for their students training
+  
+  ::>some companies will hire based on the ranks scored in the competetive prgramming like...
+  if we are in top 10 for leet code, the companies will directly hire
+  google, rippling, tower research capital, DE shaw and co, citadel, pinterest, square.
+
+there is a sector call HFT - high frequency trading.
+there is no work like balance in HFT based companies. so competetive coders can only survive there. because they are the real 
+hard core coders.
+
+
+-----
+
+1. Package Registries (Language-Specific)
+npm (JavaScript/Node.js): The world's largest software registry, hosting over two million packages for web development.
+PyPI (Python): 
+NuGet (.NET): 
+2. Code Hosting & Version Control Repositories
+GitHub: 
+GitLab: 
+Bitbucket: 
+SourceForge: 
+3. Artifact & Universal Repositories
+JFrog Artifactory:
+Sonatype Nexus: 
+Azure Artifacts: 
+Cloudsmith: 
+4. Container Registries
+Docker Hub: 
+Amazon ECR: 
+Quay:
+
+-----
+what is RADIO framework
+
+---
+
+generative AI vs LLM, machine learning 
+
+code completion process by IDE vs AI
+
+what is MCP, MVP
+
+----
+
+google gemini and chat gpt is a platform 
+AI models - learn that how to create AI models for specific domain like Logistics, medical etc and how to create an AI model for automate code using LLM. how to create an AI for to deliver function for our own requirements. that is for senior and architect level developers. 
+how to create an end to end applications with AI tools like claude, cursor, vibe coding. this is for junior and mid level programmers
+
+----
+hyderabad focusing - quantum computing, cloud computing, data centers
+bangalore - far ahead in AI
+
+
+if we want to create a billion/trillion parameter based model super computer, it will cost 10cr 
+making trillion parameter with big enterprise level product/AI model, we need 2000 or 3000 cr
+making trillion parameter GPU, need 2000 or 3000cr. we need to connect 10,000 or 20,000 GPUs as a cluster and make an super computer for creating AI model.
+NVIDIA is the company who manufacturing the GPS chips. these chips are very costly.
+we need 1000 of GPU chips to work parallely to creating an AI model
+
+
+----
+what is wtch mode -w flag
+
+x and X both are different properites/variable
+
+what is prompt engineering, generative ai, LLM, MCP and its server
+
+
+what is highlevel and lowlevel architecture ?

@@ -1,0 +1,6 @@
+slice vs splice
+real world ex of ++i and i++
+when to use while, do while, for loop
+infinity value vs -infinity
+
+eventsource vs event driven 

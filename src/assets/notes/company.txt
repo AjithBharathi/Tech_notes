@@ -1,0 +1,468 @@
+astrazeneca, Novartis, ford, citi bank these companies are running other business. so they want software to run their business. so for that they go for companies like wipro, tcs and other service based companies but that is not as much as profitable, so they creating thir own IT divisions for cost cutting that is called GCC and avoiding the mediaters like tcs, wipro
+
+GCC COMPANIES:
+
+Accenture
+Ingram Micro
+Dell
+IBM
+Capgemini
+Amazon
+Cisco
+HSBC
+Nokia NSN
+HP
+JP Morgan
+Microsoft
+Oracle
+Bosch
+Qualcomm
+SAP
+Intel
+EY
+Google
+AWS
+Deloitte
+Wells Fargo
+PwC
+Kyndryl
+Bosch Software
+Barclays
+Citibank
+Standard Chartered
+Cummins
+Virtusa
+Bank of America
+Shell
+Honeywell
+Goldman Sachs
+KPMG
+Oracle FSS
+VMware
+Ericsson
+Optum Global
+American Express
+Adobe
+Abbott
+Verizon
+Siemens
+Novartis
+Walmart
+Morgan Stanley
+NTT Data
+Deutsche Bank
+Salesforce
+
+----
+
+💳 Banking & Financial Services GCCs
+JPMorgan Chase
+Goldman Sachs
+Wells Fargo
+Morgan Stanley
+American Express
+Standard Chartered
+Barclays
+Deutsche Bank
+👉 These pay very well and focus on fintech, cybersecurity, risk tech, AI.
+
+----
+
+💻 Technology & Product GCCs
+Microsoft
+Google
+Adobe
+SAP
+Intel
+Qualcomm
+VMware
+👉 These are strong product engineering GCCs.   
+
+----
+
+🛒 Retail & E-commerce GCCs
+Walmart
+Target
+Amazon
+Tesco
+IKEA
+👉 Strong in supply chain tech, data, and cloud.
+
+----
+
+🏭 Manufacturing & Pharma GCCs
+Bosch
+Siemens
+Shell
+Honeywell
+Novartis
+👉 Focus on R&D, IoT, automation, embedded systems.
+
+------
+
+🔥 High-Paying GCCs in Bangalore (Tech Focused)
+Since you're in the Bangalore ecosystem, these are especially strong:
+JPMorgan
+Goldman Sachs
+Visa
+Walmart Global Tech
+Microsoft IDC
+Target India
+Wells Fargo
+Morgan Stanley
+
+------
+
+1️⃣ GCC – Global Capability Center
+(Modern popular term)
+A captive center of a multinational company in another country.
+Example:
+India tech center of Visa
+India tech center of JPMorgan Chase
+2️⃣ GIC – Global In-house Center
+(Old name for GCC)
+Before 2015–2018, companies used to call it GIC.
+Same meaning as GCC.
+GIC = Captive center owned by parent company.
+3️⃣ Captive Center
+Very important term in interviews.
+👉 A delivery center fully owned by the parent company.
+Not a third-party vendor.
+Example:
+India office of Goldman Sachs
+It is their captive center.
+4️⃣ Offshore Development Center (ODC)
+Common in IT services.
+👉 A dedicated offshore team created for one client.
+Usually seen in:
+Tata Consultancy Services
+Infosys
+Difference:
+ODC = Service company serving a client
+GCC = Company’s own center
+5️⃣ Shared Services Center (SSC)
+Focuses on support functions:
+HR
+Finance
+Payroll
+Procurement
+More operations-oriented than product engineering.
+6️⃣ CoE – Center of Excellence
+A specialized team inside a company focused on:
+AI
+Cloud
+DevOps
+Security
+Not necessarily a separate country center — more of a functional unit.
+7️⃣ Global Delivery Center (GDC)
+Used mostly by service companies.
+Large multi-client delivery hubs.
+
+------
+
+You want industry classification terms like:
+GCC
+Product company
+Service company
+So basically you want the different types of company models in IT industry.
+Let’s list them clearly 👇
+
+🏢 1️⃣ GCC (Global Capability Center)
+Also called:
+GIC (old term)
+Captive Center
+👉 Foreign MNC sets up its own center in India.
+Works only for parent company.
+Examples:
+JPMorgan Chase
+Visa
+Walmart
+
+💻 2️⃣ Product Company
+👉 Company builds and sells its own software/product.
+Revenue comes from selling product.
+Examples:
+Microsoft
+Adobe
+Salesforce
+Focus:
+Innovation
+Product ownership
+Engineering-heavy culture
+
+🛠 3️⃣ Service Company (IT Services)
+👉 Works for multiple clients.
+Revenue comes from client billing.
+Examples:
+Tata Consultancy Services
+Infosys
+Accenture
+Focus:
+Client projects
+Outsourcing model
+Billing-based revenue
+
+🚀 4️⃣ Product Startup
+👉 Early-stage product company.
+Examples:
+Razorpay
+Swiggy
+Zoho
+High growth, high risk.
+
+🏦 5️⃣ BFSI / Banking Tech Company
+Sometimes companies are classified by industry.
+Examples:
+Goldman Sachs
+Morgan Stanley
+These are banks but have huge tech divisions.
+
+🏭 6️⃣ Enterprise / Industrial Tech Company
+Examples:
+Siemens
+Bosch
+Tech + manufacturing mix.
+
+🧠 7️⃣ SaaS Company (Very Common Term)
+Software-as-a-Service model.
+Examples:
+Freshworks
+Salesforce
+Subscription-based revenue.
+
+🔥 Quick Master List of Common Terms
+When people talk in interviews, you’ll hear:
+GCC
+GIC
+Captive
+Product Company
+Service Company
+IT Services
+SaaS Company
+Startup
+Enterprise Company
+MNC
+Unicorn
+
+🎯 Simple Industry Structure
+IT Industry
+│
+├── Service Companies
+├── Product Companies
+│     └── SaaS
+│     └── Startup
+│
+└── GCC (Captive Centers of Global MNCs)
+
+------
+
+💰 1️⃣ Which Category Pays Highest?
+🥇  (i) Product MNC (Top Tier)
+Examples:
+Microsoft
+Google
+Adobe
+✔ Very high base
+✔ Strong RSUs (stock)
+✔ Big bonus
+👉 Highest long-term wealth potential.
+🥈 (ii) Tier-1 GCC (Banking / Fintech / Retail Tech)
+Examples:
+JPMorgan Chase
+Visa
+Walmart
+✔ Strong base
+✔ Bonus
+✔ Some RSUs
+✔ Stable growth
+👉 Very good pay + stability combination.
+🥉 (iii) Product Startup (Strong Ones)
+Examples:
+Razorpay
+Freshworks
+✔ High base
+✔ ESOPs (big upside possible)
+❗ Risk exists
+👉 Can pay very high — but depends on company health.
+🛠 Service Companies
+Examples:
+Tata Consultancy Services
+Infosys
+Accenture
+✔ Stable
+❗ Usually lower pay compared to above categories
+
+🧘 2️⃣ Best Work-Life Balance?
+🥇 (i)Best: Mature GCC (Non-investment banking)
+Retail, Pharma, Manufacturing GCCs:
+Siemens
+Bosch
+Stable pace, structured work.
+🥈 (ii)Product MNC
+Good balance, but depends on team.
+🥉 (iii)Service Company
+Depends on client pressure.
+🔥 Highest Pressure
+Investment banking GCC
+(e.g., JPMorgan front-office teams)
+Fast-growing startups
+
+🔄 3️⃣ Easiest to Switch From Service?
+If you are currently in service:
+🟢 Easiest → GCC
+Why?
+Similar structure
+Large hiring
+Domain + tech focus
+🟡 Medium Difficulty → Product MNC
+Needs:
+Strong DSA
+System design
+Architecture clarity
+🔴 Hardest → Top FAANG-level product companies
+Requires deep technical interviews.
+
+🏆 Long-Term Career Growth (8–15 Years Experience View):
+| Category    | Stability | Pay Growth | Brand Value | Risk |
+| ----------- | --------- | ---------- | ----------- | ---- |
+| Service     | Medium    | Slow       | Medium      | Low  |
+| GCC         | High      | Strong     | Strong      | Low  |
+| Product MNC | High      | Very High  | Very Strong | Low  |
+| Startup     | Medium    | Very High  | Depends     | High |
+
+🎯 Honest Recommendation (Based on Your Level)
+At 8–12 years:
+👉 Tier-1 GCC or Product MNC is the smartest balance.
+Startup only if:
+Strong profitable company
+Clear growth role (Architect/Staff)
+
+-----------------
+
+DOMAIN:
+
+🏦 1️⃣ Banking / BFSI Domain
+BFSI = Banking, Financial Services, Insurance
+Examples:
+JPMorgan Chase
+HDFC Bank
+ICICI Prudential Life Insurance
+What you build:
+Core banking systems
+Payment systems
+Loan processing
+Fraud detection
+Trading platforms
+💰 Highest paying domain generally.
+
+🛒 2️⃣ Retail / E-commerce Domain
+Examples:
+Walmart
+Amazon
+Flipkart
+What you build:
+Shopping apps
+Inventory systems
+Order management
+Supply chain platforms
+
+🏥 3️⃣ Healthcare / Pharma Domain
+Examples:
+Novartis
+Pfizer
+What you build:
+Hospital systems
+Electronic medical records
+Drug research platforms
+Stable and growing domain.
+
+📡 4️⃣ Telecom Domain
+Examples:
+Verizon
+Bharti Airtel
+What you build:
+Billing systems
+Network management
+Subscriber systems
+
+🏭 5️⃣ Manufacturing / Industrial Domain
+Examples:
+Siemens
+Bosch
+What you build:
+Automation software
+IoT systems
+Factory management tools
+
+🚗 6️⃣ Automotive Domain
+Examples:
+Mercedes-Benz
+Tata Motors
+What you build:
+Embedded systems
+EV platforms
+Vehicle software
+
+🎓 7️⃣ EdTech Domain
+Examples:
+BYJU'S
+Udemy
+What you build:
+Learning platforms
+Video streaming systems
+Student analytics
+
+🏢 8️⃣ Enterprise / SaaS Domain
+Examples:
+Salesforce
+Freshworks
+What you build:
+CRM systems
+HR platforms
+Business automation tools
+
+🎮 9️⃣ Gaming Domain
+Examples:
+Electronic Arts
+What you build:
+Game engines
+Multiplayer systems
+Graphics engines
+
+⚡ 10️⃣ Energy / Oil & Gas Domain
+Examples:
+Shell
+What you build:
+Energy trading systems
+Production monitoring tools
+
+---
+
+🔥 Quick High-Level Domain List
+BFSI
+Retail
+Healthcare
+Telecom
+Manufacturing
+Automotive
+EdTech
+SaaS / Enterprise
+Gaming
+Energy
+Logistics
+Travel & Hospitality
+Media & Entertainment
+
+--------
+
+🚀 What is FAANG?
+FAANG is an acronym used in the tech industry to represent five major U.S. technology companies known for:
+📌 FAANG Stands For:
+Facebook (now called Meta)
+Amazon
+Apple
+Netflix
+Google
+
+
+what is MOU?

@@ -1,0 +1,39 @@
+1. basic authentication
+2. bearer token
+3. oauth2 and jwt
+4. access and refresh token
+5. sso and identity protocals
+6. authorization
+
+various types of authentication:
+1. basic
+2. digest
+3. api keys
+4. session
+5. bearer and jwt
+6. access and refresh tokens
+7. oauth2 
+8. openID connect
+9. sso (SAML, OIDC, OAUTH2)
+
+categories of authentication:
+BASIC AUTH METHODS:
+1. basic, 2.digest, 3.api keys, 4.session
+
+TOKEN BASED AUTHENTICATON:
+1. bearer and jwt tokens, 2. access and refresh tokens
+
+OAUTH2 AND OIDC:
+1. oauth2, 2. openIDconnect
+
+SSO AND IDENTIY PROTOCALS:
+1. SSO (SAML, OIDC, Oauth2)
+
+------------------
+
+diff b/w http and https
+
+
+
+AUTHORIZATION:
+1. RABC, ABAC, ACL 

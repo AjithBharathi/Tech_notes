@@ -1,0 +1,130 @@
+system design and design patterns 
+
+caching and replication 
+scaling the system to handle 1000QPS (queries per sec) and 17 TPS (transactions per sec) 
+why we can use different db for different services ?
+graphql helps to connect different services easily in one places 
+
+channels: web only, mobile apps 
+
+most of the web applications are working with concept called client server architecture - just check what are the other related types
+
+ques: what type of architecture are you using in your project?
+ans: client server architecture 
+
+sometimes req doesnt go directly to the server, it use proxy or reverse proxy  (private network)
+
+why rest api is stateless 
+
+----------
+1. client
+2. load balancer
+3. database 
+4. cache 
+5. rest api 
+6. blob storage
+7. CDN 
+8. rate limiting 
+----------
+
+----------
+strong consistency,
+high concurrency
+low latency 
+high availability
+scalability - two types - vertical scaling and horizontal scaling 
+load balance - helps for horizontal scaling it handle traffice and distributes req across multiple server that which is free 
+what is indexing 
+what is replication, sharding 
+websockets 
+web hooks 
+message queues 
+
+----------
+
+----------
+traffic funnel - which feature of the application is having more usage 
+--------
+
+---------------
+api gateway, loadbalancer
+---------------
+
+---------
+kafka, rabbitMQ - message service that will send email, push notification
+redis cache - caching 
+---------
+
+low level vs high level design 
+
+CAP theorm - consistency, availability, partition tolerance 
+
+
+------------------------------------------------------------------------------------------------------------------------
+FRONT END SYSTEM DESIGN:
+
+(0:16) Static Site Generation (SSG)
+(0:27) Incremental Static Regeneration (ISR)
+(0:34) Server-Side Rendering (SSR)
+(0:39) Client-Side Rendering (CSR)
+(0:46) Partial Pre-Rendering
+(0:51) 5 Web Rendering Strategies
+(1:01) Micro Frontends & Webpack Module Federation
+(1:51) Web Performance Metrics (Tools)
+(2:34) Memoization Hooks
+(3:12) Lazy Loading
+(3:46) Tree Shaking, Mobile Friendly, Accessibility and more
+(4:25) State Management
+(6:31) API Caching w/ Expiration (React Query)
+(7:22) GraphQL for Reducing Over-Fetching
+(8:40) Rate Limiting & Debouncing
+(9:47) Cursor vs. Offset Pagination
+(12:18) Outro
+
+
+-------
+front end architecture
+system design
+design pattern
+optimization
+pwa 
+responsive 
+monolithic and micro frontend 
+statemanagement 
+api communication
+authentication & authorization
+building and tools 
+package and dependency management 
+browser and rendering concept 
+Rendering Strategies
+Caching Strategies
+Component Design Principles
+Security in Frontend
+Internationalization (i18n)
+Monitoring & Logging
+-------
+
+If interviewer asks:
+👉 “What all things you consider in frontend system design?”
+You can answer like:
+Architecture (component + state)
+Performance optimization
+API communication
+Security
+Scalability (micro-frontend if needed)
+Rendering strategy (SSR/CSR)
+Caching
+Testing & monitoring
+
+🚀 Pro Tip (Very Important)
+Most developers only know:
+👉 “React + API calls”
+But senior engineers think in:
+✅ Architecture
+✅ Scalability
+✅ Performance
+✅ Trade-offs
+
+
+
+

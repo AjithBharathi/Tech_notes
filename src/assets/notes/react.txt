@@ -7,7 +7,8 @@ redux toolkit?
 useContext hook is a another way of sharing data between 2 components though its not related with parent/child
 redux devtools is a browser extension to track redux activities
 onClick={myHandler} - just using the function as reference but onClick={()=>myHandler(id)} - here we calling and passing some values into the functions
-
+rfc - shortcut to create functional react component
+component file name begins with uppercase
 
 useeffect - needs 2 arguments, one is call back and another one is  dependency(its optional)
 -> if we  dont mention any in the 2nd argument, it will execute whenever any state updates happens in the component. its called side effect of the application changes.
@@ -23,6 +24,11 @@ USEREF:
 -> useRef(0) the 0 is the initial value, that is optional
 
 -> d/b useState and useRef - in useState, it will re-render the component whenever its state gets changed but in useRef it will not re-render the component whenever its state gets changed
+-> we are having ref attribute by default in html
+-> it always return 2 value - current and 
+-> it helps to access the html elements directly so its called uncontrolled element because its not controlled by react, its controlled 
+by us. if an element is controlled by react, we can call it as controlled element(by using onChange react event).
+-> how to controll useeffect by using useref ?
 
 USEMEMO:
 -> the useMemo hook return a memoized value (like caching a value so that it does not needs to be recalculated )
@@ -43,3 +49,13 @@ CSS Modules:
 
 component: 
 the component is used with multiple places with different input data
+
+----
+babel - compile react jsx into js instructions
+compiler vs transpiler
+esbuild
+vite
+SWC
+next.js
+
+what about the above tools

@@ -1,0 +1,221 @@
+
+I containerized a React app using Docker,
+implemented CI/CD using Bitbucket pipelines,
+pushed images to Docker Hub,
+and deployed the application using Render.
+
+
+What do you want next?
+1. 🔁 Auto deploy from pipeline (no manual Render step)
+2. 🔗 Add backend + full stack deployment
+3. ⚙️ Kubernetes (advanced architecture)
+4. 📄 Turn this into interview-ready notes
+
+1. Auto Deployment (CD improvement)
+- Push → Pipeline → Auto deploy to Render
+2. Add Environment Variables
+- VITE_API_URL
+* 3. Add Backend (Full Stack)
+* Node.js API
+* Connect frontend + backend
+* Deploy both
+* 4. Custom Domain
+
+5. Learn Kubernetes (Advanced 🚀)
+This is what FAANG uses:
+
+Docker → Kubernetes → Scaling → High availability
+
+——
+* Render - docker support
+* Railway - docker support
+* Vercel / Netlify (NOT for Docker)
+	👉 These are for frontend builds only - what does it mean
+	👉 Not suitable for Docker container - how and why
+
+    THE ABOVE IS FOR JUST NOTES: 
+************************************************************************
+
+
+DOCKER + CI/CD + DEPLOYMENT GUIDE
+
+=====================================
+FULL FLOW
+=========
+
+React → Docker → Docker Hub → Bitbucket → CI/CD → Render → Live URL
+
+=====================================
+PHASE 1: CREATE REACT APP (VITE)
+================================
+
+npm create vite@latest my-test-app
+cd my-test-app
+npm install
+npm run dev
+
+=====================================
+PHASE 2: BUILD APP
+==================
+
+npm run build
+
+Output:
+dist/
+
+=====================================
+PHASE 3: DOCKER SETUP
+=====================
+
+Create Dockerfile:
+
+FROM node:20-alpine AS build
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+
+FROM nginx:alpine
+COPY --from=build /app/dist /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
+
+---
+
+Create .dockerignore:
+
+node_modules
+dist
+.git
+
+=====================================
+PHASE 4: RUN DOCKER LOCALLY
+===========================
+
+docker build -t my-test-app .
+docker run -p 8080:80 my-test-app
+
+Open:
+http://localhost:8080
+
+=====================================
+PHASE 5: PUSH TO DOCKER HUB
+===========================
+
+docker login
+docker tag my-test-app ajithbharathi/my-test-app
+docker push ajithbharathi/my-test-app
+
+=====================================
+PHASE 6: PUSH CODE TO BITBUCKET
+===============================
+
+git init
+git add .
+git commit -m "initial commit"
+
+git remote add origin https://ajithbharathi@bitbucket.org/ajithbharathi/my-test-app.git
+
+git push https://ajithbharathi:<TOKEN>@bitbucket.org/ajithbharathi/my-test-app.git
+
+---
+
+If error:
+git pull origin main --rebase
+git push origin main
+--------------------
+
+=====================================
+PHASE 7: BITBUCKET PIPELINE (CI/CD)
+===================================
+
+Create file:
+bitbucket-pipelines.yml
+
+---
+
+image: atlassian/default-image:3
+
+pipelines:
+branches:
+main:
+- step:
+name: Build & Push Docker Image
+services:
+- docker
+script:
+- docker build -t ajithbharathi/my-test-app .
+- echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+- docker push ajithbharathi/my-test-app
+
+---
+
+Add variables in Bitbucket:
+
+DOCKER_USERNAME = ajithbharathi
+DOCKER_PASSWORD = <docker access token>
+
+---
+
+Trigger pipeline:
+git add .
+git commit -m "add pipeline"
+git push
+
+=====================================
+PHASE 8: DEPLOY ON RENDER
+=========================
+
+Steps:
+
+1. Go to Render
+2. New → Web Service
+3. Select "Existing Image"
+4. Enter:
+   ajithbharathi/my-test-app
+5. Fill:
+   Name: my-test-app
+   Region: Singapore
+   Instance: Free
+6. Click "Create Web Service"
+
+---
+
+Output:
+https://my-test-app.onrender.com
+
+=====================================
+PHASE 9: UPDATE FLOW
+====================
+
+git add .
+git commit -m "update"
+git push
+
+Then:
+Render → Manual Deploy → Deploy latest image
+
+=====================================
+KEY CONCEPTS
+============
+
+Docker → containerization
+Docker Hub → image storage
+Bitbucket → code repository
+Pipeline → CI/CD automation
+Render → deployment platform
+
+=====================================
+INTERVIEW SUMMARY
+=================
+
+I built a React app using Vite, containerized it using Docker with a multi-stage build,
+pushed the image to Docker Hub, implemented CI/CD using Bitbucket Pipelines,
+and deployed the application using Render.
+
+=====================================
+END
+===
